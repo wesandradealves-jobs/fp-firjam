@@ -1,0 +1,19 @@
+uuid: 8f3d3fa5-8d28-4eff-8969-4223948d366e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_lp_events_banner_text
+field_name: field_lp_events_banner_text
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,17 @@
+uuid: 5c2a66b0-89b5-4f20-a720-37b6a762b786
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Landing Page'
+type: landing_page
+description: 'Content type landing page for event leads'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

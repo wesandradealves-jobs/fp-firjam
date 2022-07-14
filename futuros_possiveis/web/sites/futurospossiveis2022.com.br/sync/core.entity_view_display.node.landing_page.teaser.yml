@@ -1,0 +1,40 @@
+uuid: eaf5ca0a-4f50-4dd9-95b4-7b56967a77a2
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.landing_page.field_lp_events_banner_flag
+    - field.field.node.landing_page.field_lp_events_banner_subtitle
+    - field.field.node.landing_page.field_lp_events_banner_text
+    - field.field.node.landing_page.field_lp_events_banner_title
+    - field.field.node.landing_page.field_lp_events_custom_form
+    - field.field.node.landing_page.field_lp_events_imagebg
+    - field.field.node.landing_page.field_lp_events_logo
+    - field.field.node.landing_page.field_lp_events_videobg
+    - field.field.node.landing_page.field_lp_latest_events
+    - field.field.node.landing_page.field_social
+    - node.type.landing_page
+  module:
+    - user
+id: node.landing_page.teaser
+targetEntityType: node
+bundle: landing_page
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_lp_events_banner_flag: true
+  field_lp_events_banner_subtitle: true
+  field_lp_events_banner_text: true
+  field_lp_events_banner_title: true
+  field_lp_events_custom_form: true
+  field_lp_events_imagebg: true
+  field_lp_events_logo: true
+  field_lp_events_videobg: true
+  field_lp_latest_events: true
+  field_social: true

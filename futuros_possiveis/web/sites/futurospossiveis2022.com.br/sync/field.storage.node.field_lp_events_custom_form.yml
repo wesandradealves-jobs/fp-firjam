@@ -1,0 +1,20 @@
+uuid: 525b4097-c45e-4f77-976f-bd919f8a4201
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - node
+id: node.field_lp_events_custom_form
+field_name: field_lp_events_custom_form
+entity_type: node
+type: entity_reference
+settings:
+  target_type: contact_form
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: c2af7844-f344-4e2a-9421-6d980b683cd2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.general_forms
+    - field.storage.block_content.field_block_form_text
+id: block_content.general_forms.field_block_form_text
+field_name: field_block_form_text
+entity_type: block_content
+bundle: general_forms
+label: 'Block Form Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

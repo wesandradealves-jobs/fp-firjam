@@ -1,0 +1,27 @@
+uuid: 73f64d8d-240a-46e4-baf2-44b061600b58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.latest_events.field_latest_events_url
+    - paragraphs.paragraphs_type.latest_events
+  module:
+    - link
+id: paragraph.latest_events.default
+targetEntityType: paragraph
+bundle: latest_events
+mode: default
+content:
+  field_latest_events_url:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

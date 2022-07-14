@@ -1,0 +1,19 @@
+uuid: deba8f56-4f7e-4e06-a77a-22521e1df4e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.main_contact
+    - field.storage.contact_message.field_e_mail
+id: contact_message.main_contact.field_e_mail
+field_name: field_e_mail
+entity_type: contact_message
+bundle: main_contact
+label: E-mail
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

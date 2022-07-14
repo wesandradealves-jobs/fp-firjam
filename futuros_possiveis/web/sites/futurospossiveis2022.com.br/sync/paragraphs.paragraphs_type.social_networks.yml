@@ -1,0 +1,10 @@
+uuid: 03c1bc40-8e81-4ead-bd89-361ebef91aaa
+langcode: en
+status: true
+dependencies: {  }
+id: social_networks
+label: 'Social Networks'
+icon_uuid: null
+icon_default: null
+description: 'Social network collection paragraph type'
+behavior_plugins: {  }

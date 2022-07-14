@@ -1,0 +1,66 @@
+uuid: a41e7c29-404a-4cb1-a8c7-7632d8d170e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.main_contact
+    - field.field.contact_message.main_contact.field_aceite
+    - field.field.contact_message.main_contact.field_e_mail
+    - field.field.contact_message.main_contact.field_nome
+    - field.field.contact_message.main_contact.field_sobrenome
+id: contact_message.main_contact.default
+targetEntityType: contact_message
+bundle: main_contact
+mode: default
+content:
+  field_aceite:
+    type: boolean
+    label: inline
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_e_mail:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_nome:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_sobrenome:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  message:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  subject:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  mail: true
+  name: true

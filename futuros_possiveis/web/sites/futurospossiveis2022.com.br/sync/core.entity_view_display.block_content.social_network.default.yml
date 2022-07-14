@@ -1,0 +1,12 @@
+uuid: 4e5304df-7f75-4916-b157-4e46719dd6ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_network
+id: block_content.social_network.default
+targetEntityType: block_content
+bundle: social_network
+mode: default
+content: {  }
+hidden: {  }

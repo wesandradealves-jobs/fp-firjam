@@ -1,0 +1,19 @@
+uuid: 4fdbc471-9e11-41f7-af0a-74a3460ddda1
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_latest_events_url
+field_name: field_latest_events_url
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
