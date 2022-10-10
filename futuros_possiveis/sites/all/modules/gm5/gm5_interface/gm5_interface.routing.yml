@@ -1,0 +1,42 @@
+gm5_interface.content:
+  path: '/gm5-interface'
+  defaults:
+    _controller: '\Drupal\gm5_interface\Controller\GM5InterfaceController::content'
+    _title: 'GM5 Interface'
+  requirements:
+    _permission: 'access content'
+
+gm5_interface.webform:
+  path: /process/webform
+  defaults: { _controller: '\Drupal\gm5_interface\Controller\GM5WebformProcess::content' }
+  methods:  [POST]
+  requirements:
+    _access: 'TRUE'
+
+gm5_interface.cursos:
+  path: /process/cursos
+  defaults: { _controller: '\Drupal\gm5_interface\Controller\GM5Integracoes::updateCursos' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+    
+gm5_interface.agenda:
+  path: /agenda/remove/antigas
+  defaults: { _controller: '\Drupal\gm5_interface\Controller\GM5Integracoes::despublicaAgenda' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE' 
+
+gm5_interface.script:
+  path: /admin/script/duplicados
+  defaults: { _controller: '\Drupal\gm5_interface\Controller\GM5InterfaceController::duplicados' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE' 
+    
+gm5_interface.trackingVideo:
+  path: /tracking/video
+  defaults: { _controller: '\Drupal\gm5_interface\Controller\GM5InterfaceController::trackingVideo' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE' 

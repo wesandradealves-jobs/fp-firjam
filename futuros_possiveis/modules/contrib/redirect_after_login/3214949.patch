@@ -1,0 +1,111 @@
+diff --git a/redirect_after_login.module b/redirect_after_login.module
+index de9f7e2..5949b65 100644
+--- a/redirect_after_login.module
++++ b/redirect_after_login.module
+@@ -67,13 +67,14 @@ function redirect_after_login_user_login($account) {
+     return;
+   }
+ 
++  $middleware = \Drupal::service('http_middleware.redirect_after_login');
+  //Accessing the site in maintenance mode.
+   if (\Drupal::state()
+       ->get('system.maintenance_mode') && !$account->hasPermission('access site in maintenance mode')) {
+     // The site is in maintenance mode and the user is not allowed in.
+     // Step out and let Drupal handle it.
+     $homeResponse = new RedirectResponse(URL::fromUserInput('/')->toString());
+-    $homeResponse->send();
++    $middleware->setRedirectResponse($homeResponse);
+   }
+ 
+   $config = Drupal::config('redirect_after_login.settings');
+@@ -97,11 +98,11 @@ function redirect_after_login_user_login($account) {
+     if (isset($login_redirection[array_reverse($username)[0]])) {
+       $response = new RedirectResponse(Url::fromUserInput($login_redirection[array_reverse($username)[0]])
+         ->toString());
+-      $response->send();
++      $middleware->setRedirectResponse($response);
+     }
+     else {
+       $homeResponse = new RedirectResponse(URL::fromUserInput('/')->toString());
+-      $homeResponse->send();
++      $middleware->setRedirectResponse($homeResponse);
+     }
+   }
+ }
+diff --git a/redirect_after_login.services.yml b/redirect_after_login.services.yml
+new file mode 100644
+index 0000000..80bedf6
+--- /dev/null
++++ b/redirect_after_login.services.yml
+@@ -0,0 +1,5 @@
++services:
++  http_middleware.redirect_after_login:
++    class: Drupal\redirect_after_login\RedirectMiddleware
++    tags:
++      - { name: http_middleware}
+diff --git a/src/RedirectMiddleware.php b/src/RedirectMiddleware.php
+new file mode 100644
+index 0000000..f2c6fd4
+--- /dev/null
++++ b/src/RedirectMiddleware.php
+@@ -0,0 +1,60 @@
++<?php
++
++namespace Drupal\redirect_after_login;
++
++use Symfony\Component\HttpFoundation\Request;
++use Symfony\Component\HttpFoundation\Response;
++use Symfony\Component\HttpKernel\HttpKernelInterface;
++use Symfony\Component\HttpFoundation\RedirectResponse;
++use Drupal\Core\Routing\TrustedRedirectResponse;
++use Drupal\Core\Url;
++
++/**
++ * Executes redirect before the main kernel takes over the request.
++ */
++class RedirectMiddleware implements HttpKernelInterface {
++
++  /**
++   * The wrapped HTTP kernel.
++   *
++   * @var \Symfony\Component\HttpKernel\HttpKernelInterface
++   */
++  protected $httpKernel;
++
++  /**
++   * The redirect URL.
++   *
++   * @var \Symfony\Component\HttpFoundation\RedirectResponse
++   */
++  protected $redirectResponse;
++
++  /**
++   * Constructs a RedirectMiddleware
++   * object.
++   *
++   * @param \Symfony\Component\HttpKernel\HttpKernelInterface $http_kernel
++   *   The decorated kernel.
++   */
++  public function __construct(HttpKernelInterface $http_kernel) {
++    $this->httpKernel = $http_kernel;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = TRUE) {
++    $response = $this->httpKernel->handle($request, $type, $catch);
++    return $this->redirectResponse ?: $response;
++  }
++
++  /**
++   * Stores the requested redirect response.
++   *
++   * @param \Symfony\Component\HttpFoundation\RedirectResponse|null $redirectResponse
++   *   Redirect response.
++   */
++  public function setRedirectResponse(?RedirectResponse $redirectResponse) {
++    $this->redirectResponse = $redirectResponse;
++  }
++
++}

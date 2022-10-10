@@ -1,0 +1,7 @@
+services:
+  brazilian_ids:
+    class: Drupal\brazilian_ids\BrazilianIdsService
+    calls:
+      - method: 'setStringTranslation'
+        arguments:
+          - '@string_translation'

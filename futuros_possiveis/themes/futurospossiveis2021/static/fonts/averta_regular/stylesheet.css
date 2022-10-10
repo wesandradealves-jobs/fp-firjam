@@ -1,0 +1,8 @@
+﻿@font-face {
+
+    font-family:'averta-regular';
+    src:url('averta-regular-webfont.woff2') format('woff2'), 
+        url('averta-regular-webfont.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+}

@@ -1,0 +1,1397 @@
+<main data-controller="home" class="home hotsite">
+    
+    <section class="banner banner__video">
+        <div class="video-mask-lines"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">               
+
+                    <img src="{{ customPage.logo }}" title="Summit Firjan IEL + Futuros Possíveis 2021" alt="Logo do evento Summit Firjan IEL + Futuros Possíveis 2021"></img>
+                    {# <a href="javascript:void(0);" class="cta" data-toggle="modal" data-target="#modalInscricao">Quero saber em primeira mão</a> #}
+                    {# <p class="ctaText">Já cadastrou seus dados? <a href="/user/login">Faça seu login.</a></p>                  #}
+                    <div class="btnSingIn  btnSingIn--banner">
+                        {% if logged_in %}
+                            <a href="{{ customPage.palestra }}" class="cta-body cta-body__banner">ASSISTA EU PASSEI</a> 
+                        {% else %}
+                            <a href="javascript:void(0);" class="cta-body cta-body__banner" data-toggle="modal" data-target="#modalInscricao" onclick="gtag('event','clique',{'event_category':'formulario','event_label':'bt-insc-evento'});"> ASSISTA </a> 
+                            <p>
+                                <p class="ctaText">Já cadastrou seus dados? <a href="/user/login">Faça seu login.</a></p>
+                            </p>
+                        {% endif %}
+                    </div>
+                    <ul class="redes">
+                        {% if customPage.redes.instagram %}
+                        <li>
+                            <a href="{{ customPage.redes.instagram }}" target="_blank">
+                                <i class="icon-instagram"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        
+                        {% if customPage.redes.facebook %}
+                        <li>
+                            <a href="{{ customPage.redes.facebook }}" target="_blank">
+                                <i class="icon-facebook"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                       
+                        {% if customPage.redes.twitter %}
+                        <li>
+                            <a href="{{ customPage.redes.twitter }}" target="_blank">
+                                <i class="icon-twitter"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if customPage.redes.linkedin %}
+                        <li>
+                            <a href="{{ customPage.redes.linkedin }}" target="_blank">
+                                <i class="icon-linkedin2"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <ul class="redes">
+                       
+                        <li>
+                            <a href="{{ customPage.redes.instagram }}" target="_blank">
+                                <i class="icon-instagram"></i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ customPage.redes.facebook }}" target="_blank">
+                                <i class="icon-facebook"></i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ customPage.redes.twitter }}" target="_blank">
+                                <i class="icon-twitter"></i>
+                            </a>
+                        </li>
+                       
+                        <li>
+                            <a href="{{ customPage.redes.linkedin }}" target="_blank">
+                                <i class="icon-linkedin2"></i>
+                            </a>
+                        </li>
+                       
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- remocao classe parallax -->
+        <div class="parallax videobg-quality">   
+            <video  muted="true" autoplay="true" preload="metadata" loop="true" autoplay muted loop playsinline>                
+                {# <source src="/themes/futurospossiveis2021/static/video/firjan-bg-video.webm" type="video/webm"> #}
+                <source src="/themes/futurospossiveis2021/static/video/firjan-home-video-2021.mp4" type="video/mp4">
+            </video>
+        </div>   
+
+    </section>
+    {% if customPage.countdown.visivel %}
+        <section class="countdown" data-evento="{{ customPage.countdown.data }}">
+            <div class="anchor" id="vem_ai"></div>
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-12 d-flex justify-content-center numeros">
+                    <div class="dias">
+                        <p>00</p>
+                        <p>dias</p>
+                    </div>
+                    <div class="divider">:</div>
+                    <div class="horas">
+                        <p>00</p>
+                        <p>horas</p>
+                    </div>
+                    <div class="divider">:</div>
+                    <div class="minutos">
+                        <p>00</p>
+                        <p>minutos</p>
+                    </div>
+                    <div class="divider">:</div>
+                    <div class="segundos">
+                        <p>00</p>
+                        <p>segundos</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </section>
+    {% endif %}
+    {% if customPage.introducao.visivel %}
+        {% if customPage.introducao.headline %}
+            <section class="hotsite-events-desc">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="read-more-container ">                            
+                                {{ customPage.introducao.headline|raw }}
+                            </div>
+                            {# <h3 id="hotLoadMore"class="read-more"><span class="show-text-content" onclick="gtag('event','clique',{'event_category':'engagement','event_label':'bt-leia-mais'})">LEIA MAIS</span></h3> #}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+        {% if customPage.introducao.video_introducao %}
+            <section class="hot-site-fullcontainer-video">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 responsivePd">
+                            <div class="embed-container">
+                                <iframe src="https://www.youtube.com/embed/{{ customPage.introducao.video_introducao }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>    
+        {% endif %}   
+    {% endif %}
+    {% if customPage.programacao.visivel %}
+        <div class="hide-class">
+            <!-- navegacao abas -->
+            {% for item in customPage.programacao.palestras %}
+            <div class="event-itens">
+                <span class="day-event">
+                    {{ item.evento }}
+                </span>
+                <p class="date-envent">
+                    {{ item.data }}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+  
+        <section class="hotisite-events-schedule" id="programacao">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="schedule-title icone-title icone-title--calendar">
+                            {{ customPage.programacao.titulo }}
+                        </h2>
+                        {% if customPage.programacao.texto %}
+                        <div class="schedule-paragraph">
+                            {{ customPage.programacao.texto|raw }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+                <!-- COMEÇO SWIPPER --> 
+                <div class="swiper-speaker">
+                    
+                    <!-- COMEÇO CONTAINER SWIPPER --> 
+                    <div class="swiper-wrapper">
+
+                        {% for item in customPage.programacao.palestras %}
+                        <!-- COMEÇO ITEM COMPLETO REPETIR SWIPER-SLIDE -->
+                        <div class="swiper-slide">
+                            <!-- interno card full amarelo inicio (unico) começo -->
+                            <div class="header-speaker-day">
+                                <div class="row full-card-height">
+                                    <div class="col-lg-2 col-sm-12">                                    
+                                        <div class="day-yellow">
+                                            <h2>
+                                                {{ item.evento }}
+                                            </h2>
+                                            <span>
+                                                {{ item.data }}
+                                            </span>
+                                        </div>
+                                    </div>                                
+                                    <div class="col-lg-10 col-sm-12">
+                                        <div class="desc-header-day">
+                                            <h2>
+                                                {{ item.titulo }}
+                                            </h2>
+                                            <!--limitar caracteres -->
+                                            <p>
+                                                {{ item.descricao|raw }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- interno card full amarelo inicio unico fim -->
+                            <div class="btnSingIn">
+                                {% if logged_in %}
+                                    <div class="btnSingIn btnSingIn--full-hotsite mg-margin">
+                                        <a href="{{ customPage.palestra }}" class="cta-body cta-body__banner">ASSISTA</a> 
+                                    </div>
+                                    
+                                {% else %}
+                                    <div class="btnSingIn btnSingIn--full-hotsite mg-margin">
+                                        <a href="javascript:void(0);" class="cta-body" data-toggle="modal" data-target="#modalInscricao"> ASSISTA </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <!--row cards palestrantes varios inicio-->
+                            <div class="row centralized-carousel owl-carousel-responsive"> 
+                                
+                                {% for card in item.itens %}
+                                <!-- começo card palestrantes do dia (repetir) -->
+                                {% if card.live %}
+                                    <a class="live-link" href="{{ customPage.palestra }}" target="_blank" rel="noopener noreferrer">
+                                {% endif %}   
+                                <div class="carousel-hot-item item {% if card.painel %}gray{% endif %}">
+                                    {% if card.live %}
+                                    <!-- começo ao vivo icone -->
+                                    <div class="live-icon">
+                                        <span class="topIcon topIcon--online"></span>
+                                        <div class="sonar-wave"></div>
+                                    </div>
+                                    <!--fim ao vivo icone-->  
+                                    {% endif %}                              
+        
+                                    <!--imagem background card 250px  x 300px -->
+                                    <img src="{{ card.thumb }}" alt="" srcset="">
+
+                                    <!--icone modal -->
+                                    <span class="information-icon">
+                                        <!-- começo data modal hide-->
+                                        <div class="desc-hide-palestrante">
+                                            <span class="palestra-desc">
+                                                {{ card.descricao|raw }}
+                                            </span>
+                                            <span class="mini-bio">
+                                                {{ card.curriculo|raw }}
+                                            </span>
+                                        </div>
+                                        <!-- fim data moda hide-->
+                                        <i href="javascript:void(0);" class="speakerInfo iconHot iconHot--info" data-toggle="modal" data-target="#modalPalestrante" data-title="{{ card.titulo }}" data-palestrante-nome="{{ card.mediacao }}"  data-linkedin="{{ card.linkedin }}" data-avatar="{{ card.thumb }}"></i>
+                                    
+                                    </span>
+
+                                    <!-- inico descricao palestra -->                           
+                                    <div class="speaker-desc speaker-desc{% if card.painel %}--gray{% endif %}">
+                                        <h3 class="speak-title">
+                                            <span>
+                                                {{ card.horario }}
+                                            </span>
+                                            {{ card.titulo }}
+                                        </h3>
+                                        <hr>
+                                        <span class="hot-role">
+                                            Palestrante
+                                        </span>
+                                        <p class="speaker-name">
+                                            {{ card.mediacao }}
+                                            {% if card.cargo %}
+                                            <span>
+                                                ({{ card.cargo }})
+                                            </span>
+                                            {% endif %}
+                                        </p>
+                                        {# <div class="btnSingIn btnSingIn--card-hotsite">
+                                            <a href="javascript:void(0);" class="cta-body" data-toggle="modal" data-target="#modalInscricao">INSCREVA-SE</a>
+                                        </div> #}
+                                    </div>
+                                
+                                    <!-- fim  descricao palestra -->
+                                </div>
+                                {% if card.live %}
+                                    </a>
+                                {% endif %}  
+                                <!-- fim card palestrantes do dia (repetir )-->
+                                {% endfor %}
+                            </div>                        
+                            <!--row cards palestrantes varios fim -->
+                        </div>
+                        <!-- FIM ITEM COMPLETO REPETIR SWIPER-SLIDE -->
+                        {% endfor %}
+
+                    </div>
+                    <!-- FIM CONTAINER SWIPPER --> 
+                    
+                    <!--ABAS INICIO DEVE IR FORA DO CONTAINER-->
+                    <div class="carousel-abas">
+                        <ul class="paginacao swiper-pagination"></ul>
+                    </div> 
+
+                    <!--AROWS INICIO DEVE IR FORA DO CONTAINER-->
+                    <div class="arow-speaker-carousel">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+
+                </div>
+                <!-- FIM SWIPPER --> 
+
+            </div>
+        </section>
+    {% endif %}
+    
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="card-oficinas" style="background-image: url(/themes/futurospossiveis2021/static/img/hotsite/oficina-bg.jpg)">
+                    <div class="conteudo-oficina-card">
+
+                        <div class="oficina-cabecalho">
+                            <h2 class="horario-oficina">
+                                17/11 &bull; 9h
+                            </h2>
+                            <h2 class="titulo-oficina">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde saepe nesciunt eligendi neque.
+                            </h2>
+                        </div>
+
+                        <div class="descricao-oficina">
+                            <p class="paragrafo-desc-oficina">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum dignissimos saepe enim officia minima nisi quidem provident a accusantium modi, aliquam, quaerat at quae! Quam beatae similique tenetur voluptates repellendus.
+                            </p>
+                            <span class="cargo-palestrante-oficina">
+                                Facilitador
+                            </span>
+                            <span class="nome-palestrante-oficina">
+                                Lorem Ipsum
+                            </span>
+                        </div>
+                        <div class="valor-oficina">
+                            <div class="preco-oficina">
+                                <div class="preco-antigo-oficina">
+                                    <p>
+                                        de: <span>R$ 100 </span>
+                                    </p>
+                                </div>
+                                <div class="preco-atual-oficina">
+                                    <p>
+                                        por: R$ 50
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="etiqueta-desconto-oficina">
+                                <i class="icone-desconto iconHot iconHot--price"> </i>
+                                <p class="texto-desconto-oficina">
+                                    Preço especial até dia 03/11
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="btnSingIn btnSingIn--card-hotsite-b">
+                            <a href="javascript:void(0);" class="cta-body">INSCREVA-SE</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            
+            </div>
+        </div>
+   
+    </div> -->
+
+    {% if customPage.oficinas.visivel %}
+        <section class="hotsite-workshops" id="oficinas">
+            <div class="container">
+
+                <!--row titulo secacao oficina-->
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="workshops-title icone-title icone-title--light">
+                            {{ customPage.oficinas.titulo }}
+                        </h2>
+                        <div class="workshops-paragraph">
+                            {{ customPage.oficinas.texto|raw }}
+                        </div>
+                    </div>
+                </div>
+                <!--fim row titulo secacao oficina-->
+                
+                <div class="row">
+                    <div class="col-12 "> <!-- responsivePd -->
+                        <div class="owl-carousel-workshop row">
+                            
+                            {% for item in customPage.oficinas.itens %}
+
+                                {% if item.esgotado %}
+                                <div class="item card-oficinas" style="background-image: url('{{ item.imagem }}'); filter:grayscale(1)">
+
+                                {% else %}
+                                    <div class="item card-oficinas" style="background-image: url('{{ item.imagem }}')">
+                                {% endif %}  
+
+
+
+                            {# <div class="item card-oficinas" style="background-image: url('{{ item.imagem }}')"> #}
+                                {% if item.titulo %}
+                                
+                                    {% if item.esgotado %}
+                                        <a href="javascript:void(0);" style="pointer-events: none;"></a>
+                                    {% else %}
+                                        <a href="javascript:void(0);" class="card-click oficinaInfo"  data-toggle="modal" data-target="#modalOficina" data-title="{{ item.titulo }}"  data-price-nreg="{{item.n_reg}}" data-price-cirj="{{item.cirj}}"  data-price-reg="{{item.regimental}}" data-price-sind="{{item.sindicatos}}"  data-full-price="R$: {{item.valor_por}}" data-oficina="{{item.id}}" data-oficina-dia="{{item.data_hora}}"></a>
+                                    {% endif %}  
+                                
+                                
+                                
+                                
+                                {% endif %}
+                                
+
+                                <div class="conteudo-oficina-card">
+                                    <div class="hide-class">
+                                        <div class="preco-list">
+                                            <span class="preco-item">
+                                              100,00
+                                            </span>
+                                            <span class="preco-item">
+                                                200,00
+                                            </span>
+                                            <span class="preco-item">
+                                                300,00
+                                            </span>
+                                            <span class="preco-item">
+                                                400,00
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!--  aqui cabecalho  -->
+                                    <div class="oficina-cabecalho">
+                                        {% if item.data_hora %}
+                                            <h2 class="horario-oficina">
+                                                {{ item.data_hora }}
+                                            </h2>
+                                        {% endif %}
+
+                                        {% if item.titulo %}
+                                            <h2 class="titulo-oficina">
+                                                {{ item.titulo }}
+                                            </h2>    
+                                        {% endif %}
+                                    </div>
+                                                                       
+                                    <div class="descricao-oficina">
+                                        {% if item.descricao %}
+                                            <p class="paragrafo-desc-oficina">
+                                                {{ item.descricao|raw }}
+                                            </p>
+                                        {% endif %}
+                                        
+                                        {% if item.facilitador %}
+                                            <!-- <span class="cargo-palestrante-oficina">
+                                                Palestrante
+                                            </span> -->
+                                            <span class="nome-palestrante-oficina">
+                                                {{ item.facilitador }}
+                                            </span>
+                                        {% endif %}   
+                                    </div>
+                                    
+                                                               
+                                    <div class="valor-oficina">
+                                        <div class="preco-oficina">
+                                            {% if item.valor_de %}
+                                                <div class="preco-antigo-oficina">
+                                                    <p>
+                                                        de: <span> R$ {{item.valor_de}} </span>
+                                                    </p>
+                                                </div>
+                                            {% endif %}                                            
+                                            {% if item.valor_por %}
+                                                <div class="preco-atual-oficina">
+                                                    <p>
+                                                        {% if item.valor_de %}
+                                                            por: R${{item.valor_por}}
+                                                        {% else %}
+                                                            R${{item.valor_por}}
+                                                        {% endif %}
+                                                    </p>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                        {% if item.destaque %}
+
+                                        <div class="etiqueta-desconto-oficina">
+                                            <i class="icone-desconto iconHot iconHot--price"> </i>
+                                            <p class="texto-desconto-oficina">
+                                                {{ item.destaque }}
+                                            </p>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                   
+
+                                    <div class="btnSingIn btnSingIn--card-hotsite-b">                                        
+                                        {% if item.esgotado %}
+                                            <a href="javascript:void(0);" class="cta-body cta-body--off oficinaInfo off" disabled>INSCRIÇÕES ENCERRADAS</a>                                            
+                                        {% else %}
+                                            <a href="javascript:void(0);" class="cta-body oficinaInfo"   data-toggle="modal" data-target="#modalOficina" data-title="{{ item.titulo }}" data-price-nreg="{{item.n_reg}}" data-price-cirj="{{item.cirj}}"  data-price-reg="{{item.regimental}}" data-price-sind="{{item.sindicatos}}" data-full-price="R$: {{item.valor_por}}" data-oficina="{{item.id}}" data-oficina-dia="{{item.data_hora}}" >INSCREVA-SE</a>
+                                        {% endif %}
+                                    </div>            
+
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+                        <!--continer owl-->
+                    </div>
+                    <!--col 12 responsivePd -->
+                </div>
+                <!-- fim row card oficina -->
+            </div>
+            <!--container-->
+        </section>
+    {% endif %}
+
+    {% if customPage.experiencias.visivel %}
+        <section class="hotsite-experience">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="experience-title icone-title icone-title--swimming-pool">
+                            {{ customPage.experiencias.titulo }}
+                        </h2>
+
+                        <div class="experience-paragraph">
+                            {{ customPage.experiencias.texto|raw }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row experience-desc">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="half-img-container">  <!-- half-embed-container-->
+                            {% if customPage.experiencias.produto.thumb %}
+                                <img src="{{ customPage.experiencias.produto.thumb }}"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="experience-desc-content">
+                            {% if customPage.experiencias.produto.data %}
+                                <h3 class="experience-desc-title">
+                                    {{ customPage.experiencias.produto.data }}
+                                </h3>
+                            {% endif %}
+                            {% if customPage.experiencias.produto.titulo %}
+                                <h4 class="experience-desc-subtitle">
+                                    {{ customPage.experiencias.produto.titulo }}
+                                </h4>
+                            {% endif %}
+                            {% if customPage.experiencias.produto.conteudo %}
+                                <div class="experience-desc-paragraph">
+                                    {{ customPage.experiencias.produto.conteudo|raw }}
+                                </div>
+                            {% endif %}
+                            {% if customPage.experiencias.produto.facilitador %}
+                                <!-- <span class="experience-desc-facilitador">
+                                    Facilitador
+                                </span> -->
+                                <span class="experience-desc-name">
+                                    {{ customPage.experiencias.produto.facilitador }}
+                                </span>
+                            {% endif %}
+                            <div class="btnSingIn btnSingIn--hotsite-experience">
+                                <a href="javascript:void(0);" class="cta-body" data-toggle="modal" data-target="#modalExperienciaImersiva" onclick="gtag('event','clique',{'event_category':'formulario','event_label':'bt-insc-exp-1'});"> ASSISTA </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    {% endif %}
+    {# <section class="pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">                    
+                    <div class="btnSingIn">
+                        <a href="javascript:void(0);" class="cta-body" data-toggle="modal" data-target="#modalInscricao">QUERO ME INSCREVER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> #}
+    {% if customPage.imprensa.visivel %}
+        <section class="imprensa-release" id="imprensa">
+            <div class="container">    
+                <div class="content-imprensa">
+                    <h2 class="imprensa-title">
+                        {{ customPage.imprensa.titulo }}
+                    </h2>
+                    <div class="imprensa-paragraph">
+                        {{ customPage.imprensa.texto|raw }}
+                    </div>
+                    {% if customPage.imprensa.arquivo.uri %}
+                        <div class="btnSingIn">
+                            <a href="{{ customPage.imprensa.arquivo.uri }}" target="_blank" class="cta-body" >{{ customPage.imprensa.arquivo.label }}</a>
+                        </div>
+                    {% endif %}
+                </div>               
+            </div>
+        </section>
+    {% endif %}
+
+</main>
+
+<!-- Modal Inscrição aqui -->
+<div class="modal fade" id="modalInscricao" tabindex="-1" role="dialog" aria-labelledby="modalInscricaoLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="close-modal">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+            <form class="formInscricao">
+                <div class="firstStep">
+                    <h3>Inscreva-se e assista on-demand.</h3>                  
+                    <p>
+                        Preencha seus dados abaixo e assista gratuitamente às palestras e painéis dos três dias deste evento.
+                    </p>
+                    <div class="form-group mt-4">
+                        <input class="form-control text-white" id="nome" type="text" placeholder="Nome completo" required>
+                        <div class="invalid-feedback">
+                          Digite o seu nome completo.
+                        </div>
+                    </div>
+                    <label class="text-white">Nacionalidade:</label>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="nacionalidade" id="brasileiro" value="Brasileiro" required>
+                      <label class="form-check-label text-secondary" for="brasileiro">Brasileiro</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="nacionalidade" id="estrangeiro" value="Estrangeiro" required>
+                      <label class="form-check-label text-secondary" for="estrangeiro">Estrangeiro</label>
+                      <div style="clear:both;"></div>
+                        <div class="invalid-feedback">
+                          Selecione uma nacionalidade.
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                        <input class="form-control text-white" id="cpf" type="text" placeholder="CPF" >
+                        <div class="invalid-feedback">
+                          Digite um CPF válido.
+                        </div>
+                    </div>
+                    <div class="form-group"  style="display:none;">
+                        <input class="form-control text-white" id="passaporte" type="text" placeholder="Passaporte">
+                        <div class="invalid-feedback">
+                          Digite o seu passaporte.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control  text-white" id="email" type="email"  placeholder="E-mail" required>
+                        <div class="invalid-feedback">
+                          Digite um e-mail válido.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control text-white" id="empresa" type="text" placeholder="Nome da Empresa">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control text-white" id="cnpj" type="text" placeholder="CNPJ (opcional)">
+                        <div class="invalid-feedback">
+                          Digite um CNPJ válido.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control text-white" id="senha" type="password" placeholder="Crie sua senha (mínimo 6 caracteres)" minlength="6" required>
+                        <div class="invalid-feedback">
+                          Crie sua senha. (mínimo 6 caracteres)
+                        </div>
+                      </div>     
+  
+                      <div class="form-group">
+                        <input class="form-control text-white" id="senha2" type="password" placeholder="Confirme sua senha" minlength="6" required>
+                        <div class="invalid-feedback">
+                          Confirmação inválida! Verifique.
+                        </div>
+                      </div> 
+                      
+                    <div class="form-group">
+                        <label class="text-white">Como ficou sabendo do Summit Firjan IEL + Festival Futuros Possíveis 2021?</label>
+                        <select  class="form-control ffp-select text-white" name="como_ficou_sabendo" id="como_ficou_sabendo" required>
+                            <option value="">Selecione</option>
+                            <option value="google">Busca no Google</option>
+                            <option value="site_firjan">Site Firjan</option> </option>
+                            <option value="site_casa">Site Casa Firjan</option>
+                            <option value="email_marketing">E-mail marketing</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="instagram">Instagram @casafirjan</option>
+                            <option value="linkedin">Linkedin</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="imprensa">Imprensa</option>
+                            <option value="indicacao">Indicação de empresa, amigo ou familiar</option>
+                            <option value="outro">Outro</option>                       
+                        </select>
+                        <div class="invalid-feedback">
+                          Informe como ficou sabendo.
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none;">
+                        <input class="form-control text-white" id="outro_como_ficou_sabendo" type="text" placeholder="Como ficou sabendo?">
+                        <div class="invalid-feedback">
+                          Digite como ficou sabendo.
+                        </div>
+                    </div>
+  
+                {% if customPage.lgpd.evento %}
+                    <div id="accordion" class="accordion-lgpd">
+                        <div class="card">
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    {{ customPage.lgpd.evento|raw }}
+                                </div>
+                            </div>
+
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0 dropdown" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <div class="btn btn-link" >
+                                        Termos de Privacidade e LGPD
+                                    </div>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                  
+                    <div class="form-check ">
+                      <input class="form-check-input " type="checkbox" value="" id="termos" required>
+                      <label class="form-check-label" for="termos">
+                        <p>Eu aceito os <a href="https://www.firjan.com.br/lumis/portal/file/fileDownload.jsp?fileId=2C908A8A6DF44571016E036CC1840834" target="_blank">termos de uso</a> do site.</p>
+                      </label>
+                      <div class="invalid-feedback">
+                          É preciso aceitar os Termos de Uso do site.
+                      </div>
+                      
+                    </div>
+                    <div class="alert alert-danger" style="display:none;" role="alert"></div>
+                    <a class="btn btn-lg btn-success btnNext first" onclick="gtag('event','clique',{'event_category':'formulario','event_label':'bt-finalizar-insc-evento'})">Finalizar Inscrição</a>
+                </div>
+                <div class="secondStep">
+                    <h3>Deseja participar de nossas oficinas?</h3>
+                    <p>Selecione abaixo as oficinas e/ou atividades escolhidas (opcional):</p>
+                    {% for key, oficina in customPage.conteudo.oficinas.itens %}
+                    <div class="form-check">
+                        {% if not oficina.filhos %}
+                            <input class="form-check-input" type="checkbox" value="{{oficina.nid}}" id="oficina{{key}}">
+                            <label class="form-check-label" for="oficina{{key}}">
+                                <p>
+                                    {{oficina.tipo}}: {{oficina.titulo}}<br/>
+                                    <strong>Valor: </strong>{{oficina.investimento}}<br/>
+                                </p>
+                            </label>
+                            <div class="detalheOfinica">
+                                <a href="javascript:void(0);"class="btn btn-sm btn-dark"><span>+</span> detalhes</a>
+                                <div class="texto">
+                                    <p>{{oficina.descricao}}</p><br>
+                                    <p>
+                                        {% if oficina.data %}Data da oficina: {{oficina.data}} - {{oficina.horario}}<br>{% endif %}
+                                        {% if oficina.facilitacao %}
+                                        Facilitação: {{oficina.facilitacao}}<br>
+                                        {% endif %}
+                                        Duração: {{oficina.duracao}}
+                                    </p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <p>
+                                {{oficina.tipo}}: {{oficina.titulo}}<br/>
+                                <strong>Valor: </strong>{{oficina.investimento}}<br/>
+                            </p>
+                            <div class="detalheOfinica">
+                                <a href="javascript:void(0);"class="btn btn-sm btn-dark"><span>+</span> detalhes</a>
+                                <div class="texto">
+                                    <p>{{oficina.descricao}}</p><br>
+                                    <p>
+                                        {% if oficina.filhos[0].data and oficina.filhos|last.data%}
+                                            Datas: De {{ oficina.filhos[0].data }} a {{ oficina.filhos|last.data }}<br/>
+                                        {% endif %}
+                                        Duração: {{oficina.duracao}}
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            <div style="padding: 0 0 26px 25px;">
+                            {% for keyOf, filhoOf in oficina.filhos %}
+                                    <div>
+                                        <input class="form-check-input" type="checkbox" value="{{filhoOf.nid}}" id="oficinaOf{{keyOf}}">
+                                        <label class="form-check-label" for="oficinaOf{{keyOf}}">
+                                            <p>
+                                                <span style="display:block; position:absolute; width:1px; height:px; opacity:0">{{filhoOf.tipo}}: {{filhoOf.titulo}} - </span>{{filhoOf.horario}}
+                                            </p>
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    <div class="alert alert-danger" style="display:none;" role="alert"></div>
+                    <button type="button" class="btn btn-secondary btn-sm btnBack second">↩ Voltar</button>
+                    <a class="btn btn-lg btn-success btnNext second">Avançar</a>
+                    <button type="submit" class="btnSubmit btn btn-lg btn-success" onclick="gtag('event','clique',{'event_category':'formulario','event_label':'bt-finalizar-insc-evento'});">Finalizar Inscrição</button>
+                </div>
+               
+                <div class="finishStep">
+                    <br/>
+                    <br/>
+                    <h3 style="text-align:center;">Inscrição efetuada! <br/><br/>Assista ao vivo sempre às 9h.</h3>
+                    <br/>
+                    <br/>
+                    <!-- <button type="button" class="btn btn-secondary btn-sm btnBack">↩ Fazer outra inscrição</button> -->
+                    <a class="btn btn-secondary btn-sm btnBack" href="/user/login">ACESSAR EVENTO</a>
+                    <br/>
+                    <br/>
+                </div>
+            </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Experiencia Imersiva-->
+<div class="modal fade" id="modalExperienciaImersiva" tabindex="-1" role="dialog" aria-labelledby="modalExperienciaImersiva" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="close-modal">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+              <form class="formXpImersiva">
+                  <div class="firstStep">
+                        <h3>E se o futuro chamasse Talvez?</h3> 
+                        <!-- <p>Inscreva-se gratuitamente nos painéis e palestras e receba em breve a programação completa do Summit Firjan IEL + Festival Futuros Possíveis 2021.</p>                    -->
+                        <p>
+                            Escolha um dos dias disponíveis e inscreva-se gratuitamente na experiência imersiva. As vagas são limitadas e a atividade será realizada por ordem de acesso à sala virtual.
+                        </p>
+                        <div class="form-group mt-4">
+                            <input class="form-control text-white" id="nome" type="text" placeholder="Nome completo" required>
+                            <div class="invalid-feedback">
+                            Digite o seu nome completo.
+                            </div>
+                        </div>
+                        <label class="text-white">Nacionalidade:</label>
+                        <div class="form-check">
+                        <input class="form-check-input" type="radio" name="nacionalidade" id="brasileiro" value="Brasileiro" required>
+                        <label class="form-check-label text-secondary" for="brasileiro">Brasileiro</label>
+                        </div>
+                        <div class="form-check">
+                        <input class="form-check-input" type="radio" name="nacionalidade" id="estrangeiro" value="Estrangeiro" required>
+                        <label class="form-check-label text-secondary" for="estrangeiro">Estrangeiro</label>
+                        <div style="clear:both;"></div>
+                            <div class="invalid-feedback">
+                            Selecione uma nacionalidade.
+                            </div>
+                            <br/>
+                        </div>
+                        <div class="form-group" style="display:none;">
+                            <input class="form-control text-white" id="cpf" type="text" placeholder="CPF" >
+                            <div class="invalid-feedback">
+                            Digite um CPF válido.
+                            </div>
+                        </div>
+                        <div class="form-group"  style="display:none;">
+                            <input class="form-control text-white" id="passaporte" type="text" placeholder="Passaporte">
+                            <div class="invalid-feedback">
+                            Digite o seu passaporte.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control  text-white" id="email" type="email"  placeholder="E-mail" required>
+                            <div class="invalid-feedback">
+                            Digite um e-mail válido.
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <input class="form-control text-white" id="cnpj" type="text" placeholder="CNPJ">
+                        <div class="invalid-feedback">
+                        Digite um CNPJ válido.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control text-white" id="empresa" type="text" placeholder="Nome da Empresa">
+                    </div>
+                        <div class="form-group check-box-content required">
+                            <label class="text-white">Selecione a data que deseja participar da EXPERIÊNCIA IMERSIVA  </label>
+                                <div class="check-data">
+                                    <label class="form-check-label" for="dia17">
+                                        <p>
+                                            17/11
+                                        </p>
+                                    </label>
+                                    <input class="form-check-input " type="checkbox" value="1711" id="dia17" >
+                                </div>
+                                <div class="check-data">
+                                    <label class="form-check-label" for="dia18">
+                                        <p>
+                                            18/11
+                                        </p>
+                                    </label>                            
+                                    <input class="form-check-input " type="checkbox" value="1811" id="dia18" >
+                                </div>
+                                
+                                <div class="check-data">
+                                    <label class="form-check-label" for="dia19">
+                                        <p>
+                                            19/11
+                                        </p>
+                                    </label>
+                                    <input class="form-check-input " type="checkbox" value="1911" id="dia18" >
+                                </div>
+                            
+                            
+                            <div class="invalid-feedback">
+                            Informe a data que deseja 
+                            </div>
+                        </div>
+                        {% if customPage.lgpd.ei %}
+                        <div id="accordion" class="accordion-lgpd">
+                            <div class="card">
+                                <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
+                                    <div class="card-body">
+                                        {{ customPage.lgpd.ei|raw }}
+                                    </div>
+                                </div>
+        
+                                <div class="card-header" id="headingFour">
+                                    <h5 class="mb-0 dropdown"data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                        <div class="btn btn-link" >
+                                            Termos de Privacidade e LGPD
+                                        </div>
+                                    </h5>
+                                </div>
+                            </div>
+        
+                        </div>
+                        {% endif %}
+
+                        <div class="form-check ">
+                        <input class="form-check-input " type="checkbox" value="" id="termos" required>
+                        <label class="form-check-label" for="termos">
+                            <p>Eu aceito os <a href="https://www.firjan.com.br/lumis/portal/file/fileDownload.jsp?fileId=2C908A8A6DF44571016E036CC1840834" target="_blank">termos de uso</a> do site.</p>
+                        </label>
+                        <div class="invalid-feedback">
+                            É preciso aceitar os Termos de Uso do site.
+                        </div>
+                        
+                        </div>
+                        <div class="alert alert-danger" style="display:none;" role="alert"></div>
+                        <a class="btn btn-lg btn-success btnNext first" onclick="gtag('event','clique',{'event_category':'formulario','event_label':'bt-finalizar-exp'});">Finalizar Inscrição</a>
+                  </div>
+                  <div class="finishStep">
+                      <br/>
+                      <br/>
+                      <h3 style="text-align:center;">Inscrição efetuada! <br/><br/>Em breve entraremos em contato com mais informações.</h3>
+                      <br/>
+                      <br/>
+                      
+                  </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal Oficna -->
+<div class="modal fade" id="modalOficina" tabindex="-1" role="dialog" aria-labelledby="modalOficinaLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="close-modal">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="formOficina">
+            <div class="firstStep">
+                <div id="oficinaTitle">
+                    <h3></h3> 
+                </div>
+                <div id="oficinaFullPrice">
+                    <span>
+                        <h3>
+                            R$    
+                        </h3>
+
+                    </span> 
+                </div>
+                <!-- <p>Inscreva-se gratuitamente nos painéis e palestras e receba em breve a programação completa do Summit Firjan IEL + Festival Futuros Possíveis 2021.</p>                    -->
+                <p>
+                    Preencha o formulário de pré-inscrição e aguarde nosso retorno pelo e-mail cadastrado. O pagamento será liberado assim que fizermos a validação dos seus dados.
+                </p>
+               
+                <div class="form-group mt-4">
+                    <input class="form-control text-white" id="nome" type="text" placeholder="Nome completo" required>
+                    <div class="invalid-feedback">
+                        Digite o seu nome completo.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control  text-white" id="email" type="email"  placeholder="E-mail" required>
+                    <div class="invalid-feedback">
+                    Digite um e-mail válido.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control text-white" id="cpf" type="text" placeholder="CPF" required>
+                    <div class="invalid-feedback">
+                      Digite um CPF válido.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control text-white" type="text"  id="telefone" placeholder="Telefone" required>
+                    <div class="invalid-feedback">
+                        Digite um Telefone válido.
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control text-white" type="text"  id="nascimento" placeholder="Data de Nascimento" required>
+                    <div class="invalid-feedback">
+                        Digite uma data de nascimento.
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control text-white" type="text"  id="endereco" placeholder="Endereço completo" required>
+                    <div class="invalid-feedback">
+                        Digite seu endereço completo.
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control text-white" type="text"  id="cep" placeholder="CEP" required>
+                    <div class="invalid-feedback">
+                        Digite seu CEP.
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <input class="form-control text-white" type="text"  id="formacao" placeholder="Formação acadêmica" required>
+                    <div class="invalid-feedback">
+                        Digite sua formação acadêmica.
+                    </div>
+                </div>
+
+                <label class="text-white">É associado à Firjan?</label>
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="associado" id="affiliated" value="sim" required>
+                <label class="form-check-label text-secondary" for="affiliated">Sim (desconto especial)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="associado" id="noAffiliated" value="nao" required>
+                    <label class="form-check-label text-secondary" for="noAffiliated">Não (preço cheio)</label>
+                    <div style="clear:both;"></div>
+                    <div class="invalid-feedback"> Selecione uma opção. </div>
+                    <br/>
+                </div>
+                <div class="display-associado">
+                    <div class="preco-tabela-modal">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-12">
+                                <p class="preco-title">
+                                    Preços:
+                                </p>
+                            </div>
+                            <div class="col-md-10 col-sm-12">
+                                <table id="precosLabel">
+                                    <th id="nregLabel">
+                                        N/Reg.
+                                    </th>
+                                    <th id="cirjLabel">
+                                        CIRJ
+                                    </th>
+                                    <th id="regLabel">
+                                        Regimental
+                                    </th>
+                                    <th id="sindLabel">
+                                        Sindicatos
+                                    </th>
+                                    <tr id="precosItem">
+                                        <td id="nregPrice"></td>
+                                        <td id="cirjPrice"></td>
+                                        <td id="regPrice"></td>
+                                        <td id="sindPrice"></td>
+                                    </tr>                                
+                                </table>
+                            </div>   
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control text-white" id="cnpj" type="text" placeholder="CNPJ" required>
+                        <div class="invalid-feedback">
+                            Digite um CNPJ válido.
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control text-white" id="empresa" type="text" placeholder="Nome da Empresa">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="comprovante-label" name="comporvante" for="comprovante"> Anexar comprovante de vínculo empregatício </label>
+                        <input class="form-control text-white file-modal" name="comporvante" id="comprovante" type="file" placeholder="">
+                        <div class="invalid-feedback">
+                            Envie um arquivo valido
+                         </div>
+                        <div class="file-name">
+                            <p></p>
+                        </div>                        
+                    </div>
+                </div>                    
+                {% if customPage.lgpd.oficina %}
+                    <div id="accordion" class="accordion-lgpd">
+                        <div class="card">
+                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    {{ customPage.lgpd.oficina|raw }}
+                                </div>
+                            </div>
+
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0 dropdown" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <div class="btn btn-link" >
+                                        Termos de Privacidade e LGPD
+                                    </div>
+                                </h5>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endif %}
+
+                <div class="form-check ">
+                <input class="form-check-input " type="checkbox" value="" id="termos" required>
+                <label class="form-check-label" for="termos">
+                    <p>Eu aceito os <a href="https://www.firjan.com.br/lumis/portal/file/fileDownload.jsp?fileId=2C908A8A6DF44571016E036CC1840834" target="_blank">termos de uso</a> do site.</p>
+                </label>
+                <div class="invalid-feedback">
+                    É preciso aceitar os Termos de Uso do site.
+                </div>
+                
+                </div>
+                <div class="alert alert-danger" style="display:none;" role="alert"></div>
+                <input type="hidden" id="oficina">
+                <input type="hidden" id="oficina_dia">
+                <input type="hidden" id="oficina_nome">
+                <a type="submit" class="btn btn-lg btn-success btnNext first" onclick="gtag('event','clique',{'event_category':'formulario','event_label':'bt-finalizar-oficina'});" >Enviar</a>
+            </div>
+            <div class="finishStep">
+                <br/>
+                <br/>
+                <h3 style="text-align:center;">Inscrição efetuada! <br/><br/>Em breve entraremos em contato com mais informações.</h3>
+                <br/>
+                <br/>
+            </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- Modal Palestrante -->
+
+<div class="modal fade" id="modalPalestrante" tabindex="-1" role="dialog" aria-labelledby="modalPalestranteLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <div class="close-modal">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+          </div>
+           <div class="desc-palestrante-modal">
+                <div id="modalTitle" class="nome-palestrante-modal">
+                    <h2> </h2>
+                </div>
+                <div class="desc-palestrante-modal">
+                    <div class="paragrafo-palestrante-modal">
+                        <p id="descPalestra"></p>
+                    </div>
+                    <div class="mini-bio-palestrante-modal">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="palestrante-nome-modal">
+                                    <p id="speakerName">
+                                        Palestrante | <span></span>
+                                    </p>                                                    
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                
+                                <div id="palestranteAvatar" class="img-speaker-modal">
+                                    <img  alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div  class="curriculum--palestante-mod">
+                                    <p id="miniBio"></p>                                
+                                    <div class="social-palestrante-modal">
+                                        <ul class="redes">
+                                            <li>                                            
+                                                <div id="socialLinkedin" class="btnSingIn btnSingIn--modal-palestrante">
+                                                    <a  class="cta-body" target="_blank" ><i class="icon-linkedin2"></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+           </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal Edições Anteriores -->
+{# <div class="modal fade" id="modalEdicoesAnteriores" tabindex="-1" role="dialog" aria-labelledby="modalEdicoesAnterioresLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="title">
+                <h3>Festival Futuros Possíveis 2018</h3>
+            </div>
+            <div class="description">
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+            <div class="player">
+                <div class="embed-container">
+                    <iframe id="playView" src="https://www.youtube.com/embed/T8P5EKJ1Jk4" frameborder="0"></iframe>
+                </div>
+                <h4>Título do vídeo</h4>
+            </div>
+            <ul class="movies">
+                
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/AdQ3JDLlmPI">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/T8P5EKJ1Jk4">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/66VnOdk6oto">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/AdQ3JDLlmPI">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/T8P5EKJ1Jk4">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/66VnOdk6oto">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/AdQ3JDLlmPI">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/T8P5EKJ1Jk4">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a href="#" data-movie="https://www.youtube.com/embed/T8P5EKJ1Jk4">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/66VnOdk6oto">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/AdQ3JDLlmPI">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/T8P5EKJ1Jk4">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/66VnOdk6oto">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/AdQ3JDLlmPI">Assistir</a>
+                </li>
+                <li class="movie-item">
+                    <img src="https://placeimg.com/265/155/any" alt="">
+                    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 1</p>
+                    <a class="playDispach" href="#" data-movie="https://www.youtube.com/embed/T8P5EKJ1Jk4">Assistir</a>
+                </li>
+            </ul>
+            <a class="loadMore" id="loadMore" href="#">Veja mais</a>
+        </div>
+      </div>
+    </div>
+  </div> #}
+
+<!-- Modal Quem Já Passou Por Aqui -->
+<div class="modal fade defaultModal" id="modalQuemPassou" tabindex="-1" role="dialog" aria-labelledby="modalQuemPassouLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="close-modal">
+                    <a id="closeQuemPassou" data-dismiss="modal"  href="javascript:void(0);">X</a>
+                </div>
+            <div class="title">
+                <h3>Design de soluções baseadas em dados, com Letícia Pozza| Casa Firjan</h3>
+            </div>
+            <div class="description">
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    aqui2
+                </p>
+            </div>
+            <div class="player">
+                <div class="embed-container">
+                    <iframe id="getVideo" src="" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

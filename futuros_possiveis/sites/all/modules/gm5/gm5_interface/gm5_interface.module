@@ -1,0 +1,150 @@
+<?php
+
+/**
+ * @file
+ * Primarily Drupal hooks and global API functions to manipulate views.
+ */
+
+use Drupal\gm5_interface\Plugin\Views\GM5Views;
+use Drupal\gm5_interface\Plugin\File\GM5File;
+use Drupal\gm5_interface\Plugin\Node\GM5Node;
+use Drupal\gm5_interface\Plugin\Util\GM5Memcached;
+use Drupal\gm5_interface\Plugin\Util\GM5Util;
+use Drupal\gm5_interface\Plugin\Util\GM5String;
+use Drupal\gm5_interface\Plugin\Util\GM5Validation;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
+
+
+
+function gm5_interface_node_insert($node){
+  if($node->bundle() == 'curso'){
+    updateCurso($node);
+    $node->save();
+  }
+}
+
+
+function gm5_interface_entity_presave(Drupal\Core\Entity\EntityInterface $entity){
+  if($entity->bundle() == 'curso' && $entity->id() != NULL){
+    updateCurso($entity);
+  }
+}
+
+// Função para turnar um curso visivel na agenda.
+function updateCurso(&$entity){
+  try{
+    // if(isset($entity->get('field_categoria_curso')->getValue()[0]['target_id'])){
+    //   $tidCurso = $entity->get('field_categoria_curso')->getValue()[0]['target_id'];
+    //   $labelCatCurso = Term::load($tidCurso)->get('name')->value;
+    // } else {
+    //   $labelCatCurso = "Curso";
+    // }
+    
+    // $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['name' => $labelCatCurso, 'vid' => 'categorias_de_agenda']);
+    // $term = reset($term);
+    
+    // if ($term)
+    // {
+    //   $entity->set('field_categoria_agenda', ['target_id' => $term->id()]);
+    // }
+    // else
+    // {
+    //   $new_term = Term::create([
+    //     'name' => $labelCatCurso,
+    //     'vid' => 'categorias_de_agenda',
+    //   ]);
+    //   $new_term->save();
+    //   $entity->set('field_categoria_agenda', ['target_id' => $new_term->id()]);
+    // }
+    
+    $entity->set('field_hora_de_inicio', $entity->get('field_data_da_aula')->getValue()[0]['value'].'T03:00:00');
+  } catch (Exception $e) {
+    echo 'Exceção: ',  $e->getMessage(), "\n";
+  }
+}
+
+//
+//function gm5_interface_user_login($account) {
+//  GM5Util::redirect("/node/43/edit");
+//}
+//
+//function gm5_interface_toolbar_alter(&$items){
+//  $user = \Drupal::currentUser();
+//  $roles = $user->getRoles();
+//  
+//  if(!empty($roles) && !in_array('administrator', $roles)){
+//    $attach = $items['administration']['tray']['#attached'];
+//
+//    unset($items['administration']);
+//    $items['toolbar_menu_menu-site']['tray']['#attached'] = $attach;
+//    $items['toolbar_menu_menu-site']['#attached']['library'][] = 'admin_toolbar/toolbar.tree';
+//  }
+//}
+//
+//
+//function gm5_interface_page_build(&$page) {
+//  print_r($page); die;
+//}
+
+
+function gm5_interface_theme_suggestions_html_alter(array &$suggestions, array $variables) {
+  // Add content type suggestions.
+    $restRequest = \Drupal::request()->query->get('restFormat');
+  if (!empty($restRequest)) {
+    array_splice($suggestions, -8, 0, 'html__restformat');
+  }
+}
+
+function gm5_interface_theme() {
+    $theme['html__restformat'] = [
+        'render element' => 'build',
+        'base hook' => 'html',
+        'template' => 'html--restformat',
+    ];
+
+    return $theme;
+}
+
+
+function systemPaths(&$variables) {
+//Paths globais
+  global $base_url;
+  global $base_path;
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path_alias.manager')
+    ->getAliasByPath($current_path);
+  $variables['customPage']['system']['base_path'] = $base_path;
+  $variables['customPage']['system']['baseUrl'] = $base_url;
+
+
+  $variables['customPage']['system']['currentUrl'] = $base_url . $result;
+  $variables['customPage']['system']['currentPage'] = $result;
+  $variables['customPage']['system']['currentPageFirstLevel'] = explode('/', substr($result, 1))[0];
+  $variables['customPage']['system']['themePath'] = \Drupal::theme()
+      ->getActiveTheme()
+      ->getPath() . '/';
+  $variables['customPage']['system']['staticPath'] = '/' . \Drupal::theme()
+      ->getActiveTheme()
+      ->getPath() . '/statics/';
+
+}
+
+/**
+ * Implements hook_ckeditor_css_alter().
+ */
+function gm5_interface_ckeditor_css_alter(&$css, $editor) {
+  $css[] = drupal_get_path('module', 'gm5_interface') . '/static/css/ckeditor_styles.css';
+}
+
+function gm5_interface_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  if($entity->bundle() == 'agenda'){
+    if(!empty($entity->get('field_link_externo')->getValue())){
+      $response = new RedirectResponse($entity->get('field_link_externo')->getValue()[0]['uri']);
+      $response->send();
+      return;
+    }
+  }
+}

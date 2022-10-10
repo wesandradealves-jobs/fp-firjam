@@ -1,0 +1,5 @@
+services:
+    theme.negotiator.gm5_theme_switch:
+        class: Drupal\gm5_theme_switch\Theme\ThemeNegotiator
+        tags:
+          - { name: theme_negotiator, priority: 20 }

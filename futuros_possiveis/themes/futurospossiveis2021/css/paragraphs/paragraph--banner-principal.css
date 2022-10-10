@@ -1,0 +1,412 @@
+.banner-main-container {
+  /* min-height: 742px; */
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: cover;
+  background-color: #021533;
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .banner-main-container {
+    padding-top: 100px;
+  }
+}
+
+.banner-main-container .event-date {
+  /* background-color: #263b59; */
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 12px 10px;
+  max-width: 300px;color: #f4c638;
+}
+
+@media (max-width: 768px){
+  .banner-main-container .event-date {
+    padding-top: 50px;
+  }
+}
+
+.banner-main-container .event-title {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-size: clamp(55px, 13vw, 90px);
+  color: #fff;
+  padding-top: 24px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .banner-main-container .event-title {
+    font-size: 80px;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .banner-main-container .event-title {
+  }
+} */
+
+.banner-main-container .event-title .title {
+  line-height: 0.9;
+}
+.banner-main-container .event-title .year {
+  color: #f4c638;
+}
+.banner-main-container .event-text >div>div:nth-child(1){
+  display: none;
+}
+.banner-main-container .event-text {
+  /* background-color: #263b59; */
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  padding: 12px 10px;
+  max-width: 300px;
+}
+
+.webform-cadastro {
+  background-color: #263b59;
+  background-color: rgb(38, 59, 89, 0.5);
+  padding: 40px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 460px;
+  position: relative;
+}
+.webform-cadastro * {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* .webform-cadastro:before {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 47px;
+  background: url(../../static/img/icon-paper-plane.png) center no-repeat;
+  background-size: contain;
+} */
+
+.webform-cadastro:after {
+  content: "* campos obrigatórios";
+  font-size: 10px;
+  font-style: italic;
+  color: #fff;
+  text-align: right;
+  flex: 0 0 100%;
+  width: 100%;
+  padding-top: 30px;
+}
+
+.webform-cadastro.send-message:after {
+  display: none;
+}
+
+.webform-cadastro #edit-processed-text p {
+  font-weight: 900;
+  font-size: 24px;
+  color: #f4c638;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+
+.webform-cadastro input[type="text"],
+.webform-cadastro input[type="email"],
+.webform-cadastro input[type="password"],
+.webform-cadastro select {
+  background-color: transparent;
+  border: solid 1px #fff;
+  height: 40px;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.webform-cadastro input[type="password"]::placeholder,
+.webform-cadastro input[type="text"]::placeholder,
+.webform-cadastro input[type="email"]::placeholder {
+  color: #fff;
+}
+
+.webform-cadastro input[type="submit"] {
+  background-color: #f4c638;
+  border: solid 1px #f4c638;
+  height: 40px;
+  max-width: 100%;
+  width: 100%;
+  font-weight: 800;
+  padding: 0 10px;
+  color: #263b59;
+}
+
+.webform-cadastro form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.webform-cadastro form > div {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.webform-cadastro form > div:nth-child(2),
+.webform-cadastro form > div:nth-child(3),
+.webform-cadastro form > div:nth-child(4),
+.webform-cadastro form > div:nth-child(5) {
+  flex: 0 0 calc(50% - 8px);
+  max-width: calc(50% - 8px);
+}
+
+.banner-main-container .redes {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 16px;
+  margin-top: 16px;
+}
+
+.banner-main-container .redes li {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.banner-main-container .redes li a {
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: block;
+  border: 2px solid white;
+  border-radius: 100%;
+  /* padding: 8px 10px; */
+  text-transform: underline;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-main-container .redes li a:hover {
+  border: 2px solid #ffe300;
+  color: #273b59;
+}
+
+.banner-main-container .redes li a:hover i {
+  color: #ffe300;
+}
+
+.webform-cadastro .icon-casa-firjan:before {
+  background-size: contain;
+  background-position: center;
+}
+
+.webform-cadastro .redes {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .banner-main-container .redes {
+    display: none;
+  }
+  .webform-cadastro .redes {
+    display: block;
+    margin-right: -60px;
+    margin-top: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-main-container .redes {
+    margin-top: 86px;
+    z-index: 9999;
+  }
+}
+
+.banner-main-container .modal-content {
+  background-color: transparent;
+  border: 0;
+}
+
+.banner-main-container .close-modal button[type="button"][class="close"],
+.banner-main-container .finishStep,
+.banner-main-container .firstStep > h3,
+.banner-main-container .finishStep,
+.banner-main-container .btnSingIn--card-hotsite {
+  display: none;
+}
+
+.banner-main-container .modal-dialog {
+  margin: 0;
+}
+
+.banner-main-container .modal-body {
+  padding: 0;
+}
+
+.banner-main-container .firstStep > p {
+  font-weight: 900;
+  font-size: 18px;
+  color: #f4c638;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 30px;
+  margin: 0;
+}
+
+/* .banner-main-container .firstStep {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px 10px;
+} */
+
+.banner-main-container .form-group {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.banner-main-container .firstStep .name,
+.banner-main-container .firstStep .email,
+.banner-main-container .firstStep .cnpj,
+.banner-main-container .firstStep .nome-empresa {
+  flex: 0 0 calc(50% - 5px);
+}
+.banner-main-container .firstStep .nacionalidade,
+.banner-main-container .firstStep .date {
+  flex: 0 0 calc(100% - 5px);
+}
+.banner-main-container .firstStep .date .check-data {
+  position: relative;
+  display: flex;
+  margin-left: 1.25rem;
+}
+
+.banner-main-container .firstStep .btn.btn-lg.btn-success.btnNext.first {
+  background-color: #f4c638;
+  border: solid 1px #f4c638;
+  height: 40px;
+  max-width: 100%;
+  width: 100%;
+  font-weight: 800;
+  padding: 0 10px;
+  color: #263b59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-main-container label {
+  margin: 0;
+}
+
+.banner-main-container .form-check label {
+  color: #fff;
+}
+
+.banner-main-container option {
+  color: #666;
+}
+
+.banner-main-container .secondStep button[type="submit"] {
+  background-color: #f4c638;
+  border: solid 1px #f4c638;
+  height: 40px;
+  max-width: 100%;
+  width: 100%;
+  font-weight: 800;
+  padding: 0 10px;
+  color: #263b59;
+}
+
+/* .banner-main-container .inscricao-festival-wrapper .form-inscricao-block{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+
+.banner-main-container .form-item.js-form-type-processed-text ,
+.banner-main-container .form-item.form-item-terms-of-service {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.banner-main-container .form-item-name ,
+.banner-main-container .form-item-sobrenone {
+  flex: 0 0 calc(50% - 5px);
+  max-width: calc(50% - 5px);
+} */
+
+.invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80% !important;
+  color: #dc3545 !important;
+}
+.accept-terms {
+  padding-bottom: 25px;
+}
+.accept-terms p {
+  margin: 0;
+}
+.banner-main-container .alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.finishStep {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+}
+
+.finishStep h3 {
+  color: #ffe300;
+  font-size: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .redes {
+      padding-top: 60px;
+  }
+}
+
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + .75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat;
+  background-position: right calc(.375em + .1875rem) center;
+  background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+
+
+@media (min-width: 768px) {
+  header nav{
+    display: flex;
+  }
+  header nav .mobile .btnMobile {
+    display: none;
+  }
+}
+
+
+header nav .mobile{
+  display: block;
+}

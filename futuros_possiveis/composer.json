@@ -1,6 +1,6 @@
 {
-    "name": "drupal/recommended-project",
-    "description": "Project template for Drupal 9 projects with a relocated document root",
+    "name": "drupal/legacy-project",
+    "description": "Project template for Drupal 8 projects with composer following drupal/drupal layout",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/drupal",
@@ -15,66 +15,73 @@
         }
     ],
     "require": {
-        "ext-curl": "^7.4",
-        "ext-json": "*",
-        "ext-simplexml": "*",
-        "composer/installers": "^1.9",
-        "drupal/block_content_template": "^1.4",
-        "drupal/contact_storage": "^1.1",
-        "drupal/core-composer-scaffold": "^9.3",
-        "drupal/core-project-message": "^9.3",
-        "drupal/core-recommended": "^9.3",
+        "composer/installers": "^1.2",
+        "drupal/admin_toolbar": "^2.5",
+        "drupal/adminimal_theme": "^1.6",
+        "drupal/backup_migrate": "^5.0",
+        "drupal/classy_paragraphs": "^1.0@RC",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-project-message": "^9",
+        "drupal/core-recommended": "^9.3.3",
+        "drupal/core-vendor-hardening": "^8.8",
+        "drupal/csv_serialization": "^2.0",
         "drupal/devel": "^4.1",
-        "drupal/paragraphs": "^1.14",
+        "drupal/draggableviews": "^2.0",
+        "drupal/entity_usage": "^2.0@beta",
+        "drupal/mail_login": "^2.6",
+        "drupal/nocurrent_pass": "^1.1",
+        "drupal/pathauto": "^1.8",
+        "drupal/svg_image": "^1.16",
+        "drupal/time_field": "^2.0",
+        "drupal/toolbar_menu": "^2.2",
+        "drupal/twig_debugger": "^1.1",
         "drupal/twig_tweak": "^3.1",
-        "drupal/twig_xdebug": "^1.0",
-        "drush/drush": "^11.0"
+        "drupal/webform": "^6.1",
+        "phpmailer/phpmailer": "^6.2"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "sort-packages": true,
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true
+            "drupal/core-project-message": true,
+            "drupal/core-vendor-hardening": true
         }
     },
     "extra": {
         "drupal-scaffold": {
             "locations": {
-                "web-root": "web/"
+                "web-root": "./"
             }
         },
         "installer-paths": {
-            "web/core": [
+            "core": [
                 "type:drupal-core"
             ],
-            "web/sites/futurospossiveis2022.com.br/libraries/{$name}": [
+            "libraries/{$name}": [
                 "type:drupal-library"
             ],
-            "web/sites/futurospossiveis2022.com.br/modules/contrib/{$name}": [
+            "modules/contrib/{$name}": [
                 "type:drupal-module"
             ],
-            "web/sites/futurospossiveis2022.com.br/profiles/contrib/{$name}": [
+            "profiles/contrib/{$name}": [
                 "type:drupal-profile"
             ],
-            "web/sites/futurospossiveis2022.com.br/themes/contrib/{$name}": [
+            "themes/contrib/{$name}": [
                 "type:drupal-theme"
             ],
             "drush/Commands/contrib/{$name}": [
                 "type:drupal-drush"
             ],
-            "web/sites/futurospossiveis2022.com.br/modules/custom/{$name}": [
+            "modules/custom/{$name}": [
                 "type:drupal-custom-module"
             ],
-            "web/sites/futurospossiveis2022.com.br/profiles/custom/{$name}": [
-                "type:drupal-custom-profile"
-            ],
-            "web/sites/futurospossiveis2022.com.br/themes/custom/{$name}": [
+            "themes/custom/{$name}": [
                 "type:drupal-custom-theme"
             ]
         },
@@ -86,7 +93,7 @@
             "post-create-project-cmd-message": [
                 "<bg=blue;fg=white>                                                         </>",
                 "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
-                "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
+                "<bg=blue;fg=white>  from the drupal/legacy-project template!               </>",
                 "<bg=blue;fg=white>                                                         </>",
                 "",
                 "<bg=yellow;fg=black>Next steps</>:",
@@ -99,5 +106,8 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "drush/drush": "^11.1"
     }
 }

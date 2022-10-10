@@ -1,0 +1,126 @@
+.depoimentos-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.depoimentos-container .depoimentos-section-intro {
+  color: #263b59;
+  font-size: 18px;
+}
+
+.depoimentos-container .depoimentos-section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #263b59;
+  font-size: 32px;
+  position: relative;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.depoimentos-container .depoimentos-section-title:after {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 100px;
+  height: 1px;
+  background-color: #263b59;
+  margin-top: 1rem;
+}
+
+.depoimentos-container .slider-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.depoimentos-container .slider-item:before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 100px;
+  max-width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) rotate(180deg);
+  background: url(../../static/img/depoimento-aspa-close.png) center no-repeat;
+  background-size: contain;
+}
+
+.depoimentos-container .slider-item:after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 100px;
+  max-width: 20%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: url(../../static/img/depoimento-aspa-close.png) center no-repeat;
+  background-size: contain;
+}
+
+.depoimentos-container .slider-item .imagem img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.depoimentos-container .slider-item .text {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 1rem;
+  max-width: 60%;
+}
+
+.depoimentos-container .slider-item .name {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.depoimentos-container .slick-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.depoimentos-container .slick-dots button {
+  font-size: 0;
+  border-radius: 50%;
+  min-width: 10px;
+  min-height: 10px;
+  max-width: 10px;
+  max-height: 10px;
+  border: 0;
+  background-color: #263b59;
+  opacity: 0.5;
+  padding: 0;
+}
+
+.depoimentos-container .slick-dots .slick-active button {
+  opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  .depoimentos-container .slider-item .text {
+    max-width: 80%;
+  }
+  .depoimentos-container .slider-item:before,
+  .depoimentos-container .slider-item:after {
+    display: none;
+  }
+}

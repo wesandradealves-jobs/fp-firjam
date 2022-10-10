@@ -1,0 +1,94 @@
+.paragraph--type--sobre-o-evento {
+  /* background: url(../../static/img/bg_prog.jpg) center no-repeat #2D4F6A ; */
+  background-color: #2D4F6A;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding-top: 3em;
+  padding-bottom: 2em;
+}
+
+.paragraph--type--sobre-o-evento  {
+  text-align: center;
+  padding: 2em;
+}
+
+.paragraph--type--sobre-o-evento  .texto-title {
+  color: #ffff;
+  font-size: 32px;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  line-height: 1.3em;
+  padding-bottom: 25px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paragraph--type--sobre-o-evento .texto-title:after{
+  content: '';
+  display: block;
+  width: 100px;
+  height: 1px;
+  margin-top: 15px;
+  background-color: #fff;
+}
+
+.paragraph--type--sobre-o-evento .texto-data {
+  background-color: #F6C630;
+  color: #263B59;
+  font-size: 30px;
+  font-weight: 700;
+  width: 180px;
+  padding: 0 10px 0 10px;
+  text-align: center;
+}
+
+.paragraph--type--sobre-o-evento  .texto-descricao {
+  color: #666666;
+  font-size: 16px;
+  width: 300px;
+  text-align: justify;
+  margin-top: 10px;
+  line-height: 1.3em;
+}
+
+.paragraph--type--sobre-o-evento .texto-evento {
+  color: #EEC136;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.button-sign-in{
+  background-color: #f4c638;
+  border: solid 1px #f4c638;
+  height: 40px;
+  max-width: 100%;
+  width: 100%;
+  font-weight: 800;
+  padding: 0 10px;
+  color: #263b59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 200px;
+  margin-top: 45px;
+}
+.button-sign-in.w100{
+  max-width: 100%;
+}
+
+.button-sign-in:hover{
+  color: #263b59;
+}

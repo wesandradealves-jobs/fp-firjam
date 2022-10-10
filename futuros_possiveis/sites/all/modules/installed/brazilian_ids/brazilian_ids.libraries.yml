@@ -1,0 +1,7 @@
+brazilian_ids_mask:
+  version: 1.x
+  js:
+    js/brazilian_ids_mask.js: {}
+  dependencies:
+    - core/jquery.once
+    - mask/mask_plugin

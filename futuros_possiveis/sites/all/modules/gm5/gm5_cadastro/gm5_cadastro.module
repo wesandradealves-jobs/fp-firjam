@@ -1,0 +1,265 @@
+<?php
+
+/**
+ * @file
+ * Primarily Drupal hooks and global API functions to manipulate views.
+ */
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use Drupal\Core\Site\Settings;
+use Drupal\gm5_interface\Plugin\Views\GM5Views;
+use Drupal\gm5_interface\Plugin\File\GM5File;
+use Drupal\gm5_interface\Plugin\Node\GM5Node;
+use Drupal\gm5_interface\Plugin\Util\GM5Util;
+use Drupal\gm5_interface\Plugin\Util\GM5String;
+use GuzzleHttp\Client;
+use Drupal\file\Entity\File;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\media\Entity\Media;
+
+
+function numHash($str, $len=null)
+{
+    $binhash = md5($str, true);
+    $numhash = unpack('N2', $binhash);
+    $hash = $numhash[1] . $numhash[2];
+    if($len && is_int($len)) {
+        $hash = substr($hash, 0, $len);
+    }
+    return $hash;
+}
+
+function gm5_cadastro_mail($key, &$message, $params) {
+ $options = array(
+   'langcode' => $message['langcode'],
+ );
+
+ switch ($key) {
+   case 'cadastro':
+     $message['from'] = \Drupal::config('system.site')->get('mail');
+     $message['subject'] = $params['title'];
+     $message['body'][] = $params['message'];
+     break;
+ }
+}
+
+
+function sendMail($to,$subject,$message){
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $module = 'gm5_cadastro';
+    $key = 'cadastro';
+    $params = array();
+    $params['title'] = $subject;
+    $params['message'] = $message;
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $send = true;
+    
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+    if ($result['result'] !== true) {
+        drupal_set_message(t('There was a problem sending your message and it was not sent.'), 'error');
+    }
+    else {
+        drupal_set_message(t('Your message has been sent.'));
+    }
+}
+
+function gm5_cadastro_user_update($user){
+    $userArray = $user->toArray();
+    GM5Util::redirect('/user/'.$userArray['uid'][0]['value'].'/edit?sucesso=true');
+}
+
+function gm5_cadastro_user_insert($user){
+    $user = $user->toArray();
+    
+    $module_handler = \Drupal::service('module_handler');
+    $module_path = $module_handler->getModule('gm5_cadastro')->getPath();
+    
+    $template = file_get_contents($module_path.'/email.html');
+    $template = str_replace('{{nome}}',$user['field_nome'][0]['value'],$template);
+    
+    //sendMail($user['mail'][0]['value'],"Confirmação de incrição",$template);
+}
+
+function gm5_cadastro_node_insert($node){
+    $module_handler = \Drupal::service('module_handler');
+    $module_path = $module_handler->getModule('gm5_cadastro')->getPath();
+
+    
+    if($node->bundle() == 'incrito_oficina'){
+
+        $inscricao = $node->toArray();
+        
+        $oficina = !empty($node->field_oficinas[0]) ? $node->field_oficinas[0]->entity->toArray() : '';
+        $comprovante = isset($inscricao['field_comprovante'][0]['target_id']) && !empty($inscricao['field_comprovante'][0]['target_id']) ? $node->field_comprovante->entity->url() : '';
+      
+        
+        // $template = file_get_contents($module_path.'/email-inscrito.html');
+        
+        // sendMail($inscricao['field_e_mail'][0]['value'],"Confirmação de Inscrição em oficina",$template);
+        
+        //Envia email para o backoffice
+        $msg = '';
+        
+        $date = new DateTime();
+        $date->setTimestamp($inscricao['created'][0]['value']);
+      
+        $msg .= '<strong>Chave do Pedido: </strong> #'.$inscricao['nid'][0]['value'].'<br>';        
+        $msg .= '<strong>Data da inscrição: </strong> '.$date->format('d/m/Y').'<br>'; 
+
+        if(isset($inscricao['field_nome'][0]['value']) && !empty($inscricao['field_nome'][0]['value']))
+        {
+            $msg .= '<strong>Nome Completo: </strong>'.$inscricao['field_nome'][0]['value'].'<br>';
+        }
+
+        if(isset($inscricao['field_e_mail'][0]['value']) && !empty($inscricao['field_e_mail'][0]['value']))
+        {
+        $msg .= '<strong>Email: </strong>'.$inscricao['field_e_mail'][0]['value'].'<br>';
+        }
+
+        if(isset($inscricao['field_telefone'][0]['value']) && !empty($inscricao['field_telefone'][0]['value']))
+        {
+            $msg .= '<strong>Telefone: </strong>'.$inscricao['field_telefone'][0]['value'].'<br>';
+        }
+
+        if(isset($inscricao['field_cpf'][0]['value']) && !empty($inscricao['field_cpf'][0]['value']))
+        {
+            $msg .= '<strong>CPF:  </strong>'.$inscricao['field_cpf'][0]['value'].'<br>';
+        }
+
+        
+        if(isset($inscricao['field_nascimento'][0]['value']) && !empty($inscricao['field_nascimento'][0]['value']))
+        {
+            $msg .= '<strong>Data de Nascimento:  </strong>'.$inscricao['field_nascimento'][0]['value'].'<br>';
+        }
+
+        
+        if(isset($inscricao['field_endereco_completo'][0]['value']) && !empty($inscricao['field_endereco_completo'][0]['value']))
+        {
+            $msg .= '<strong>Endereço:  </strong>'.$inscricao['field_endereco_completo'][0]['value'].'<br>';
+        }
+
+        
+        if(isset($inscricao['field_cep'][0]['value']) && !empty($inscricao['field_cep'][0]['value']))
+        {
+            $msg .= '<strong>CEP:  </strong>'.$inscricao['field_cep'][0]['value'].'<br>';
+        }
+
+        
+        if(isset($inscricao['field_formacao_academica'][0]['value']) && !empty($inscricao['field_formacao_academica'][0]['value']))
+        {
+            $msg .= '<strong>Formação Acadêmica:  </strong>'.$inscricao['field_formacao_academica'][0]['value'].'<br>';
+        }
+
+
+        if(isset($inscricao['field_e_associado_a_firjan'][0]['value']) && !empty($inscricao['field_e_associado_a_firjan'][0]['value']))
+        {
+            $msg .= '<strong>Associado Firjan: </strong>'.$inscricao['field_e_associado_a_firjan'][0]['value'].'<br>';
+        }
+
+        if(isset($inscricao['field_nome_empresa'][0]['value']) && !empty($inscricao['field_nome_empresa'][0]['value']))
+        {
+            $msg .= '<strong>Nome da Empresa: </strong>'.(isset($inscricao['field_nome_empresa'][0]['value']) && $inscricao['field_nome_empresa'][0]['value'] ? $inscricao['field_nome_empresa'][0]['value'] : '').'<br>';
+        }
+
+        if(isset($inscricao['field_cnpj'][0]['value']) && !empty($inscricao['field_cnpj'][0]['value']))
+        {
+            $msg .= '<strong>CNPJ: </strong>'.(isset($inscricao['field_cnpj'][0]['value']) && $inscricao['field_cnpj'][0]['value'] ? $inscricao['field_cnpj'][0]['value'] : '').'<br>';
+        }
+
+
+        if(!empty($oficina))
+        {
+            $msg .= '<strong>Oficina: </strong><br>'.$oficina['title'][0]['value'].'<br>';
+        } 
+
+        if(!empty($comprovante))
+        {
+            $msg .= '<br><a href="'.$comprovante.'"><strong>Ver Comprovante</strong></a><br>';
+        }
+        
+        //alertaeventos@firjan.com.br,inscricoesiel@firjan.com.br
+       
+        
+        // $templateIncricao = file_get_contents($module_path.'/email-incricao.html');
+        // $templateIncricao = str_replace('{{lista}}',$msg,$templateIncricao);
+        
+        sendMail('inscricoesiel@firjan.com.br',"Nova inscrição em oficina",$msg);
+
+    } else if($node->bundle() == 'inscritos_experiencia_imersiva'){
+
+        $inscricao = $node->toArray();
+        
+       
+        //Envia email para o backoffice
+        $msg = '';
+        
+        $date = new DateTime();
+        $date->setTimestamp($inscricao['created'][0]['value']);
+      
+        $msg .= '<strong>Nº da inscrição: </strong> #'.$inscricao['nid'][0]['value'].'<br>';        
+        $msg .= '<strong>Data da inscrição: </strong> '.$date->format('d/m/Y').'<br>'; 
+
+        if(isset($inscricao['field_nome'][0]['value']) && !empty($inscricao['field_nome'][0]['value']))
+        {
+            $msg .= '<strong>Nome Completo: </strong>'.$inscricao['field_nome'][0]['value'].'<br>';
+        }
+
+        if(isset($inscricao['field_e_mail'][0]['value']) && !empty($inscricao['field_e_mail'][0]['value']))
+        {
+        $msg .= '<strong>Email: </strong>'.$inscricao['field_e_mail'][0]['value'].'<br>';
+        }
+
+        // if(isset($inscricao['field_telefone'][0]['value']) && !empty($inscricao['field_telefone'][0]['value']))
+        // {
+        //     $msg .= '<strong>Telefone: </strong>'.$inscricao['field_telefone'][0]['value'].'<br>';
+        // }
+
+        if(isset($inscricao['field_nacionalidade'][0]['value']) && !empty($inscricao['field_nacionalidade'][0]['value']))
+        {
+            $msg .= '<strong>Nacionalidade:  </strong>'.$inscricao['field_nacionalidade'][0]['value'].'<br>';
+        }
+        
+        if(isset($inscricao['field_cpf'][0]['value']) && !empty($inscricao['field_cpf'][0]['value']))
+        {
+            $msg .= '<strong>CPF:  </strong>'.$inscricao['field_cpf'][0]['value'].'<br>';
+        }
+
+        if(isset($inscricao['field_passaporte'][0]['value']) && !empty($inscricao['field_passaporte'][0]['value']))
+        {
+            $msg .= '<strong>Passaporte:  </strong>'.$inscricao['field_passaporte'][0]['value'].'<br>';
+        }
+
+
+
+        if(isset($inscricao['field_nome_empresa'][0]['value']) && !empty($inscricao['field_nome_empresa'][0]['value']))
+        {
+            $msg .= '<strong>Nome da Empresa: </strong>'.(isset($inscricao['field_nome_empresa'][0]['value']) && $inscricao['field_nome_empresa'][0]['value'] ? $inscricao['field_nome_empresa'][0]['value'] : '').'<br>';
+        }
+
+        if(isset($inscricao['field_cnpj'][0]['value']) && !empty($inscricao['field_cnpj'][0]['value']))
+        {
+            $msg .= '<strong>CNPJ: </strong>'.(isset($inscricao['field_cnpj'][0]['value']) && $inscricao['field_cnpj'][0]['value'] ? $inscricao['field_cnpj'][0]['value'] : '').'<br>';
+        }
+
+        if(isset($inscricao['field_experiencia_imersiva'][0]['value']) && !empty($inscricao['field_experiencia_imersiva'][0]['value']))
+        {
+            $msg .= '<strong>Experiências Imersivas: </strong>';
+            foreach ($inscricao['field_experiencia_imersiva'] as &$value) {
+                $msg .= $value['value'].'<br>';
+        
+            }
+
+        }
+        
+        //alertaeventos@firjan.com.br,inscricoesiel@firjan.com.br
+       
+        
+        // $templateIncricao = file_get_contents($module_path.'/email-incricao.html');
+        // $templateIncricao = str_replace('{{lista}}',$msg,$templateIncricao);
+        
+        sendMail('InscricoesIEL@firjan.com.br, pbraga@firjan.com.br,tmendes@firjan.com.br,GSERRAO@firjan.com.br',"Nova inscrição em Experiência Imersiva",$msg);
+
+    }
+}
+?>

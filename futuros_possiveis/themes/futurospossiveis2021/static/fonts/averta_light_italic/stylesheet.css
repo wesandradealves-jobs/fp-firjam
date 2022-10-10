@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Averta';
+    src: url('Averta-LightItalic.woff2') format('woff2'),
+        url('Averta-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+

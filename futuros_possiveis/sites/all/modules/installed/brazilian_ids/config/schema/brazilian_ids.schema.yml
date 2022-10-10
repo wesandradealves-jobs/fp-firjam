@@ -1,0 +1,15 @@
+field.storage_settings.brazilian_ids_rg:
+  type: config_object
+  label: 'RG field settings'
+  mapping:
+    number_only:
+      type: boolean
+      label: 'Number only'
+
+field.widget.settings.brazilian_ids_rg_default:
+  type: config_object
+  label: 'RG default widget settings'
+  mapping:
+    clean_number:
+      type: boolean
+      label: 'Clean number'

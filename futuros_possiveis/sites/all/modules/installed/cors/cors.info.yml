@@ -1,0 +1,13 @@
+name: CORS
+description: Allows Cross-origin resource sharing.
+package: Other
+# core: 8.x
+configure: cors.settings
+type: module
+
+# Information added by Drupal.org packaging script on 2016-02-09
+core: 9.x
+core_compatibility: ^9
+core_version_requirement: ^8 || ^9
+project: 'cors'
+

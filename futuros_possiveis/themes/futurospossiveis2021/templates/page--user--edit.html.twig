@@ -1,0 +1,30 @@
+<main data-controller="user"class="user">
+    <section class="content" >
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3 meuDados">
+                    {% if logged_in %}
+                        <ul class="userNav">
+                            <li class="active">
+                                <a>Defina abaixo a sua nova senha:</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+                    {% if page.highlighted %}
+                    <div class="helper pt-4 pb-4">
+                      {{ page.highlighted }}
+                        <div style="clear:both;"></div>
+                        <div class="alert alert-success d-none" role="alert">
+                            Atualização realizada com sucesso. <a href="{{ palestra }}/#nav"><strong>Clique aqui para acessar o evento.</strong></a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {{ page.content }}
+                </div>
+            </div>
+        </div>
+        <div class="backupParallax" style="background-image: url(/themes/futurospossiveis2021/static/img/bg_topo_home.jpg);"></div>
+        <div class="parallax" data-parallax-image="/themes/futurospossiveis2021/static/img/bg_topo_home.jpg"></div>
+    </section>
+</main>

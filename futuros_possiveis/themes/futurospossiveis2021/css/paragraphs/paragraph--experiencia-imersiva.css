@@ -1,0 +1,30 @@
+.paragraph--experiencia-imersiva-container {
+  background-color:#ffff;
+  padding-top: 2em;
+  text-align: left;
+}
+
+.paragraph--experiencia-imersiva-container .texto-title-experiencia {
+  font-family: 'Noto Sans', sans-serif;
+  color: #263B59;
+  font-size: 30px;
+  font-weight: 700;
+  width: 200px;
+  padding: 30px 10px 10px 0;
+  text-align: left;
+}
+
+.paragraph--experiencia-imersiva-container .field-foto {
+  padding-top: -30px;
+  text-align: right;
+}
+
+.paragraph--experiencia-imersiva-container .texto-experiencia-descricao {
+  font-family: 'Noto Sans', sans-serif;
+  color: #263B59;
+  font-size: 14px;
+  font-weight: 400;
+  width: 300px;
+  padding: 20px 10px 10px 0;
+  text-align: left;
+}

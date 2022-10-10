@@ -1,0 +1,5 @@
+services:
+  gm5_interface.GM5TwigExtension:
+    class: Drupal\gm5_interface\Plugin\Util\GM5TwigExtension
+    tags:
+      - { name: twig.extension }

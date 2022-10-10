@@ -1,0 +1,160 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% block paragraph %}
+{{ attach_library('futurospossiveis2021/paragraph--chamada-festival') }}
+	<div{{attributes.addClass(classes)}}>
+		{% block content %}
+			<div class="chamada-festival">
+				{# <div class="text-container">
+					<div class="title-container">
+						<div class="texto-data">{{ content.field_data_evento }}</div>
+						<h3 class="title">{{content.field_title.0|e|striptags|trim}}</h3>
+					</div>
+
+			</div> #}
+
+       <div class="container">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="texto-festival"><h6> {{ content.field_titulo_da_secao.0|e|striptags|trim }}</h6></div>
+                   {# <div class="texto-festival"><h6>O FESTIVAL</h6></div> #}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="texto-festival-title">{{content.field_titulo.0|e|striptags|trim}}</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                   <div class="texto-festival-descricao">{{content.field_descricao}}</div>
+                </div>
+            </div>
+
+            <div class="festival-slider">
+                <div class="item">
+                  <img src="{{ file_url(content.field_imagem_1['#items'].entity.uri.value) }}" alt="" class="img-fluid">
+                <div class="item-descricao">
+                  {{ paragraph.field_imagem_1.title }}
+                </div>
+                </div>
+
+                <div class="item">
+                  <img src="{{ file_url(content.field_imagem_2['#items'].entity.uri.value) }}" alt="" class="img-fluid">
+                <div class="item-descricao">
+                  {{ paragraph.field_imagem_2.title }}
+                </div>
+                </div>
+
+                <div class="item">
+                  <img src="{{ file_url(content.field_imagem_3['#items'].entity.uri.value) }}" alt="" class="img-fluid">
+                <div class="item-descricao">
+                  {{ paragraph.field_imagem_3.title }}
+                </div>
+                </div>
+            </div>
+
+            {# <div class="festival-slider">
+
+
+            </div> #}
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 mt-5 d-flex justify-content-center">
+                  <span class="text-pre-button">
+                    {{ content.field_texto_acima_do_botao.0|e|striptags|trim }}
+                  </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 mt-3 d-flex justify-content-center">
+                  <a href="#" class=" button-sign-in" onclick="gtag('event','clique',{'event_category':'formulario','event_label':'ffp2022-quero-me-inscrever2'})">Quero me  inscrever</a>
+              </div>
+            </div>
+
+            </div>
+
+    </div>
+		{% endblock %}
+	</div>
+{% endblock paragraph %}
+
+<script>
+  (function(){
+
+    window.addEventListener('load', function(){
+      jQuery('.festival-slider').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+  ]
+      })
+    })
+
+  })()
+</script>

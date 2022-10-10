@@ -1,0 +1,511 @@
+diff --git a/composer.json b/composer.json
+index 3cefc4b..d55958d 100644
+--- a/composer.json
++++ b/composer.json
+@@ -5,7 +5,10 @@
+     "license": "GPL-2.0+",
+     "minimum-stability": "dev",
+     "require": {
+-        "drupal/core": "^8 || ^9"
++        "drupal/core": "^8.8 || ^9"
++    },
++    "require-dev": {
++        "drupal/jquery_ui_accordion": "^1.0"
+     },
+     "support": {
+         "issues": "https://www.drupal.org/project/issues/field_group",
+diff --git a/contrib/field_group_migrate/field_group_migrate.info.yml b/contrib/field_group_migrate/field_group_migrate.info.yml
+index ab1ba0d..a507c3b 100644
+--- a/contrib/field_group_migrate/field_group_migrate.info.yml
++++ b/contrib/field_group_migrate/field_group_migrate.info.yml
+@@ -2,6 +2,6 @@ name: 'Field Group Migrate'
+ type: module
+ description: 'Provides the ability to migrate field groups from D6/D7 to D8.'
+ package: Migration
+-core: 8.x
++core_version_requirement: ^8.8 || ^9
+ dependencies:
+   - field_group:field_group
+diff --git a/contrib/field_group_migrate/src/Plugin/migrate/destination/d7/FieldGroup.php b/contrib/field_group_migrate/src/Plugin/migrate/destination/d7/FieldGroup.php
+index 828715f..64b6c4c 100644
+--- a/contrib/field_group_migrate/src/Plugin/migrate/destination/d7/FieldGroup.php
++++ b/contrib/field_group_migrate/src/Plugin/migrate/destination/d7/FieldGroup.php
+@@ -88,8 +88,8 @@ class FieldGroup extends DestinationBase {
+    *   The entity display object.
+    */
+   protected function getEntity($entity_type, $bundle, $mode, $type) {
+-    $function = $type == 'entity_form_display' ? 'entity_get_form_display' : 'entity_get_display';
+-    return $function($entity_type, $bundle, $mode);
++    $function = $type == 'entity_form_display' ? 'getFormDisplay' : 'getViewDisplay';
++    return \Drupal::service('entity_display.repository')->$function($entity_type, $bundle, $mode);
+   }
+ 
+ }
+diff --git a/field_group.info.yml b/field_group.info.yml
+index 0b9e824..ad4afa0 100644
+--- a/field_group.info.yml
++++ b/field_group.info.yml
+@@ -2,7 +2,6 @@ name: 'Field Group'
+ type: module
+ description: 'Provides the ability to group your fields on both form and display.'
+ package : Fields
+-core: 8.x
+-core_version_requirement: ^8 || ^9
++core_version_requirement: ^8.8 || ^9
+ dependencies:
+   - drupal:field
+diff --git a/field_group.install b/field_group.install
+index 659cf67..bc32ff7 100644
+--- a/field_group.install
++++ b/field_group.install
+@@ -5,9 +5,50 @@
+  * Update hooks for the Field Group module.
+  */
+ 
++/**
++ * Implements hook_requirements().
++ */
++function field_group_requirements($phase) {
++  $requirements = [];
++
++  if ($phase == 'runtime') {
++    // Check jQuery UI Accordion module for D9.
++    if (version_compare(\Drupal::VERSION, 9) > 0) {
++      if (!\Drupal::moduleHandler()->moduleExists('jquery_ui_accordion')) {
++        $requirements['field_group_jquery_ui_accordion'] = [
++          'title' => t('Field Group'),
++          'value' => t('jQuery UI Accordion not enabled'),
++          'description' => t('If you want to use the Field Group accordion formatter, you will need to install the <a href=":link" target="_blank">jQuery UI Accordion</a> module.', [':link' => 'https://www.drupal.org/project/jquery_ui_accordion']),
++          'severity' => REQUIREMENT_WARNING,
++        ];
++      }
++      else {
++        $requirements['field_group_jquery_ui_accordion'] = [
++          'title' => t('Field Group'),
++          'description' => t('The jQuery UI Accordion module is installed'),
++          'severity' => REQUIREMENT_INFO,
++        ];
++      }
++    }
++  }
++
++  return $requirements;
++}
++
+ /**
+  * Removed in favor of hook_post_update script.
+  */
+ function field_group_update_8301() {
+   // @see field_group_post_update_0001().
+ }
++
++/**
++ * Install the 'jquery_ui_accordion' module if it exists.
++ */
++function field_group_update_8302() {
++  // Enables the jQuery UI accordion module if it exists.
++  if (\Drupal::service('extension.list.module')->getName('jquery_ui_accordion')) {
++    \Drupal::service('module_installer')->install(['jquery_ui_accordion'], FALSE);
++    return t('The "jquery_ui_accordion" module has been installed.');
++  }
++}
+diff --git a/field_group.module b/field_group.module
+index 2e79456..6e25a9f 100644
+--- a/field_group.module
++++ b/field_group.module
+@@ -16,6 +16,7 @@ use Drupal\Core\Form\ConfirmFormInterface;
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Render\Element;
+ use Drupal\field_group\Element\VerticalTabs;
++use Drupal\field_group\FormatterHelper;
+ 
+ /**
+  * Implements hook_help().
+@@ -32,6 +33,24 @@ function field_group_help($route_name, RouteMatchInterface $route_match) {
+   }
+ }
+ 
++/**
++ * Implements hook_library_info_alter().
++ */
++function field_group_library_info_alter(&$libraries, $extension) {
++  // Swap jQuery.ui library if available.
++  // See https://www.drupal.org/project/field_group/issues/3109552 for more
++  // background on the logic.
++  if (version_compare(\Drupal::VERSION, 9) > 0 && $extension == 'field_group') {
++    if (\Drupal::moduleHandler()->moduleExists('jquery_ui_accordion')) {
++      $libraries['formatter.accordion']['dependencies'] = ['jquery_ui_accordion/accordion'];
++    }
++    else {
++      $libraries['formatter.accordion']['js'] = [];
++      $libraries['formatter.accordion']['dependencies'] = [];
++    }
++  }
++}
++
+ /**
+  * Implements hook_theme_registry_alter().
+  */
+@@ -235,7 +254,7 @@ function field_group_form_alter(array &$form, FormStateInterface $form_state) {
+       ];
+ 
+       field_group_attach_groups($form, $context);
+-      $form['#process'][] = 'field_group_form_process';
++      $form['#process'][] = [FormatterHelper::class, 'formProcess'];
+     }
+   }
+ 
+@@ -256,7 +275,7 @@ function field_group_inline_entity_form_entity_form_alter(&$entity_form, FormSta
+   ];
+ 
+   field_group_attach_groups($entity_form, $context);
+-  field_group_form_process($entity_form);
++  FormatterHelper::formProcess($entity_form);
+ }
+ 
+ /**
+@@ -277,7 +296,7 @@ function field_group_form_layout_builder_update_block_alter(&$form, FormStateInt
+   ];
+ 
+   field_group_attach_groups($form['settings']['block_form'], $context);
+-  $form['settings']['block_form']['#process'][] = 'field_group_form_process';
++  $form['settings']['block_form']['#process'][] = [FormatterHelper::class, 'formProcess'];
+ }
+ 
+ /**
+@@ -317,7 +336,7 @@ function field_group_entity_view_alter(&$build, EntityInterface $entity, EntityD
+ 
+     // If DS is enabled, no pre render is needed (DS adds fieldgroup preprocessing).
+     if (!$ds_enabled) {
+-      $build['#pre_render'][] = 'field_group_entity_view_pre_render';
++      $build['#pre_render'][] = [FormatterHelper::class, 'entityViewPrender'];
+     }
+   }
+ }
+@@ -349,72 +368,7 @@ function field_group_form_pre_render(array $element) {
+  * @return array
+  */
+ function field_group_form_process(array &$element, FormStateInterface $form_state = NULL, array &$form = []) {
+-  if (empty($element['#field_group_form_process'])) {
+-    $element['#field_group_form_process'] = TRUE;
+-    if (empty($element['#fieldgroups'])) {
+-      return $element;
+-    }
+-
+-    // Create all groups and keep a flat list of references to these groups.
+-    $group_references = [];
+-    foreach ($element['#fieldgroups'] as $group_name => $group) {
+-      if (!isset($element[$group_name])) {
+-        $element[$group_name] = [];
+-      }
+-
+-      $group_parents = $element['#array_parents'];
+-      $group_parents[] = empty($group->parent_name) ? $group->region : $group->parent_name;
+-      $group_references[$group_name] = &$element[$group_name];
+-      $element[$group_name]['#group'] = implode('][', $group_parents);
+-
+-      // Use array parents to set the group name. This will cover multilevel forms (eg paragraphs).
+-      $parents = $element['#array_parents'];
+-      $parents[] = $group_name;
+-      $element[$group_name]['#parents'] = $parents;
+-      $group_children_parent_group = implode('][', $parents);
+-      foreach ($group->children as $child) {
+-        if (!empty($element[$child]['#field_group_ignore'])) {
+-          continue;
+-        }
+-        $element[$child]['#group'] = $group_children_parent_group;
+-      }
+-    }
+-
+-    foreach ($element['#fieldgroups'] as $group_name => $group) {
+-      $field_group_element = &$element[$group_name];
+-
+-      // Let modules define their wrapping element.
+-      // Note that the group element has no properties, only elements.
+-      foreach (Drupal::moduleHandler()->getImplementations('field_group_form_process') as $module) {
+-        // The intention here is to have the opportunity to alter the
+-        // elements, as defined in hook_field_group_formatter_info.
+-        // Note, implement $element by reference!
+-        $function = $module . '_field_group_form_process';
+-        $function($field_group_element, $group, $element);
+-      }
+-
+-      // Allow others to alter the pre_render.
+-      Drupal::moduleHandler()->alter('field_group_form_process', $field_group_element, $group, $element);
+-    }
+-
+-    // Allow others to alter the complete processed build.
+-    Drupal::moduleHandler()->alter('field_group_form_process_build', $element, $form_state, $form);
+-  }
+-
+-  return $element;
+-}
+-
+-/**
+- * Pre render callback for rendering groups on entities without theme hook.
+- *
+- * @param array $element
+- *   Entity being rendered.
+- *
+- * @return array
+- */
+-function field_group_entity_view_pre_render(array $element) {
+-  field_group_build_entity_groups($element, 'view');
+-  return $element;
++  return FormatterHelper::formProcess($element, $form_state, $form);
+ }
+ 
+ /**
+diff --git a/src/Element/VerticalTabs.php b/src/Element/VerticalTabs.php
+index 598e24c..c8a212d 100644
+--- a/src/Element/VerticalTabs.php
++++ b/src/Element/VerticalTabs.php
+@@ -4,11 +4,12 @@ namespace Drupal\field_group\Element;
+ 
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Render\Element;
++use Drupal\Core\Render\Element\RenderCallbackInterface;
+ 
+ /**
+  * Provides extra processing and pre rendering on the vertical tabs.
+  */
+-class VerticalTabs {
++class VerticalTabs implements RenderCallbackInterface {
+ 
+   /**
+    * Pre render the group to support #group parameter.
+diff --git a/src/FormatterHelper.php b/src/FormatterHelper.php
+index 436d7d7..4b84072 100644
+--- a/src/FormatterHelper.php
++++ b/src/FormatterHelper.php
+@@ -3,11 +3,13 @@
+ namespace Drupal\field_group;
+ 
+ use Drupal;
++use Drupal\Core\Form\FormStateInterface;
++use Drupal\Core\Security\TrustedCallbackInterface;
+ 
+ /**
+  * Static methods for fieldgroup formatters.
+  */
+-class FormatterHelper {
++class FormatterHelper implements TrustedCallbackInterface {
+ 
+   /**
+    * Return an array of field_group_formatter options.
+@@ -18,7 +20,7 @@ class FormatterHelper {
+     if (!isset($options)) {
+       $options = [];
+ 
+-      $manager = Drupal::service('plugin.manager.field_group.formatters');
++      $manager = \Drupal::service('plugin.manager.field_group.formatters');
+       $formatters = $manager->getDefinitions();
+ 
+       foreach ($formatters as $formatter) {
+@@ -31,4 +33,94 @@ class FormatterHelper {
+     return $options;
+   }
+ 
++  /**
++   * Pre render callback for rendering groups on entities without theme hook.
++   *
++   * @param array $element
++   *   Entity being rendered.
++   *
++   * @return array
++   */
++  public static function entityViewPrender(array $element) {
++    field_group_build_entity_groups($element, 'view');
++    return $element;
++  }
++
++  /**
++   * Process callback for field groups.
++   *
++   * @param array $element
++   *   Form that is being processed.
++   * @param \Drupal\Core\Form\FormStateInterface $form_state
++   *   The current state of the form.
++   * @param array $form
++   *   The complete form structure.
++   *
++   * @return array
++   */
++  public static function formProcess(array &$element, FormStateInterface $form_state = NULL, array &$form = []) {
++    if (empty($element['#field_group_form_process'])) {
++      $element['#field_group_form_process'] = TRUE;
++      if (empty($element['#fieldgroups'])) {
++        return $element;
++      }
++
++      // Create all groups and keep a flat list of references to these groups.
++      $group_references = [];
++      foreach ($element['#fieldgroups'] as $group_name => $group) {
++        if (!isset($element[$group_name])) {
++          $element[$group_name] = [];
++        }
++
++        $group_parents = $element['#array_parents'];
++        $group_parents[] = empty($group->parent_name) ? $group->region : $group->parent_name;
++        $group_references[$group_name] = &$element[$group_name];
++        $element[$group_name]['#group'] = implode('][', $group_parents);
++
++        // Use array parents to set the group name. This will cover multilevel forms (eg paragraphs).
++        $parents = $element['#array_parents'];
++        $parents[] = $group_name;
++        $element[$group_name]['#parents'] = $parents;
++        $group_children_parent_group = implode('][', $parents);
++        foreach ($group->children as $child) {
++          if (!empty($element[$child]['#field_group_ignore'])) {
++            continue;
++          }
++          $element[$child]['#group'] = $group_children_parent_group;
++        }
++      }
++
++      foreach ($element['#fieldgroups'] as $group_name => $group) {
++        $field_group_element = &$element[$group_name];
++
++        // Let modules define their wrapping element.
++        // Note that the group element has no properties, only elements.
++        foreach (Drupal::moduleHandler()->getImplementations('field_group_form_process') as $module) {
++          // The intention here is to have the opportunity to alter the
++          // elements, as defined in hook_field_group_formatter_info.
++          // Note, implement $element by reference!
++          $function = $module . '_field_group_form_process';
++          $function($field_group_element, $group, $element);
++        }
++
++        // Allow others to alter the pre_render.
++        Drupal::moduleHandler()->alter('field_group_form_process', $field_group_element, $group, $element);
++      }
++
++      // Allow others to alter the complete processed build.
++      Drupal::moduleHandler()->alter('field_group_form_process_build', $element, $form_state, $form);
++    }
++
++    return $element;
++  }
++
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function trustedCallbacks() {
++    return ['entityViewPrender', 'formProcess'];
++  }
++
++
+ }
+diff --git a/tests/modules/field_group_test/field_group_test.info.yml b/tests/modules/field_group_test/field_group_test.info.yml
+index d8a5d0d..455d3c9 100644
+--- a/tests/modules/field_group_test/field_group_test.info.yml
++++ b/tests/modules/field_group_test/field_group_test.info.yml
+@@ -1,6 +1,6 @@
+ name: 'Field Group Test'
+ description: 'Test module for Field Group'
+-core: 8.x
++core_version_requirement: ^8.8 || ^9
+ package: 'Fields'
+ type: module
+ hidden: TRUE
+diff --git a/tests/src/Functional/EntityDisplayTest.php b/tests/src/Functional/EntityDisplayTest.php
+index 7eda8fa..5f0060a 100644
+--- a/tests/src/Functional/EntityDisplayTest.php
++++ b/tests/src/Functional/EntityDisplayTest.php
+@@ -23,7 +23,7 @@ class EntityDisplayTest extends BrowserTestBase {
+     'field_test',
+     'field_ui',
+     'field_group',
+-    'field_group_test',
++    'field_group_test'
+   ];
+ 
+   /**
+@@ -157,8 +157,8 @@ class EntityDisplayTest extends BrowserTestBase {
+     $this->drupalGet('node/' . $this->node->id());
+ 
+     // Test group ids and classes.
+-    $this->assertTrue($this->xpath("//div[contains(@id, 'wrapper-id')]"), 'Wrapper id set on wrapper div');
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class')]"), 'Test class set on wrapper div, class="' . $group->group_name . ' test-class');
++    $this->assertCount(1, $this->xpath("//div[contains(@id, 'wrapper-id')]"), 'Wrapper id set on wrapper div');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'test-class')]"), 'Test class set on wrapper div, class="' . $group->group_name . ' test-class');
+ 
+     // Test group label.
+     $this->assertSession()->responseNotContains('<h3><span>' . $data['label'] . '</span></h3>');
+@@ -178,8 +178,8 @@ class EntityDisplayTest extends BrowserTestBase {
+     field_group_group_save($group);
+ 
+     $this->drupalGet('node/' . $this->node->id());
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'speed-fast')]"), 'Speed class is set');
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'effect-blink')]"), 'Effect class is set');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'speed-fast')]"), 'Speed class is set');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'effect-blink')]"), 'Effect class is set');
+   }
+ 
+   /**
+@@ -205,8 +205,8 @@ class EntityDisplayTest extends BrowserTestBase {
+     $this->drupalGet('node/' . $this->node->id());
+ 
+     // Test group ids and classes.
+-    $this->assertTrue($this->xpath("//fieldset[contains(@id, 'fieldset-id')]"), 'Correct id set on the fieldset');
+-    $this->assertTrue($this->xpath("//fieldset[contains(@class, 'test-class')]"), 'Test class set on the fieldset');
++    $this->assertCount(1, $this->xpath("//fieldset[contains(@id, 'fieldset-id')]"), 'Correct id set on the fieldset');
++    $this->assertCount(1, $this->xpath("//fieldset[contains(@class, 'test-class')]"), 'Test class set on the fieldset');
+   }
+ 
+   /**
+@@ -264,16 +264,16 @@ class EntityDisplayTest extends BrowserTestBase {
+     $this->drupalGet('node/' . $this->node->id());
+ 
+     // Test properties.
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class-wrapper')]"), 'Test class set on tabs wrapper');
+-    $this->assertTrue($this->xpath("//details[contains(@class, 'test-class-2')]"), 'Test class set on second tab');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'test-class-wrapper')]"), 'Test class set on tabs wrapper');
++    $this->assertCount(1, $this->xpath("//details[contains(@class, 'test-class-2')]"), 'Test class set on second tab');
+     $this->assertSession()->responseContains('<div class="details-description">description of second tab</div>');
+ 
+     // Test if correctly nested.
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class-wrapper')]//details[contains(@class, 'test-class')]"), 'First tab is displayed as child of the wrapper.');
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class-wrapper')]//details[contains(@class, 'test-class-2')]"), 'Second tab is displayed as child of the wrapper.');
++    $this->assertCount(2, $this->xpath("//div[contains(@class, 'test-class-wrapper')]//details[contains(@class, 'test-class')]"), 'First tab is displayed as child of the wrapper.');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'test-class-wrapper')]//details[contains(@class, 'test-class-2')]"), 'Second tab is displayed as child of the wrapper.');
+ 
+     // Test if it's a vertical tab.
+-    $this->assertTrue($this->xpath('//div[@data-vertical-tabs-panes=""]'), 'Tabs are shown vertical.');
++    $this->assertCount(1, $this->xpath('//div[@data-vertical-tabs-panes=""]'), 'Tabs are shown vertical.');
+ 
+     // Switch to horizontal.
+     $tabs_group->format_settings['direction'] = 'horizontal';
+@@ -282,7 +282,7 @@ class EntityDisplayTest extends BrowserTestBase {
+     $this->drupalGet('node/' . $this->node->id());
+ 
+     // Test if it's a horizontal tab.
+-    $this->assertTrue($this->xpath('//div[@data-horizontal-tabs-panes=""]'), 'Tabs are shown horizontal.');
++    $this->assertCount(1, $this->xpath('//div[@data-horizontal-tabs-panes=""]'), 'Tabs are shown horizontal.');
+   }
+ 
+   /**
+@@ -338,15 +338,15 @@ class EntityDisplayTest extends BrowserTestBase {
+     $this->drupalGet('node/' . $this->node->id());
+ 
+     // Test properties.
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class-wrapper')]"), 'Test class set on tabs wrapper');
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'effect-bounceslide')]"), 'Correct effect is set on the accordion');
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class')]"), 'Accordion item with test-class is shown');
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class-2')]"), 'Accordion item with test-class-2 is shown');
+-    $this->assertTrue($this->xpath("//h3[contains(@class, 'field-group-accordion-active')]"), 'Accordion item 2 was set active');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'test-class-wrapper')]"), 'Test class set on tabs wrapper');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'effect-bounceslide')]"), 'Correct effect is set on the accordion');
++    $this->assertCount(3, $this->xpath("//div[contains(@class, 'test-class')]"), 'Accordion item with test-class is shown');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'test-class-2')]"), 'Accordion item with test-class-2 is shown');
++    $this->assertCount(1, $this->xpath("//h3[contains(@class, 'field-group-accordion-active')]"), 'Accordion item 2 was set active');
+ 
+     // Test if correctly nested.
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class-wrapper')]//div[contains(@class, 'test-class')]"), 'First item is displayed as child of the wrapper.');
+-    $this->assertTrue($this->xpath("//div[contains(@class, 'test-class-wrapper')]//div[contains(@class, 'test-class-2')]"), 'Second item is displayed as child of the wrapper.');
++    $this->assertCount(2, $this->xpath("//div[contains(@class, 'test-class-wrapper')]//div[contains(@class, 'test-class')]"), 'First item is displayed as child of the wrapper.');
++    $this->assertCount(1, $this->xpath("//div[contains(@class, 'test-class-wrapper')]//div[contains(@class, 'test-class-2')]"), 'Second item is displayed as child of the wrapper.');
+   }
+ 
+ }

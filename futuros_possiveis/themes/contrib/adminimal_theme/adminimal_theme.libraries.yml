@@ -1,0 +1,19 @@
+global-styling:
+  version: VERSION
+  css:
+    base:
+      css/adminimal.css: {}
+
+google-fonts:
+  version: VERSION
+  css:
+    base:
+      css/adminimal_fonts.css: {}
+  js:
+    js/base.js: {}
+
+custom-styling:
+  version: VERSION
+  css:
+    theme:
+      public://adminimal-custom.css: {}

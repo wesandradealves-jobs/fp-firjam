@@ -1,0 +1,121 @@
+
+{# Help #}
+{% if page.help %}
+  {% block help %}
+    {{ page.help }}
+  {% endblock %}
+{% endif %}
+
+{# hero_slider #}
+{% if page.hero_slider %}
+{% block hero_slider %}
+  <div class="hero_slider">
+    {{ page.hero_slider }}
+  </div>
+{% endblock %}
+{% endif %}
+
+{# Main #}
+{% block new_internal_page_header %}
+<div class="new-internal-page-header">
+    </div>
+    <div class="page-header-breadcrumb wrapper">
+      <ol class="breadcrumb">
+      <li><a href="{{base_path}}">Home</a></li>
+      </ol>
+    </div>
+</div>
+{% endblock %}
+
+{% block before_main %}
+
+{% endblock %}
+
+{% block main %}
+    <div role="main" class="main-content main-container container-fluid {{ container }} js-quickedit-main-content {{ contentTypeName }} {{ page_pos }}">
+      <div class="row">
+        <div class="col-xs-12 wrapper main-content-wrapper side-layout-colors" style="background-color: #fff;">
+          <div class="row">
+          {% block breadcrumb_fake %}
+          {% endblock %}
+          {# Sidebar First init #}
+          {% if page.sidebar_first or page.sidebar_menu %}
+            {% block sidebar_first %}
+              {# <aside class="col-sm-3" role="complementary"> #}
+              <aside class="col-md-3 col-sm-12" role="complementary">
+                {{ page.sidebar_menu }}
+                {{ page.sidebar_first }}
+              </aside>
+            {% endblock %}
+          {% endif %}
+          {# Sidebar First end #}
+
+          {# Content init #}
+          {% if ShowSideBar == false %}
+          {% set content_classes = 'col-xs-12' %}
+          {% else %}
+          {%
+          set content_classes = [
+            page.sidebar_first or page.sidebar_menu and page.sidebar_second is empty ? 'col-md-9 col-sm-12 caso-01',
+            ShowSideBar == false ? 'col-xs-12',
+            page.sidebar_first and page.sidebar_second ? 'col-sm-6',
+            page.sidebar_first is empty and page.sidebar_menu is empty and page.sidebar_second is empty ? 'col-sm-12'
+          ]
+          %}
+          {% endif %}
+
+        <section{{ content_attributes.addClass(content_classes) }}>
+        {# Highlighted #}
+        {% if page.highlighted %}
+          {% block highlighted %}
+            <div class="highlighted ">
+              <div class="row">
+                <div class="col-xs-12 {{ page_highlighted_class }}">{{ page.highlighted }}</div>
+              </div>
+            </div>
+          {% endblock %}
+        {% endif %}
+
+        {# Breadcrumbs #}
+        {% if breadcrumb %}
+          {% block breadcrumb %}
+            {{ breadcrumb }}
+          {% endblock %}
+        {% endif %}
+
+        {# Action Links #}
+        {% if action_links %}
+          {% block action_links %}
+            <ul class="action-links">{{ action_links }}</ul>
+          {% endblock %}
+        {% endif %}
+
+        {# Content #}
+        {% block content %}
+          <a id="main-content"></a>
+          {{ page.content }}
+        {% endblock %}
+      </section>
+      {% if page.sidebar_second %}
+        {% block sidebar_second %}
+          <aside class="col-sm-3" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endblock %}
+      {% endif %}
+
+       {% block after_main_content_inner %}
+       {% endblock %}
+      </div>
+      {# <!-- main content - inserir fim --> #}
+      </div>
+      {# </div> #}
+    </div>
+    </div>
+    {# <!-- main content end --> #}
+{% endblock %}
+
+{% block after_main_content %}
+{# zerando block #}
+{% endblock %}
+

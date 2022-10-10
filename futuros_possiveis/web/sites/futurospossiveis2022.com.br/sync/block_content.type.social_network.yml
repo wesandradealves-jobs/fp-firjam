@@ -1,8 +1,0 @@
-uuid: ba915500-4413-4b4a-b9f4-f034dc371c23
-langcode: en
-status: true
-dependencies: {  }
-id: social_network
-label: 'Social Network'
-revision: 0
-description: ''

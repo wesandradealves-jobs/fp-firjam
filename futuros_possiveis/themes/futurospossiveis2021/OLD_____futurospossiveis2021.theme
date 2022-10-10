@@ -1,0 +1,735 @@
+<?php
+
+
+use Drupal\field\Entity\FieldConfig;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\file\Entity\File;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\views\Views;
+use Drupal\node\Entity\Node;
+use Drupal\gm5_interface\Plugin\File\GM5File;
+use Drupal\gm5_interface\Plugin\Node\GM5Node;
+use Drupal\gm5_interface\Plugin\Util\GM5String;
+use Drupal\gm5_interface\Plugin\Util\GM5Util;
+use Drupal\gm5_interface\Plugin\Views\GM5Views;
+use Drupal\Core\Config\Config;
+
+function futurospossiveis2021_theme_suggestions_page_alter(array &$suggestions, array $variables){
+  
+  //Temas para nodes
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    array_splice($suggestions, 1, 0, 'page__' . $node->getType() . '_detalhe');
+    array_splice($suggestions, 1, 0, 'page__' . $node->getType());
+  }
+  
+  //Tema para Vocabulários
+  if(\Drupal::routeMatch()->getRawParameter('taxonomy_term')){
+    $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+    $term = Term::load($tid);
+    if (!empty($term)) {
+      $vid = $term->vid->getValue();
+      $suggestions[] = 'page__taxonomy__vocabulary__' . $vid[0]['target_id'];
+    } 
+  }
+  
+}
+
+function futurospossiveis2021_preprocess_html(&$variables){
+
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  
+  $variables['userMenu']['editar'] = '/user/'.\Drupal::currentUser()->id().'/edit';
+  
+  $viewDiaEvento = GM5Views::getViewArg('dias_do_evento','lista');
+    
+  foreach($viewDiaEvento['items'] as $k => $diaEventoObj){
+    $diaLi = $diaEventoObj->_entity->toArray();
+
+    $diaEvento = array();
+    $diaEvento['tid'] = $diaLi['tid'][0]['value'];
+    $aliasManager = \Drupal::service('path_alias.manager');
+    $alias = $aliasManager->getAliasByPath('/taxonomy/term/'.$diaLi['tid'][0]['value']);
+    $diaEvento['url'] = $alias;
+    $diaEvento['data'] = date('d/m',strtotime($diaLi['field_dia_do_evento'][0]['value']));
+    $variables['customPage']['dias'][] = $diaEvento;
+  }
+  unset($variables['customPage']['dias'][3]);
+  
+  $today = date('d/m');
+  
+  $palestraUrl = '';
+  foreach($variables['customPage']['dias'] as $dia){
+    if($dia['data'] == $today){
+      $palestraUrl = $dia['url'];
+    }
+  }
+  
+  if(!$palestraUrl){
+    $palestraUrl = $variables['customPage']['dias'][0]['url'];
+  }
+  $variables['userMenu']['palestra'] = $palestraUrl;
+
+  $config = \Drupal::config('system.site');
+  $front_uri = $config->get('page.front');
+  $nid = substr($front_uri, 6);
+  if(Node::load($nid)){
+    $nodeObj = Node::load($nid);
+    $node = $nodeObj->toArray();  
+
+    
+    $variables['customPage']['login'] = isset($node['field_login_liberado'][0]['value']) ? $node['field_login_liberado'][0]['value'] : '';
+    
+    // Redes Sociais
+    $variables['customPage']['redes']['facebook'] = isset($node['field_facebook'][0]['uri']) ? $node['field_facebook'][0]['uri'] : '';
+    $variables['customPage']['redes']['instagram'] = isset($node['field_instagram'][0]['uri']) ? $node['field_instagram'][0]['uri'] : '';
+    $variables['customPage']['redes']['twitter'] = isset($node['field_twitter'][0]['uri']) ? $node['field_twitter'][0]['uri'] : '';
+    $variables['customPage']['redes']['linkedin'] = isset($node['field_linkedin'][0]['uri']) ? $node['field_linkedin'][0]['uri'] : '';
+
+    //Metas Tags OG
+    $variables['customPage']['metas']['titulo'] = isset($node['field_titulo_de_compartilhamento'][0]['value']) ? $node['field_titulo_de_compartilhamento'][0]['value'] : '';
+    $variables['customPage']['metas']['descricao'] = isset($node['field_descricao_de_compartilhame'][0]['value']) ? $node['field_descricao_de_compartilhame'][0]['value'] : '';
+    $variables['customPage']['metas']['imagem'] = isset($node['field_imagem_de_compartilhamento'][0]['target_id']) ? GM5File::renderImage($node['field_imagem_de_compartilhamento'][0]['target_id'],'800x500') : '';
+    $variables['customPage']['metas']['url'] = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";;
+  }
+
+  if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+    $term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($term_id);
+    if($term->bundle() == 'data_evento'){
+      $variables['customPage']['page_transmissao'] = true;
+    }
+  }
+}
+
+function futurospossiveis2021_preprocess_page__landing(&$variables){
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  
+  $variables['userMenu']['editar'] = '/user/'.\Drupal::currentUser()->id().'/edit';
+
+  //
+  //Sessão de Vídeos "Quem já passou por aqui"...
+  //
+  $viewVideosCategorizados = GM5Views::getViewArg('videos_categorizados','aleatorio');
+
+  foreach($viewVideosCategorizados['items']  as $k => $aleatorio){
+
+    $aleatorio =  $aleatorio->_entity->toArray();
+
+    $aleatorioItem = array();
+    $aleatorioItem['title']       = $aleatorio['title'][0]['value']; 
+    $aleatorioItem['ano']         = isset($aleatorio['field_ano'][0]['value']) ? $aleatorio['field_ano'][0]['value'] : ''; 
+    $aleatorioItem['description'] = isset($aleatorio['field_descricao'][0]['value']) ? $aleatorio['field_descricao'][0]['value'] : ''; 
+    $aleatorioItem['url']         = 'https://www.youtube.com/embed/'.$aleatorio['field_link_do_video'][0]['video_id'];   
+    $aleatorioItem['thumb']       = 'https://img.youtube.com/vi/'.$aleatorio['field_link_do_video']['0']['video_id'].'/hqdefault.jpg';
+
+   
+    $variables['customPage']['conteudo']['quemPassou'][] = $aleatorioItem;
+
+  }
+
+  //
+  // Seção Publicações
+  //
+  $viewPublicacoes = GM5Views::getViewArg('publicacoes','block');
+
+  foreach($viewPublicacoes['items']  as $k => $publicacao){
+
+    $publicacao =  $publicacao->_entity->toArray();
+
+    $publicacaoItem = array();
+    $publicacaoItem['title']        = $publicacao['title'][0]['value']; 
+    $publicacaoItem['description']  = $publicacao['field_descricao'][0]['value']; 
+    $publicacaoItem['url']          = $publicacao['field_link'][0]['uri']; 
+    $publicacaoItem['thumb']        = GM5File::renderImage($publicacao['field_thumb'][0]['target_id'], '350x240'); 
+
+    $variables['customPage']['conteudo']['publicacoes'][] = $publicacaoItem;
+
+  }
+ // var_dump($variables['customPage']['conteudo']);
+  $nodeObj = \Drupal::request()->attributes->get('node');
+  if($nodeObj){
+    $node = $nodeObj->toArray(); 
+    $date = new DateTime($node['field_data_do_evento'][0]['value'], new DateTimeZone('America/Sao_Paulo'));
+  
+    $variables['customPage']['logo'] = isset($node['field_logo_evento'][0]['target_id']) ? GM5File::renderImage($node['field_logo_evento'][0]['target_id']) : '';
+
+    // Countdown
+    $variables['customPage']['countdown']['data'] = isset($node['field_data_do_evento'][0]['value']) ? $date->format( 'm/d/Y H:i:s' ) : '';
+    if(isset($node['field_visivel_contagem_regressiv'][0]['value']) && $node['field_visivel_contagem_regressiv'][0]['value'] == 1){
+      $variables['customPage']['countdown']['visivel'] = TRUE;
+    }
+
+    // Introdução
+    $variables['customPage']['introducao']['headline'] = isset($node['field_headline'][0]['value']) ? $node['field_headline'][0]['value'] : '';
+    $variables['customPage']['introducao']['video_introducao'] = isset($node['field_video_introducao'][0]['video_id']) ? $node['field_video_introducao'][0]['video_id'] : '';
+    if(isset($node['field_visivel_introducao'][0]['value']) && $node['field_visivel_introducao'][0]['value'] == 1){
+      $variables['customPage']['introducao']['visivel'] = TRUE;
+    }
+
+    // Quem passou
+    $variables['customPage']['quemPassou']['titulo'] = isset($node['field_titulo_quem_passou'][0]['value']) ? $node['field_titulo_quem_passou'][0]['value'] : '';
+    $variables['customPage']['quemPassou']['texto'] = isset($node['field_quem_ja_passou_por_aqui'][0]['value']) ? $node['field_quem_ja_passou_por_aqui'][0]['value'] : '';
+    if(isset($node['field_visivel_quem_passou'][0]['value']) && $node['field_visivel_quem_passou'][0]['value'] == 1){
+      $variables['customPage']['quemPassou']['visivel'] = TRUE;
+    }
+
+    // Edições Anteriores
+    $variables['customPage']['edicoesAnteriores']['titulo'] = isset($node['field_titulo_edicoes_anteriores'][0]['value']) ? $node['field_titulo_edicoes_anteriores'][0]['value'] : '';
+    $variables['customPage']['edicoesAnteriores']['texto'] = isset($node['field_edicoes_'][0]['value']) ? $node['field_edicoes_'][0]['value'] : '';
+    if(isset($node['field_visivel_edicoes_anteriores'][0]['value']) && $node['field_visivel_edicoes_anteriores'][0]['value'] == 1){
+      $variables['customPage']['edicoesAnteriores']['visivel'] = TRUE;
+    }
+
+    $variables['customPage']['edicoesAnteriores']['linkbanner1']    = $node['field_ea_link_banner1'][0]['value'];
+    $variables['customPage']['edicoesAnteriores']['banner1']['img'] = GM5File::renderImage($node['field_ea_banner1'][0]['target_id'],'420x590');
+    $variables['customPage']['edicoesAnteriores']['banner1']['alt'] = $node['field_ea_banner1'][0]['alt'];
+
+    $variables['customPage']['edicoesAnteriores']['linkbanner2']    = $node['field_ea_link_banner2'][0]['value'];
+    $variables['customPage']['edicoesAnteriores']['banner2']['img'] = GM5File::renderImage($node['field_ea_banner2'][0]['target_id'],'420x590');
+    $variables['customPage']['edicoesAnteriores']['banner2']['alt'] = $node['field_ea_banner2'][0]['alt'];
+
+    $variables['customPage']['edicoesAnteriores']['linkbanner3']    = $node['field_ea_link_banner3'][0]['value'];
+    $variables['customPage']['edicoesAnteriores']['banner3']['img'] = GM5File::renderImage($node['field_ea_banner3'][0]['target_id'],'420x590');
+    $variables['customPage']['edicoesAnteriores']['banner3']['alt'] = $node['field_ea_banner3'][0]['alt'];
+
+    $variables['customPage']['edicoesAnteriores']['linkbanner4']    = $node['field_ea_link_banner4'][0]['value'];
+    $variables['customPage']['edicoesAnteriores']['banner4']['img'] = GM5File::renderImage($node['field_ea_banner4'][0]['target_id'],'420x590');
+    $variables['customPage']['edicoesAnteriores']['banner4']['alt'] = $node['field_ea_banner4'][0]['alt'];   
+
+    // Publicações
+    $variables['customPage']['publicacoes']['titulo'] = isset($node['field_titulo_publicacoes'][0]['value']) ? $node['field_titulo_publicacoes'][0]['value'] : '';
+    $variables['customPage']['publicacoes']['texto'] = isset($node['field_publicacoes'][0]['value']) ? $node['field_publicacoes'][0]['value'] : '';
+    if(isset($node['field_visivel_publicacoes'][0]['value']) && $node['field_visivel_publicacoes'][0]['value'] == 1){
+      $variables['customPage']['publicacoes']['visivel'] = TRUE;
+    }
+
+    // Reses Sociais
+    $variables['customPage']['redes']['facebook'] = isset($node['field_facebook'][0]['uri']) ? $node['field_facebook'][0]['uri'] : '';
+    $variables['customPage']['redes']['instagram'] = isset($node['field_instagram'][0]['uri']) ? $node['field_instagram'][0]['uri'] : '';
+    $variables['customPage']['redes']['twitter'] = isset($node['field_twitter'][0]['uri']) ? $node['field_twitter'][0]['uri'] : '';
+    $variables['customPage']['redes']['linkedin'] = isset($node['field_linkedin'][0]['uri']) ? $node['field_linkedin'][0]['uri'] : '';
+  }
+}
+
+function futurospossiveis2021_preprocess_page__hotsite(&$variables){
+  // var_dump('debug');
+
+  $nodeObj = \Drupal::request()->attributes->get('node');
+  if($nodeObj){
+    $node = $nodeObj->toArray(); 
+    $date = new DateTime($node['field_data_do_evento'][0]['value'], new DateTimeZone('America/Sao_Paulo'));
+  
+    $variables['customPage']['logo'] = isset($node['field_logo_evento'][0]['target_id']) ? GM5File::renderImage($node['field_logo_evento'][0]['target_id']) : '';
+    $variables['customPage']['login'] = isset($node['field_login_liberado'][0]['value']) ? $node['field_login_liberado'][0]['value'] : '';
+
+    // Countdown
+    $variables['customPage']['countdown']['data'] = isset($node['field_data_do_evento'][0]['value']) ? $date->format( 'm/d/Y H:i:s' ) : '';
+    if(isset($node['field_visivel_contagem_regressiv'][0]['value']) && $node['field_visivel_contagem_regressiv'][0]['value'] == 1){
+      $variables['customPage']['countdown']['visivel'] = TRUE;
+    }
+
+    // Introdução
+    $variables['customPage']['introducao']['headline'] = isset($node['field_headline'][0]['value']) ? $node['field_headline'][0]['value'] : '';
+    $variables['customPage']['introducao']['video_introducao'] = isset($node['field_video_introducao'][0]['video_id']) ? $node['field_video_introducao'][0]['video_id'] : '';
+    if(isset($node['field_visivel_introducao'][0]['value']) && $node['field_visivel_introducao'][0]['value'] == 1){
+      $variables['customPage']['introducao']['visivel'] = TRUE;
+    }
+
+    // Programação
+    $variables['customPage']['programacao']['titulo'] = isset($node['field_titulo_programacao'][0]['value']) ? $node['field_titulo_programacao'][0]['value'] : '';
+    $variables['customPage']['programacao']['texto'] = isset($node['field_texto_programacao'][0]['value']) ? $node['field_texto_programacao'][0]['value'] : '';
+    if(isset($node['field_status_programacao'][0]['value']) && $node['field_status_programacao'][0]['value'] == 1){
+      $variables['customPage']['programacao']['visivel'] = TRUE;
+    }
+
+    // Oficinas
+    $variables['customPage']['oficinas']['titulo'] = isset($node['field_titulo_oficina'][0]['value']) ? $node['field_titulo_oficina'][0]['value'] : '';
+    $variables['customPage']['oficinas']['texto'] = isset($node['field_texto_oficinas'][0]['value']) ? $node['field_texto_oficinas'][0]['value'] : '';
+    if(isset($node['field_status_oficinas'][0]['value']) && $node['field_status_oficinas'][0]['value'] == 1){
+      $variables['customPage']['oficinas']['visivel'] = TRUE;
+    } 
+
+    // Experiencias
+    $variables['customPage']['experiencias']['titulo'] = isset($node['field_titulo_experiencia'][0]['value']) ? $node['field_titulo_experiencia'][0]['value'] : '';
+    $variables['customPage']['experiencias']['texto'] = isset($node['field_texto_experiencias'][0]['value']) ? $node['field_texto_experiencias'][0]['value'] : '';
+    $variables['customPage']['experiencias']['produto']['video'] = isset($node['field_video_experiencia_imersiva'][0]['video_id']) ? $node['field_video_experiencia_imersiva'][0]['video_id'] : '';
+    $variables['customPage']['experiencias']['produto']['thumb'] = isset($node['field_thumb_experiencia_imersiva'][0]['target_id']) ? GM5File::renderImage($node['field_thumb_experiencia_imersiva'][0]['target_id'], '550x330') : '';
+    $variables['customPage']['experiencias']['produto']['titulo'] = isset($node['field_nome_da_experiencia'][0]['value']) ? $node['field_nome_da_experiencia'][0]['value'] : '';
+    $variables['customPage']['experiencias']['produto']['conteudo'] = isset($node['field_conteudo_experiencia'][0]['value']) ? $node['field_conteudo_experiencia'][0]['value'] : '';
+    $variables['customPage']['experiencias']['produto']['data'] = isset($node['field_data_e_hora_da_experie'][0]['value']) ? $node['field_data_e_hora_da_experie'][0]['value'] : '';
+    $variables['customPage']['experiencias']['produto']['facilitador'] = isset($node['field_facilitador_da_experie'][0]['value']) ? $node['field_facilitador_da_experie'][0]['value'] : '';
+    if(isset($node['field_s'][0]['value']) && $node['field_s'][0]['value'] == 1){
+      $variables['customPage']['experiencias']['visivel'] = TRUE;
+    }
+    
+    // Imprensa
+    $variables['customPage']['imprensa']['titulo'] = isset($node['field_titulo_imprensa'][0]['value']) ? $node['field_titulo_imprensa'][0]['value'] : '';
+    $variables['customPage']['imprensa']['texto'] = isset($node['field_texto_imprensa'][0]['value']) ? $node['field_texto_imprensa'][0]['value'] : '';
+    $variables['customPage']['imprensa']['arquivo']['uri'] = isset($node['field_arquivo_imprensa'][0]['target_id']) ? GM5File::renderImage($node['field_arquivo_imprensa'][0]['target_id']) : '';
+    $variables['customPage']['imprensa']['arquivo']['label'] = isset($node['field_arquivo_imprensa'][0]['description']) && !empty($node['field_arquivo_imprensa'][0]['description']) ? $node['field_arquivo_imprensa'][0]['description'] : 'RELEASE OFICIAL';
+    if(isset($node['field_status_imprensa'][0]['value']) && $node['field_status_imprensa'][0]['value'] == 1){
+      $variables['customPage']['imprensa']['visivel'] = TRUE;
+    }
+
+    // var_dump($node['field_arquivo_imprensa'][0]);
+
+    // Reses Sociais
+    $variables['customPage']['redes']['facebook'] = isset($node['field_facebook'][0]['uri']) ? $node['field_facebook'][0]['uri'] : '';
+    $variables['customPage']['redes']['instagram'] = isset($node['field_instagram'][0]['uri']) ? $node['field_instagram'][0]['uri'] : '';
+    $variables['customPage']['redes']['twitter'] = isset($node['field_twitter'][0]['uri']) ? $node['field_twitter'][0]['uri'] : '';
+    $variables['customPage']['redes']['linkedin'] = isset($node['field_linkedin'][0]['uri']) ? $node['field_linkedin'][0]['uri'] : '';
+
+    // LGPD
+    $variables['customPage']['lgpd']['evento'] = isset($node['field_lgpd_inscricao_no_evento'][0]['value']) ? $node['field_lgpd_inscricao_no_evento'][0]['value'] : '';
+    $variables['customPage']['lgpd']['oficina'] = isset($node['field_lgpd_inscricao_oficina'][0]['value']) ? $node['field_lgpd_inscricao_oficina'][0]['value'] : '';
+    $variables['customPage']['lgpd']['ei'] = isset($node['field_lgpd_inscricao_ei'][0]['value']) ? $node['field_lgpd_inscricao_ei'][0]['value'] : '';
+
+    // Palestras
+    $viewPalestras = GM5Views::getViewArg('palestras','todas_palestras');
+    $palestras = array();
+    foreach($viewPalestras['items'] as $k => $palestra){
+      $palestraDia = $palestra->_entity->field_dia_do_evento->entity->toArray();
+      $palestra = $palestra->_entity->toArray();
+      $weight = $palestraDia['weight'][0]['value'];
+      // var_dump($palestra);
+      $weightPalestra = $palestra['weight'][0]['value'];
+      $date = new DateTime($palestraDia['field_dia_do_evento'][0]['value'], new DateTimeZone('America/Sao_Paulo'));
+
+      // Dias de evento
+      $palestras[$weight]['evento'] = $palestraDia['name'][0]['value'];
+      $palestras[$weight]['titulo'] = isset($palestraDia['field_titulo_interno'][0]['value']) ? $palestraDia['field_titulo_interno'][0]['value'] : '';
+      $palestras[$weight]['descricao'] = isset($palestraDia['description'][0]['value']) ? $palestraDia['description'][0]['value'] : '';
+      $palestras[$weight]['data'] = isset($palestraDia['field_dia_do_evento'][0]['value']) ? $date->format( 'd/m/Y' ) : '';
+
+      // Palestras
+      $palestras[$weight]['itens'][$k]['weight'] = $weightPalestra;
+      $palestras[$weight]['itens'][$k]['titulo'] = $palestra['title'][0]['value'];
+      $palestras[$weight]['itens'][$k]['nomePalestra'] = isset($palestra['field_nome_da_palestra'][0]['value']) ? $palestra['field_nome_da_palestra'][0]['value'] : '';
+      $palestras[$weight]['itens'][$k]['cargo'] = isset($palestra['field_cargo_palestrante'][0]['value']) ? $palestra['field_cargo_palestrante'][0]['value'] : '';
+      $palestras[$weight]['itens'][$k]['curriculo'] = isset($palestra['field_curriculo'][0]['value']) ? $palestra['field_curriculo'][0]['value'] : '';
+      $palestras[$weight]['itens'][$k]['descricao'] = isset($palestra['field_descricao'][0]['value']) ? $palestra['field_descricao'][0]['value'] : '';
+      $palestras[$weight]['itens'][$k]['thumb'] = isset($palestra['field_thumb'][0]['target_id']) ? str_replace('http://', 'https://', GM5File::renderImage($palestra['field_thumb'][0]['target_id'], '300x300')) : '';
+      $palestras[$weight]['itens'][$k]['linkedin'] = isset($palestra['field_linkedin_do_palestrante'][0]['uri']) ? $palestra['field_linkedin_do_palestrante'][0]['uri'] : '';
+      $palestras[$weight]['itens'][$k]['live'] = isset($palestra['field_marcar_como_ao_vivo'][0]['value']) ? $palestra['field_marcar_como_ao_vivo'][0]['value'] : '';
+      $palestras[$weight]['itens'][$k]['painel'] = isset($palestra['field_painel'][0]['value']) ? $palestra['field_painel'][0]['value'] : '';
+      $palestras[$weight]['itens'][$k]['mediacao'] = isset($palestra['field_mediado_por_xxx'][0]['value']) ? $palestra['field_mediado_por_xxx'][0]['value'] : '';
+      $palestras[$weight]['itens'][$k]['horario'] = isset($palestra['field_horario'][0]['value']) ? $palestra['field_horario'][0]['value'] : '';
+    }
+    ksort($palestras);
+    $variables['customPage']['programacao']['palestras'] = $palestras;
+
+    // Link palestra
+    $viewDiaEvento = GM5Views::getViewArg('dias_do_evento','lista');
+    
+    foreach($viewDiaEvento['items'] as $k => $diaEventoObj){
+      $diaLi = $diaEventoObj->_entity->toArray();
+  
+      $diaEvento = array();
+      $diaEvento['tid'] = $diaLi['tid'][0]['value'];
+      $aliasManager = \Drupal::service('path_alias.manager');
+      $alias = $aliasManager->getAliasByPath('/taxonomy/term/'.$diaLi['tid'][0]['value']);
+      $diaEvento['url'] = $alias;
+      $diaEvento['data'] = date('d/m',strtotime($diaLi['field_dia_do_evento'][0]['value']));
+      $variables['customPage']['dias'][] = $diaEvento;
+    }
+    unset($variables['customPage']['dias'][3]);
+    
+    $today = date('d/m');
+    
+    $palestraUrl = '';
+    foreach($variables['customPage']['dias'] as $dia){
+      if($dia['data'] == $today){
+        $palestraUrl = $dia['url'];
+      }
+    }
+    
+    if(!$palestraUrl){
+      $palestraUrl = $variables['customPage']['dias'][0]['url'];
+    }
+    $variables['customPage']['palestra'] = $palestraUrl;
+
+    
+
+    // Cards Oficinas
+    $viewOficinas = GM5Views::getViewArg('oficinas','todas_oficinas');
+    $oficinas = array();
+    foreach($viewOficinas['items'] as $k => $oficina){
+      $oficina = $oficina->_entity->toArray();
+
+      $oficinas[$k]['id'] = $oficina['nid'][0]['value'];
+      $oficinas[$k]['titulo'] = $oficina['title'][0]['value'];
+      $oficinas[$k]['descricao'] = isset($oficina['field_descricao'][0]['value']) ? $oficina['field_descricao'][0]['value'] : '';
+      $oficinas[$k]['data_hora'] = isset($oficina['field_data_e_hora'][0]['value']) ? $oficina['field_data_e_hora'][0]['value'] : '';
+      $oficinas[$k]['destaque'] = isset($oficina['field_destaque'][0]['value']) ? $oficina['field_destaque'][0]['value'] : '';
+      $oficinas[$k]['esgotado'] = isset($oficina['field_inscricoes_encerradas'][0]['value']) ? $oficina['field_inscricoes_encerradas'][0]['value'] : '';
+      $oficinas[$k]['facilitador'] = isset($oficina['field_facilitacao'][0]['value']) ? $oficina['field_facilitacao'][0]['value'] : '';
+      $oficinas[$k]['valor_de'] = isset($oficina['field_valor_de'][0]['value']) ? number_format($oficina['field_valor_de'][0]['value'],2,",",".") : '';
+      $oficinas[$k]['valor_por'] = isset($oficina['field_valor_por'][0]['value']) ? number_format($oficina['field_valor_por'][0]['value'],2,",",".") : '';
+      $oficinas[$k]['n_reg'] = isset($oficina['field_n_reg'][0]['value']) ? 'R$ '.number_format($oficina['field_n_reg'][0]['value'],2,",",".") : '';
+      $oficinas[$k]['regimental'] = isset($oficina['field_regimental'][0]['value']) ? 'R$ '.number_format($oficina['field_regimental'][0]['value'],2,",",".") : '';
+      $oficinas[$k]['sindicatos'] = isset($oficina['field_sindicatos'][0]['value']) ? 'R$ '.number_format($oficina['field_sindicatos'][0]['value'],2,",",".") : '';
+      $oficinas[$k]['cirj'] = isset($oficina['field_cirj'][0]['value']) ? 'R$ '.number_format($oficina['field_cirj'][0]['value'],2,",",".") : '';     
+      $oficinas[$k]['imagem'] = isset($oficina['field_imagem'][0]['target_id']) ? str_replace('http://', 'https://', GM5File::renderImage($oficina['field_imagem'][0]['target_id'])) : '';
+    }
+    $variables['customPage']['oficinas']['itens'] = $oficinas;
+  }
+}
+
+function futurospossiveis2021_preprocess_page__taxonomy__vocabulary__data_evento(&$variables){
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+
+  // if(!$logged_in){
+  //   GM5Util::redirect('/user');
+  // }
+
+  $config = \Drupal::config('system.site');
+  $front_uri = $config->get('page.front');
+  $nid = substr($front_uri, 6);
+  if(Node::load($nid)){
+    $nodeObj = Node::load($nid);
+    $node = $nodeObj->toArray();    
+    $variables['logo'] = isset($node['field_logo_evento'][0]['target_id']) ? GM5File::renderImage($node['field_logo_evento'][0]['target_id']) : '';
+  } 
+
+  $termObj = \Drupal::request()->attributes->get('taxonomy_term');
+  $termArray = $termObj->toArray();
+  $userArray = $user->toArray();
+  //print_r($userArray); die;
+  $dia = $termArray;
+  
+  $node = Node::create([
+    'type'        => 'relatorio',
+    'title'       => $userArray['field_nome'][0]['value'] . ' - ' .$dia['name'][0]['value'] . ' - ' . date('d/m/Y H:i:s'),
+    'field_usuario' => ['target_id' => $userArray['uid'][0]['value']],
+    'field_dia_do_evento' => ['target_id' => $dia['tid'][0]['value']],
+  ]);
+  $node->save();
+  
+    
+    // var_dump($dia);
+    $diaEvento = array();
+    $diaEvento['data'] = date('d/m',strtotime($dia['field_dia_do_evento'][0]['value']));
+    $diaEvento['dia_path'] = strtolower(str_replace(' ','_',explode(' | ',$dia['name'][0]['value'])[1]));
+    $diaEvento['titulo'] = $dia['name'][0]['value'];
+    $diaEvento['descricao'] = isset($dia['description'][0]['value']) && !empty($dia['description'][0]['value']) ? $dia['description'][0]['value'] : '';
+    $diaEvento['titulo_interno'] = isset($dia['field_titulo_interno'][0]['value']) && !empty($dia['field_titulo_interno'][0]['value']) ? $dia['field_titulo_interno'][0]['value'] : '';
+    $diaEvento['link_en'] = isset($dia['field_link_transmissao_ingles'][0]['value']) && !empty($dia['field_link_transmissao_ingles'][0]['value']) ? end(explode('/',$dia['field_link_transmissao_ingles'][0]['value'])) : '';
+    $diaEvento['link_ptbr'] = isset($dia['field_link_transmissao_portugues'][0]['value']) && !empty($dia['field_link_transmissao_portugues'][0]['value']) ? end(explode('/',$dia['field_link_transmissao_portugues'][0]['value'])) : '';  
+    $diaEvento['link_chat'] = isset($dia['field_link_chat'][0]['value']) && !empty($dia['field_link_chat'][0]['value']) ? $dia['field_link_chat'][0]['value'] : '';  
+    // $diaEvento['link_en'] = isset($dia['field_link_transmissao_ingles'][0]['value']) && !empty($dia['field_link_transmissao_ingles'][0]['value']) ? end(explode('/',$dia['field_link_transmissao_ingles'][0]['value'])) : '';
+    // $diaEvento['link_ptbr'] = isset($dia['field_link_transmissao_portugues'][0]['value']) && !empty($dia['field_link_transmissao_portugues'][0]['value']) ? end(explode('/',$dia['field_link_transmissao_portugues'][0]['value'])) : '';   
+   
+    // Seção Conteúdo
+    $diaEvento['conteudo']['titulo'] = isset($dia['field_titulo_conteudo'][0]['value']) && !empty($dia['field_titulo_conteudo'][0]['value']) ? $dia['field_titulo_conteudo'][0]['value'] : '';
+    $diaEvento['conteudo']['texto'] = isset($dia['field_conteudo'][0]['value']) && !empty($dia['field_conteudo'][0]['value']) ? $dia['field_conteudo'][0]['value'] : '';
+    if(isset($dia['field_status_conteudo'][0]['value']) && $dia['field_status_conteudo'][0]['value'] == 1){
+      $diaEvento['conteudo']['visivel'] = TRUE;
+    }
+
+    // Seção Interação
+    $diaEvento['interacao']['titulo'] = isset($dia['field_titulo_interacao'][0]['value']) && !empty($dia['field_titulo_interacao'][0]['value']) ? $dia['field_titulo_interacao'][0]['value'] : '';
+    $diaEvento['interacao']['texto'] = isset($dia['field_texto_interacao'][0]['value']) && !empty($dia['field_texto_interacao'][0]['value']) ? $dia['field_texto_interacao'][0]['value'] : '';
+    $diaEvento['interacao']['imagem'] = isset($dia['field_link_transmissao_ingles'][0]['value']) && !empty($dia['field_imagem_interacao'][0]['target_id']) ? GM5File::renderImage($dia['field_imagem_interacao'][0]['target_id'],'large') : '';
+    if(isset($dia['field_status_interacao'][0]['value']) && $dia['field_status_interacao'][0]['value'] == 1){
+      $diaEvento['interacao']['visivel'] = TRUE;
+    }
+
+    // Seção Pesquisa
+    $diaEvento['pesquisa']['titulo'] = isset($dia['field_titulo_pesquisa'][0]['value']) && !empty($dia['field_titulo_pesquisa'][0]['value']) ? $dia['field_titulo_pesquisa'][0]['value'] : '';
+    $diaEvento['pesquisa']['texto'] = isset($dia['field_text'][0]['value']) && !empty($dia['field_text'][0]['value']) ? $dia['field_text'][0]['value'] : '';
+    $diaEvento['pesquisa']['link'] = isset($dia['field_link_pesquisa'][0]['uri']) && !empty($dia['field_link_pesquisa'][0]['uri']) ? $dia['field_link_pesquisa'][0]['uri'] : '';
+    $diaEvento['pesquisa']['link_label'] = isset($dia['field_link_pesquisa'][0]['title']) && !empty($dia['field_link_pesquisa'][0]['title']) ? $dia['field_link_pesquisa'][0]['title'] : 'Participar da Enquete';
+    if(isset($dia['field_status_pesquisa'][0]['value']) && $dia['field_status_pesquisa'][0]['value'] == 1){
+      $diaEvento['pesquisa']['visivel'] = TRUE;
+    }
+
+    $variables['customPage'] = $diaEvento;
+
+      
+  if ($termObj) {
+    
+    $optionsPalestras = new StdClass;
+    $optionsPalestras->args = array($termArray['tid'][0]['value']);
+    $viewPalestra = GM5Views::getViewArg('palestras','lista',$optionsPalestras);
+      
+    //Dias do evento
+    $viewDiaEvento = GM5Views::getViewArg('dias_do_evento','lista');
+    
+
+    foreach($viewDiaEvento['items'] as $k => $diaEventoObj){
+      $diaLi = $diaEventoObj->_entity->toArray();
+      $diaEvento = array();
+      $diaEvento['tid'] = $diaLi['tid'][0]['value'];
+      $aliasManager = \Drupal::service('path_alias.manager');
+      $alias = $aliasManager->getAliasByPath('/taxonomy/term/'.$diaLi['tid'][0]['value']);
+      $diaEvento['url'] = $alias;
+      $diaEvento['active'] = $diaLi['tid'][0]['value'] == $dia['tid'][0]['value'] ? TRUE : FALSE;
+      $diaEvento['data'] = date('d/m',strtotime($diaLi['field_dia_do_evento'][0]['value']));
+      $diaEvento['dia'] = date('d',strtotime($diaLi['field_dia_do_evento'][0]['value']));
+      $diaEvento['nome'] = $diaLi['name'][0]['value'];
+      $variables['customPage']['dias'][] = $diaEvento;
+    }
+    unset($variables['customPage']['dias'][3]);
+      
+    $variables['customPage']['today'] = date('d');
+    $variables['customPage']['logged_in'] = \Drupal::currentUser()->isAuthenticated() == true ? 'logged' : '';
+
+    
+    // foreach($viewPalestra['items'] as $k => $palestraObj){
+    //   $palestra = $palestraObj->_entity->toArray();
+      
+    //   $palestraTemp['nid'] = $palestra['nid'][0]['value'];
+    //   $palestraTemp['titulo'] = $palestra['title'][0]['value'];
+    //   $palestraTemp['descricao'] = $palestra['field_descricao'][0]['value'];
+    //   $palestraTemp['horaInicio'] = date('H:i',$palestra['field_hora_de_inicio'][0]['value'] + strtotime("0:00")) ;
+    //   $palestraTemp['horaFim'] = date('H:i',$palestra['field_horario_de_fim'][0]['value'] + strtotime("0:00"));
+    //   $palestraTemp['mediador'] = isset($palestra['field_mediado_por_xxx'][0]['value']) && !empty($palestra['field_mediado_por_xxx'][0]['value']) ? $palestra['field_mediado_por_xxx'][0]['value'] : $palestra['field_mediado_por_xxx'][0]['value'];
+    //   $palestraTemp['aovivo'] = isset($palestra['field_marcar_como_ao_vivo'][0]['value']) && !empty($palestra['field_marcar_como_ao_vivo'][0]['value']) ? 'true' : '';
+      
+    //   $palestraTemp['live_pt'] = '';
+    //   if(isset($palestra['field_live_pt'][0]['value']) && !empty($palestra['field_live_pt'][0]['value'])){
+    //     $vidpt = end(explode('/',$palestra['field_live_pt'][0]['value']));
+    //     $palestraTemp['live_pt'] = $vidpt;
+        
+    //     $palestraTemp['live_pt_img'] = $palestraTemp['thumb'] = isset($palestra['field_thumb'][0]['target_id']) && !empty($palestra['field_thumb'][0]['target_id']) ? GM5File::renderImage($palestra['field_thumb'][0]['target_id'],'502x338') : '';
+        
+    //     //print_r($palestraTemp); die;
+    //   }
+      
+    //   $palestraTemp['live_en'] = '';
+    //   if(isset($palestra['field_live_en'][0]['value']) && !empty($palestra['field_live_en'][0]['value'])){
+    //     $viden = end(explode('/',$palestra['field_live_en'][0]['value']));
+        
+    //     $palestraTemp['live_en'] = $viden;
+        
+    //   }
+      
+    //   $palestraTemp['palestrante'] = array();
+    //   foreach($palestraObj->_entity->field_palestrantes as $palestrante){
+    //     $pale = $palestrante->entity->toArray();
+        
+    //     $paleTemp = array();
+    //     $paleTemp['nome'] = $pale['title'][0]['value'];
+    //     $paleTemp['funcao'] = isset($pale['field_funcao'][0]['value']) && !empty($pale['field_funcao'][0]['value']) ? $pale['field_funcao'][0]['value'] : '';
+    //     $paleTemp['foto'] =  GM5File::renderImage($pale['field_foto'][0]['target_id'],'100x100');
+        
+    //     $palestraTemp['palestrante'][] = $paleTemp;
+    //   }
+      
+    //   $variables['customPage']['conteudo']['palestras'][] = $palestraTemp;
+    // }
+  }
+  
+  //Palestra Online
+  $palestrasOnline = GM5Views::getViewArg('palestras','palestras_live');
+  $variables['customPage']['live'] = count($palestrasOnline['items']) >= 1 ? 'live' : 'ondemand';
+  
+  // var_dump($variables['customPage']);
+}
+function futurospossiveis2021_preprocess_page__user__edit(&$variables){
+  $viewDiaEvento = GM5Views::getViewArg('dias_do_evento','lista');
+    
+  foreach($viewDiaEvento['items'] as $k => $diaEventoObj){
+    $diaLi = $diaEventoObj->_entity->toArray();
+
+    $diaEvento = array();
+    $diaEvento['tid'] = $diaLi['tid'][0]['value'];
+    $aliasManager = \Drupal::service('path_alias.manager');
+    $alias = $aliasManager->getAliasByPath('/taxonomy/term/'.$diaLi['tid'][0]['value']);
+    $diaEvento['url'] = $alias;
+    $diaEvento['data'] = date('d/m',strtotime($diaLi['field_dia_do_evento'][0]['value']));
+    $variables['customPage']['dias'][] = $diaEvento;
+  }
+  unset($variables['customPage']['dias'][3]);
+  
+  $today = date('d/m');
+  
+  $palestraUrl = '';
+  foreach($variables['customPage']['dias'] as $dia){
+    if($dia['data'] == $today){
+      $palestraUrl = $dia['url'];
+    }
+  }
+  
+  if(!$palestraUrl){
+    $palestraUrl = $variables['customPage']['dias'][0]['url'];
+  }
+  $variables['palestra'] = $palestraUrl;
+}
+
+function futurospossiveis2021_preprocess_page__user(&$variables){
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  $variables['userMenu']['editar'] = '/user/'.\Drupal::currentUser()->id().'/edit';
+  
+  $logged_in = \Drupal::currentUser()->isAuthenticated();
+  $current_path = \Drupal::service('path.current')->getPath();
+
+
+  // if($logged_in && $current_path == '/user'){
+  //   $accountArray = $user->toArray();
+  //   GM5Util::redirect('/user/'.\Drupal::currentUser()->id().'/edit');
+  // }
+}
+
+function futurospossiveis2021_preprocess_page__user__oficinas(&$variables){
+      
+  $userId = \Drupal::currentUser()->id();
+  
+  $optionsOficinasIncrito = new StdClass;
+  $optionsOficinasIncrito->args = array($userId);
+  $viewOficinasIncrito = GM5Views::getViewArg('oficinas_incritos','lista',$optionsOficinasIncrito);
+  
+  $variables['customPage']['minhasInscricoes'] = array();
+  foreach($viewOficinasIncrito['items'] as $k => $oficinaInscrito){
+    if($k == 0){
+        $variables['customPage']['infoForm'] = $oficinaInscrito->_entity->toArray();
+      }
+    foreach($oficinaInscrito->_entity->field_oficinas as $offinaId){
+      $variables['customPage']['minhasInscricoes'][$offinaId->entity->id()] = $offinaId->entity->id();
+    }
+  }
+  //print_r($variables['minhasInscricoes']); die;
+  
+    //Oficinas
+    $viewOficinas = GM5Views::getViewArg('oficinas','lista');
+    
+    foreach($viewOficinas['items'] as $k => $oficina){
+      $oficinaDia = $oficina->_entity->field_dia_do_evento->entity->toArray();
+      $oficina = $oficina->_entity->toArray();
+      
+      $dowMap = array(
+        'Sunday' => 'Domingo', 
+        'Mon' => 'Segunda', 
+        'Tue' => 'Terça', 
+        'Wed' => 'Quarta', 
+        'Thu' => 'Quinta', 
+        'Fri' => 'Sexta',
+        'Sat' => 'Sábado'
+      );
+      
+      $meses = array(
+          1 => 'Janeiro',
+          'Fevereiro',
+          'Março',
+          'Abril',
+          'Maio',
+          'Junho',
+          'Julho',
+          'Agosto',
+          'Setembro',
+          'Outubro',
+          'Novembro',
+          'Dezembro'
+      );
+      $diaTime = strtotime($oficinaDia['field_dia_do_evento'][0]['value']);
+      $oficinaItem = array();
+      $oficinaItem['nid'] = $oficina['nid'][0]['value'];
+      $oficinaItem['dia'] = $oficinaDia['name'][0]['value'];
+      $oficinaItem['data'] = date('d',$diaTime)." de ".$meses[date('n',$diaTime)];
+      $oficinaItem['titulo'] = $oficina['title'][0]['value'];
+      $oficinaItem['foto'] = isset($oficina['field_imagem'][0]['target_id']) && !empty($oficina['field_imagem'][0]['target_id']) ? GM5File::renderImage($oficina['field_imagem'][0]['target_id'],'316x213') : '';
+      $oficinaItem['descricao'] = $oficina['field_descricao'][0]['value'];
+      $oficinaItem['facilitacao'] = $oficina['field_facilitacao'][0]['value'];
+      $diaTime = strtotime($oficinaDia['field_dia_do_evento'][0]['value']);
+      $oficinaItem['horario'] = $dowMap[date('D',$diaTime)].': '.$oficina['field_horario'][0]['value'];
+      $oficinaItem['duracao'] = $oficina['field_duracao'][0]['value'];
+      $oficinaItem['tipo'] = $oficina['field_tipo'][0]['value'];     
+      $oficinaItem['investimento'] = 'Gratuito';
+      $oficinaItem['investimento'] = isset($oficina['field_investimento'][0]['value']) && !empty($oficina['field_investimento'][0]['value']) && $oficina['field_investimento'][0]['value'] > 0 ? 'R$ '.str_replace('.',',',$oficina['field_investimento'][0]['value']) : 'Gratuito';
+      if(isset($variables['customPage']['conteudo']['oficinas']['itens'][$oficina['title'][0]['value']])){
+        $variables['customPage']['conteudo']['oficinas']['itens'][$oficina['title'][0]['value']]['filhos'][] = $oficinaItem;
+      } else {
+        $variables['customPage']['conteudo']['oficinas']['itens'][$oficina['title'][0]['value']] = $oficinaItem;
+      }
+      
+    }
+    //print_r($variables['userMenu']); die;
+    foreach($variables['customPage']['conteudo']['oficinas']['itens'] as $k => $obj){
+      if(isset($obj['filhos'])){
+        $objClear = $obj;
+        unset($objClear['filhos']);
+        array_unshift($variables['customPage']['conteudo']['oficinas']['itens'][$k]['filhos'],$objClear);
+      }
+    }
+    
+    //print_r($variables['customPage']); die;
+    
+    
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $variables['userMenu']['editar'] = '/user/'.\Drupal::currentUser()->id().'/edit';
+
+}
+
+function futurospossiveis2021_preprocess_page__taxonomy__vocabulary__galeria_de_fotos(&$variables)
+{
+  
+    $termObj = \Drupal::request()->attributes->get('taxonomy_term');
+    $termArray = $termObj->toArray();
+    
+    if ($termObj) {
+    
+      $nids = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+      ->latestRevision()
+      ->condition('field_galeria', $termArray['tid'][0]['value'], '=')
+      ->execute();
+      
+      foreach($nids as $k => $nid){
+        $node = \Drupal::entityManager()->getStorage('node')->load($nid)->toArray();
+       
+        
+        $palestraTemp['titulo'] = $node['title'][0]['value'];
+        $palestraTemp['creditos'] = $node['field_creditos'][0]['value'];
+        $palestraTemp['fotoCrop'] = GM5File::renderImage($node['field_foto'][0]['target_id'],'380x210');
+        $palestraTemp['fotoOriginal'] = GM5File::renderImage($node['field_foto'][0]['target_id']);
+        
+        $variables['customPage']['galeria'][] = $palestraTemp;
+      }
+    
+    }
+    
+}
+
+function futurospossiveis2021_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+   $user = \Drupal::currentUser();
+   $roles = $user->getRoles();
+
+  if($form_id == 'user_form'){
+    if (!in_array('administrator', $roles)) {
+    	$form['field_nome']['#disabled'] = TRUE;
+    	$form['field_cpf']['#disabled'] = TRUE;
+    	$form['field_passaporte']['#disabled'] = TRUE;
+    	$form['account']['mail']['#disabled'] = TRUE;
+    	
+    }
+  }
+}
+
+function futurospossiveis2021_preprocess_page(&$variables){
+  // var_dump('debug');
+  $nodeObj = \Drupal::request()->attributes->get('node');
+  if($nodeObj){
+    $node = $nodeObj->toArray(); 
+    $date = new DateTime($node['field_data_do_evento'][0]['value'], new DateTimeZone('America/Sao_Paulo'));
+  
+    $variables['customPage']['logo'] = isset($node['field_logo_evento'][0]['target_id']) ? GM5File::renderImage($node['field_logo_evento'][0]['target_id']) : '';
+    $variables['customPage']['login'] = isset($node['field_login_liberado'][0]['value']) ? $node['field_login_liberado'][0]['value'] : '';
+
+    // Countdown
+    $variables['customPage']['countdown']['data'] = isset($node['field_data_do_evento'][0]['value']) ? $date->format( 'm/d/Y H:i:s' ) : '';
+    if(isset($node['field_visivel_contagem_regressiv'][0]['value']) && $node['field_visivel_contagem_regressiv'][0]['value'] == 1){
+      $variables['customPage']['countdown']['visivel'] = TRUE;
+    }
+    // Introdução
+    $variables['customPage']['introducao']['headline'] = isset($node['field_headline'][0]['value']) ? $node['field_headline'][0]['value'] : '';
+    $variables['customPage']['introducao']['video_introducao'] = isset($node['field_video_introducao'][0]['video_id']) ? $node['field_video_introducao'][0]['video_id'] : '';
+    if(isset($node['field_visivel_introducao'][0]['value']) && $node['field_visivel_introducao'][0]['value'] == 1){
+      $variables['customPage']['introducao']['visivel'] = TRUE;
+    }
+    // Reses Sociais
+    $variables['customPage']['redes']['facebook'] = isset($node['field_facebook'][0]['uri']) ? $node['field_facebook'][0]['uri'] : '';
+    $variables['customPage']['redes']['instagram'] = isset($node['field_instagram'][0]['uri']) ? $node['field_instagram'][0]['uri'] : '';
+    $variables['customPage']['redes']['twitter'] = isset($node['field_twitter'][0]['uri']) ? $node['field_twitter'][0]['uri'] : '';
+    $variables['customPage']['redes']['linkedin'] = isset($node['field_linkedin'][0]['uri']) ? $node['field_linkedin'][0]['uri'] : '';
+
+  }
+}

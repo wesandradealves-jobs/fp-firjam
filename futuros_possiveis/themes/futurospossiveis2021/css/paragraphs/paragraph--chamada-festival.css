@@ -1,0 +1,108 @@
+.chamada-festival {
+  background-color: #283251;
+  padding: 0;
+  margin: 0;
+}
+
+.chamada-festival  {
+  padding: 2rem;
+}
+
+.chamada-festival  .texto-festival-title {
+  color: #F6C630;
+  font-size: 32px;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  line-height: 1.3em;
+  padding-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.chamada-festival  .text-pre-button {
+  color: #F6C630;
+  font-size: 24px;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  font-style: italic;
+}
+
+.chamada-festival  .texto-festival-title:after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  background-color: #fff;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.chamada-festival .texto-data {
+  background-color: #F6C630;
+  color: #263B59;
+  font-size: 30px;
+  font-weight: 700;
+  width: 180px;
+  padding: 0 10px 0 10px;
+  text-align: center;
+}
+
+.chamada-festival .texto-festival-descricao {
+  color: #ffff;
+  /* font-size: 26px; */
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.6em;
+}
+
+.chamada-festival .texto-festival {
+  color: #ffff;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.chamada-festival .festival-slider .item{
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem 1rem;
+  flex-wrap: wrap;
+}
+
+.chamada-festival .festival-slider .slick-arrow {
+  position: absolute;
+  top: 50%;
+  width: 15px;
+  height: 15px;
+  font-size:0;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.chamada-festival .festival-slider .slick-arrow.slick-prev{
+  left: 0;
+  transform: rotate(-45deg) translateY(-50%);
+  border-top: solid 1px #fff;
+  border-left: solid 1px #fff;
+}
+
+.chamada-festival .festival-slider .slick-arrow.slick-next {
+  right: 0;
+  transform: rotate(45deg) translateY(-50%);
+  border-top: solid 1px #fff;
+  border-right: solid 1px #fff;
+}
+
+.chamada-festival .festival-slider .item-descricao {
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  padding: 2em;
+  flex: 0 0 100%;
+}

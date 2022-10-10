@@ -1,0 +1,6 @@
+name: Config Futuros Possiveis
+type: module
+description: 'Módulo para configurações específicas do projeto CasaFuturos Possiveis.'
+package: 'GM5'
+core: 8.x
+core_version_requirement: ^8 || ^9

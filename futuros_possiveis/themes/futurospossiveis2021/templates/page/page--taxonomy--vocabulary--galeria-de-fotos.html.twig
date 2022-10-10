@@ -1,0 +1,61 @@
+<main data-controller="galeria" class="galeria">
+    <section class="galeria">
+        <div class="container">
+            <div class="row">
+                <p class="title">Confira a fotogaleria com os destaques da COBERTURA AO VIVO do Summit Firjan IEL + Festival Futuros Possíveis 2020. </p>
+            </div>
+            <div class="row" id="gallery" data-toggle="modal" data-target="#modalGaleria">
+               {% for key, item in customPage.galeria %}
+                <div class="col-12 col-md-4 itemFoto" >
+                    <a href="javascript:void(0);" data-target="#carousel" data-slide-to="{{ key }}">
+                        <img src="{{ item.fotoCrop }}" >
+                    </a>
+                    <p>{{ item.titulo }}</p>
+                    <p>{{ item.creditos }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="backupParallax" style="background-image: url(/themes/futurospossiveis2021/static/img/bg_topo_home.jpg);"></div>
+        <div class="parallax" data-parallax-image="/themes/futurospossiveis2021/static/img/bg_topo_home.jpg"></div>
+    </section>
+</main>
+
+{#{{dump(node)}}#}
+
+<!-- Modal da Galeria -->
+<div class="modal fade" id="modalGaleria" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for key, item in customPage.galeria %}
+                    <div class="carousel-item {% if key == 0 %}active{% endif %}">
+                      <img class="d-block w-100" src="{{ item.fotoOriginal }}">
+                      <div class="carousel-caption ">
+                        <h5>{{ item.titulo }}</h5>
+                        <p>{{ item.creditos }}</p>
+                      </div>
+                    </div>
+                {% endfor %}
+            </div>
+              <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

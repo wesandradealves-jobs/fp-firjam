@@ -1,0 +1,80 @@
+/*Estilos dos clocos de aspas*/
+blockquote {
+    font-size: 20px;
+    font-size: 1.25rem;
+    display: inline-block;
+    margin: 2rem 0 2rem 4rem;
+    padding: 30px 60px 10px;
+    position:relative;
+    border-radius:5px;
+}
+blockquote:after,blockquote:before{
+    content:'';
+    background: url('../img/aspas.png') no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 30px;
+    display: block;
+    position: absolute;
+}
+blockquote:before{
+    left: -10px;
+    top: 10px;
+}
+blockquote:after{
+    right: 0px;
+    bottom: 10px;
+    transform: rotate(180deg);
+}
+
+
+/*Estilos dos botões*/
+.btn,
+.btnAzul,
+.btnPreto,
+.btnCinza
+{
+    font-size: 16px;
+    font-size: 1.125rem;
+    padding: 10px 30px;
+    min-width: 190px;
+    color: white;
+    text-align: center;
+    border: 1px solid white;
+    display: inline-block; 
+    cursor: pointer;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    text-decoration: none;
+}
+.btn:hover{
+    background: white;
+    color: #393230;
+}
+.btnAzul{
+    background-color: #003BD1;
+    border-color: #003BD1;
+}
+.btnAzul:hover{
+    background-color: white;
+    color: #003BD1;
+}
+.btnPreto{
+    background-color: #393230;
+    border-color: #393230;
+}
+.btnPreto:hover{  
+    background-color: white;
+    color: #393230;
+    
+}
+.btnCinza{
+    background-color: #6D6C6C;
+    border-color: #6D6C6C;  
+}
+.btnCinza:hover{
+    background-color: white;
+    color: #6D6C6C;
+}

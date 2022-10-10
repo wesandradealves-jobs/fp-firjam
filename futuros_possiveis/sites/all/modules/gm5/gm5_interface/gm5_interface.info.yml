@@ -1,0 +1,6 @@
+name: GM5 Interface
+type: module
+description: 'Disponibiliza interface de funções personliazadas e carrega bibilioteca de classes auxiliares.'
+package: 'GM5'
+core: 8.x
+core_version_requirement: ^8 || ^9

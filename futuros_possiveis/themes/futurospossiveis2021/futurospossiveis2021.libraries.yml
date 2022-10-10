@@ -1,0 +1,69 @@
+global-scripts:
+  version: 1.x
+  js:
+    js/script.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+
+paragraph--banner-principal:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/paragraph--banner-principal.css: {}
+  js:
+    static/js/form-js.js: {}
+
+paragraph--chamada-video:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/paragraph--chamada-video.css: {}
+
+paragraph--sobre-evento:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/paragraph--sobre-evento.css: {}
+
+paragraph--chamada-festival:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/paragraph--chamada-festival.css: {}
+
+paragraph--experiencia-imersiva:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/paragraph--experiencia-imersiva.css: {}
+
+paragraph--chamada-card-:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/paragraph--chamada-card-.css: {}
+
+paragraph--depoimentos-groups:
+  version: 1.x
+  css:
+    theme:
+      css/paragraphs/paragraph--depoimentos-groups.css: {}
+
+slick:
+  css:
+    base:
+      //cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css: {}
+  js:
+    //cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js: {}
+  dependencies:
+    - core/jquery
+
+bootstrap_cdn:
+  js:
+    //cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js: {}
+    //stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js: {}
+  css:
+    component:
+      //stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css: {}

@@ -1,0 +1,47 @@
+<?php
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\gm5_interface\Plugin\Util\GM5Util;
+use Drupal\gm5_interface\Plugin\Views\GM5Views;
+
+function config_futurospossiveis_node_insert($node){
+      if($node->bundle() != 'relatorio' && $node->bundle() != 'incrito_oficina'){
+        $path = '/node/add/' . str_replace('-', '_', $node->bundle());
+        GM5Util::redirect($path);
+      }
+}
+
+function config_futurospossiveis_node_update($node){
+    $path = '/node/' . $node->nid->value . '/edit';
+    GM5Util::redirect($path);
+}
+
+function config_futurospossiveis_toolbar_alter(&$items){
+  $user = \Drupal::currentUser();
+  $roles = $user->getRoles();
+
+  //print_r($items); die;
+
+  unset($items['administration_search']);
+  unset($items['shortcuts']);
+
+  if(!empty($roles) && !in_array('administrator', $roles)){
+    //$attach = $items['administration']['tray']['#attached'];
+    //print_r($attach); die;
+
+    unset($items['administration']);
+    //$items['toolbar_menu_adminsitrar_conteudos']['tray']['#attached'] = $attach;
+    $items['toolbar_menu_adminsitrar_conteudos']['#attached']['library'][] = 'admin_toolbar/toolbar.tree';
+  }
+}
+
+
+// function config_futurospossiveis_user_login($account)  {
+
+//   $viewDiaEvento = GM5Views::getViewArg('dias_do_evento','lista');
+//   $dia1 = $viewDiaEvento['items'][0]->_entity->toArray();
+//   $aliasManager = \Drupal::service('path_alias.manager');
+//   $alias = $aliasManager->getAliasByPath('/taxonomy/term/'.$dia1['tid'][0]['value']);
+  
+//   GM5Util::redirect($alias);
+  
+// }

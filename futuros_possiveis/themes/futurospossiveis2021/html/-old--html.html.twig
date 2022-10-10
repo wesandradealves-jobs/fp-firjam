@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property=”og:type” content=”website“/>
+    <meta property="og:url" content="{{ customPage.metas.url }}">
+    <meta property="og:title" content="{{ customPage.metas.titulo }}">
+    <meta property="og:description" content="{{ customPage.metas.descricao }}">
+    <meta property="og:image" content="{{ customPage.metas.imagem }}">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="500"> 
+    <meta name="twitter:card"  content="summary">
+    <meta name="twitter:url"   content="{{ customPage.metas.url }}">
+    <meta name="twitter:title" content="{{ customPage.metas.titulo }}">
+    <meta name="twitter:description" content="{{ customPage.metas.descricao }}">
+    <meta name="twitter:image" content="{{ customPage.metas.imagem }}">
+    <link rel="icon" href="{{ base_path ~ directory }}/static/img/favicon.ico">
+    <link href="{{ fileVersion('themes/futurospossiveis2021/static/css/vendor.css') }}" rel="stylesheet"/>
+    <link href="{{ fileVersion('themes/futurospossiveis2021/static/css/style.css') }}" rel="stylesheet"/>
+    <link href="{{ fileVersion('themes/futurospossiveis2021/static/css/new-style.css') }}" rel="stylesheet"/>    
+    <title>{{ customPage.metas.titulo }}</title>
+    <meta name="description" content="{{ customPage.metas.descricao }}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9P2LLBGS64"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-9P2LLBGS64');
+    </script>
+
+    {% if customPage.page_transmissao %}
+        <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/125858996.js"></script>
+    {% endif %}
+
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '786483948798291');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=786483948798291&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+</head>
+<body data-event="{{userMenu.palestra}}">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav>
+                        <div class="mobile">
+                            <a class="logo" href="/">Festival Futuros Possíveis 2022</a>
+                            <button class="btnMobile hms"><span>toggle menu</span></button>
+                        </div>
+                        <ul class="d-md-flex align-items-center justify-content-center">
+                        </ul>
+                    </nav>    
+                </div>
+            </div>
+        </div>
+    </header>
+    {{ page }}
+
+    <footer class="footer-inform" id="contato">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <p>Fale com a Firjan <strong>IEL</strong></p>
+                        <p>4002 0231 (Custo da ligação local)</p>
+                        <p>0800 0231 231 (Ligações gratuitas de telefone fixo no estado local do Rio)</p>                   
+                    </div>
+
+                    <div class="col-md-3 col-sm-12">
+                        <p>Email: faleconosco@firjan.com.br</p>
+                        <p>Segunda à sexta-feira, de 09h às 18h</p>
+                    
+                    </div>
+                    <div class="col-md-2 logoSenai col-sm-12">
+                        <img class="lg" src="/{{ base_path ~ directory }}/static/img/logo-iel-white.png" alt="Logo Firjan IEL"></img>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <footer class="footer-social">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="copyright">©Copyright 2022 - Todos os direitos reservados à Firjan</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{{ fileVersion('themes/futurospossiveis2021/static/js/vendor.js') }}"></script>
+        <script src="{{ fileVersion('themes/futurospossiveis2021/static/js/classes.js') }}"></script>
+        <script src="{{ fileVersion('themes/futurospossiveis2021/static/js/controller.js') }}"></script>
+
+    </body>
+    </html>

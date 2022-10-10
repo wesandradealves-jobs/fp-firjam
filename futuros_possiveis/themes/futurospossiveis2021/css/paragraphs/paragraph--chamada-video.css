@@ -1,0 +1,119 @@
+.paragraph--type--chamada-video {
+  background-color: #ffff;
+  margin: 2em;
+  padding: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+  .paragraph--type--chamada-video {
+    background-color: #ffff;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.paragraph--type--chamada-video  {
+  text-align: center;
+  padding: 2m;
+}
+
+/* .paragraph--type--chamada-video  .texto-title-video {
+  font-family: 'Noto Sans', sans-serif;
+  color: #263B59;
+  font-size: 40px;
+  font-weight: 550;
+  text-align: left;
+  width: 200px;
+  line-height: 1.3em;
+  padding-bottom: 15px;
+} */
+
+.paragraph--type--chamada-video .texto-descricao {
+  color: #666666;
+  font-size: 17px;
+  width: 300px;
+  text-align: left;
+  margin-top: 10px;
+  line-height: 1.3em;
+}
+
+.paragraph--type--chamada-video .texto-italic {
+  font-family: 'Noto Sans', sans-serif;
+  color: #263B59;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.paragraph--type--chamada-video  .texto-title-video{
+  font-family: 'Noto Sans', sans-serif;
+  color: #263B59;
+  font-size: 48px;
+  font-weight: 700;
+  text-align: left;
+  /* margin-bottom: 10px; */
+  max-width: 50%;
+  line-height: 1.2;
+}
+
+.paragraph--type--chamada-video .texto-data span{
+  display: inline-block;
+  font-family: 'Noto Sans', sans-serif;
+  /* background-color: #F6C630 ; */
+  color: #263B59;
+  font-size: 48px;
+  font-weight: 700;
+  /* width: 180px; */
+  /* padding: 0 10px 0 10px; */
+  text-align: center;
+  line-height: 1.2;
+}
+
+.paragraph--type--chamada-video .link-video {
+  color: #263B59;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: -12px;
+}
+
+.paragraph--type--chamada-video .link-video-label{
+  color: #263B59;
+  font-size: 13px;
+  font-weight: 500;
+  /* width: 180px; */
+  padding: 0 10px 0 10px;
+  text-align: center;
+  float: left;
+}
+
+.paragraph--type--chamada-video .link-video-botton-download {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 1280px) {
+  .paragraph--type--chamada-video .texto-data span,
+  .paragraph--type--chamada-video  .texto-title-video {
+    font-size: 4vw;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .paragraph--type--chamada-video .texto-data span,
+  .paragraph--type--chamada-video  .texto-title-video {
+    font-size: 6.4vw;
+    max-width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .paragraph--type--chamada-video .texto-italic {
+    margin-top: 2em;
+  }
+}
+
+.paragraph-video-containner-full iframe {
+  width: 100%;
+}

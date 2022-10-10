@@ -1,0 +1,37 @@
+gm5_cadastro.index:
+  path: /process/cadastro
+  defaults:
+    _controller: '\Drupal\gm5_cadastro\Controller\Cadastro::index'
+    _title: 'Autocomplete'
+  methods:  [GET, POST]
+  requirements:
+    _permission: 'access content'
+    
+gm5_cadastro.prog:
+  path: /cadastro
+  defaults:
+    _controller: '\Drupal\gm5_cadastro\Controller\Cadastro::cadastro'
+    _title: 'Autocomplete'
+  methods:  [GET, POST]
+  requirements:
+    _permission: 'access content' 
+  
+gm5_cadastro.aficinas:
+  path: /process/oficinas
+  defaults:
+    _controller: '\Drupal\gm5_cadastro\Controller\Cadastro::oficinas'
+    _title: 'Minhas Oficinas'
+  methods:  [GET, POST]
+  requirements:
+    _permission: 'access content' 
+
+gm5_cadastro.experiencia_imersiva:
+  path: /process/experiencia_imersiva
+  defaults:
+    _controller: '\Drupal\gm5_cadastro\Controller\Cadastro::experienciaImersiva'
+    _title: 'Experiêcnia Imersiva'
+  methods:  [GET, POST]
+  requirements:
+    _permission: 'access content' 
+
+

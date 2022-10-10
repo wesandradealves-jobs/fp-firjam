@@ -1,0 +1,6 @@
+name: GM5 Cadastro
+type: module
+description: 'Módulo para pré cadastro.'
+package: 'GM5'
+core: 8.x
+core_version_requirement: ^8 || ^9
