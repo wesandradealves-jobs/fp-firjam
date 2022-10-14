@@ -1,0 +1,22 @@
+uuid: f1cd91fc-e5a1-4b60-9672-f7c687feb0df
+langcode: pt-br
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - futurospossiveis2021
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: futurospossiveis2021_breadcrumbs
+theme: futurospossiveis2021
+region: sidebar_first
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

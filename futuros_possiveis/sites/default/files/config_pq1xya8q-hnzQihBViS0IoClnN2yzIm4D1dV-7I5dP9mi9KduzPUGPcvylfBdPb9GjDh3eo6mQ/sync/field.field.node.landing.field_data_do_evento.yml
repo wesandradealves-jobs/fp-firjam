@@ -1,0 +1,21 @@
+uuid: 700994c2-709f-4aaa-9190-b4da1ff1c55f
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_do_evento
+    - node.type.landing
+  module:
+    - datetime
+id: node.landing.field_data_do_evento
+field_name: field_data_do_evento
+entity_type: node
+bundle: landing
+label: 'Data do evento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

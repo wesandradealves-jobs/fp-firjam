@@ -1,0 +1,21 @@
+uuid: 2300d476-614d-4d95-b6c1-3c1ca1b37486
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_depoimento_text
+    - paragraphs.paragraphs_type.depoimentos
+  module:
+    - text
+id: paragraph.depoimentos.field_depoimento_text
+field_name: field_depoimento_text
+entity_type: paragraph
+bundle: depoimentos
+label: Depoimento
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

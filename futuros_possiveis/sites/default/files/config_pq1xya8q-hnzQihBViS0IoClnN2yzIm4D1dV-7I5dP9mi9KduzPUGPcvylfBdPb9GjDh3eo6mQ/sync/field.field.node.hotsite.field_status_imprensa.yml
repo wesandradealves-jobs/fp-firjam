@@ -1,0 +1,23 @@
+uuid: b1b1115f-9e45-45c4-8919-d805614ecd91
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_status_imprensa
+    - node.type.hotsite
+id: node.hotsite.field_status_imprensa
+field_name: field_status_imprensa
+entity_type: node
+bundle: hotsite
+label: 'Status Imprensa'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

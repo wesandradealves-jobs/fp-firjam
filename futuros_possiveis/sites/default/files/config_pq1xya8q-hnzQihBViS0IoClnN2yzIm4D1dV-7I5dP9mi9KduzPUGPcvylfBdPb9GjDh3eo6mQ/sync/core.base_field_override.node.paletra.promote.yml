@@ -1,0 +1,22 @@
+uuid: d1308244-e7a0-45bd-969f-c4179a2a42e7
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.paletra
+id: node.paletra.promote
+field_name: promote
+entity_type: node
+bundle: paletra
+label: 'Promovido para a página inicial'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

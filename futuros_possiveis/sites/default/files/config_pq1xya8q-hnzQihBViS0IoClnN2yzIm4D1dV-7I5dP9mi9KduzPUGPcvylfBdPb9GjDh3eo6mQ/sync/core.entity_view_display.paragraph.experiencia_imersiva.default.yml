@@ -1,0 +1,51 @@
+uuid: b6a27fd3-f2bc-4f10-a700-4345f77705ff
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.experiencia_imersiva.field_descricao
+    - field.field.paragraph.experiencia_imersiva.field_foto
+    - field.field.paragraph.experiencia_imersiva.field_imagem
+    - field.field.paragraph.experiencia_imersiva.field_titulo
+    - paragraphs.paragraphs_type.experiencia_imersiva
+  module:
+    - image
+id: paragraph.experiencia_imersiva.default
+targetEntityType: paragraph
+bundle: experiencia_imersiva
+mode: default
+content:
+  field_descricao:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_foto:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_imagem:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_titulo:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

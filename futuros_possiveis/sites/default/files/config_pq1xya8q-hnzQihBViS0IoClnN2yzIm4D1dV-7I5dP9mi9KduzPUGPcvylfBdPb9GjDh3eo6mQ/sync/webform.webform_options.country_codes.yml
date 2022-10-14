@@ -1,0 +1,14 @@
+uuid: 5cc3a7a0-63f4-4ad6-8ea0-ba2cbf58089b
+langcode: pt-br
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: adQ16YGDPk7QfUKrfrC35o2sKdHEozdNtdpiH7CftQQ
+id: country_codes
+label: 'Códigos de países'
+category: Geográfico
+likert: false
+options: ''

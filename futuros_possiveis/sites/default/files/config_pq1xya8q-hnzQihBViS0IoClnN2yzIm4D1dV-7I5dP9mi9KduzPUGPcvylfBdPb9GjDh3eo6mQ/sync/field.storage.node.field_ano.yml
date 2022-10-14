@@ -1,0 +1,21 @@
+uuid: 017d8ca3-5b06-4189-8804-1c87982dfb65
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ano
+field_name: field_ano
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

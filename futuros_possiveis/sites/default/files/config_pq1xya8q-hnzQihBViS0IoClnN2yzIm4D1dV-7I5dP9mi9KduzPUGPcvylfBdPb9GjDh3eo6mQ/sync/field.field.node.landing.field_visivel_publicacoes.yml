@@ -1,0 +1,23 @@
+uuid: 4031eec0-8eef-4ad4-accd-c1549ff6564e
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visivel_publicacoes
+    - node.type.landing
+id: node.landing.field_visivel_publicacoes
+field_name: field_visivel_publicacoes
+entity_type: node
+bundle: landing
+label: Visível
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

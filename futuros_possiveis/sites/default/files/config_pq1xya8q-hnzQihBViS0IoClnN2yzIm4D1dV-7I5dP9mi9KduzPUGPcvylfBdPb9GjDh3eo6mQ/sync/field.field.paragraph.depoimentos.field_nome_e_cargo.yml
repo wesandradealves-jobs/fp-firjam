@@ -1,0 +1,19 @@
+uuid: fb44f653-efe2-4e41-9c6c-de138b4d9e7d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_nome_e_cargo
+    - paragraphs.paragraphs_type.depoimentos
+id: paragraph.depoimentos.field_nome_e_cargo
+field_name: field_nome_e_cargo
+entity_type: paragraph
+bundle: depoimentos
+label: 'Nome e Cargo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

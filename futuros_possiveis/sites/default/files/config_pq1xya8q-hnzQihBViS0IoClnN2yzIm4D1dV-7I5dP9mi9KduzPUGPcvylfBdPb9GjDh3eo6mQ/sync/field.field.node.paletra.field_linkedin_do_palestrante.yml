@@ -1,0 +1,23 @@
+uuid: 7e2b4b53-1d84-46a1-a49b-c1d22c8ebeec
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_linkedin_do_palestrante
+    - node.type.paletra
+  module:
+    - link
+id: node.paletra.field_linkedin_do_palestrante
+field_name: field_linkedin_do_palestrante
+entity_type: node
+bundle: paletra
+label: 'Linkedin do palestrante'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

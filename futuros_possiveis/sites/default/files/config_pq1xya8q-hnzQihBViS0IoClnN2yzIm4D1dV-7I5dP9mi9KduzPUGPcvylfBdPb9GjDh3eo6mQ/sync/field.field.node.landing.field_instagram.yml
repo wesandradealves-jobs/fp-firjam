@@ -1,0 +1,23 @@
+uuid: 859e498e-22d6-4499-b453-1e6e2a4c6fbf
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_instagram
+    - node.type.landing
+  module:
+    - link
+id: node.landing.field_instagram
+field_name: field_instagram
+entity_type: node
+bundle: landing
+label: Instagram
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

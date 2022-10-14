@@ -1,0 +1,10 @@
+uuid: 13151c1a-af64-47e1-8b95-ce535c7193f6
+langcode: pt-br
+status: true
+dependencies: {  }
+id: foto
+label: Foto
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

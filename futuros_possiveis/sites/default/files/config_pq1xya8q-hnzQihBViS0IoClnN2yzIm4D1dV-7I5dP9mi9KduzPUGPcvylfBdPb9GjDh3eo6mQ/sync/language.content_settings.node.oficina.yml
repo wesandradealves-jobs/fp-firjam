@@ -1,0 +1,11 @@
+uuid: 47096718-65ea-4623-b84f-edc37cbf9c70
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.oficina
+id: node.oficina
+target_entity_type_id: node
+target_bundle: oficina
+default_langcode: site_default
+language_alterable: false

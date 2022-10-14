@@ -1,0 +1,85 @@
+uuid: c77364c0-98c4-4c33-843d-b15b11917c29
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.chamada_card_.field_descricao_card
+    - field.field.paragraph.chamada_card_.field_icone_e_texto
+    - field.field.paragraph.chamada_card_.field_imagem
+    - field.field.paragraph.chamada_card_.field_layout_alternativo
+    - field.field.paragraph.chamada_card_.field_selo
+    - field.field.paragraph.chamada_card_.field_sub_titulo
+    - field.field.paragraph.chamada_card_.field_titulo
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.chamada_card_
+  module:
+    - image
+    - paragraphs
+    - text
+id: paragraph.chamada_card_.default
+targetEntityType: paragraph
+bundle: chamada_card_
+mode: default
+content:
+  field_descricao_card:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_icone_e_texto:
+    type: entity_reference_paragraphs
+    weight: 6
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_imagem:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_layout_alternativo:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_selo:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_sub_titulo:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

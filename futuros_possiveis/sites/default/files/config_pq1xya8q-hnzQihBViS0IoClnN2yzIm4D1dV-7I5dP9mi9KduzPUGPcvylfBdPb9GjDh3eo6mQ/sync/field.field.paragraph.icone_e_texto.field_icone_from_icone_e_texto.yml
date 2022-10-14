@@ -1,0 +1,38 @@
+uuid: e2a0262e-c35d-4349-9b31-eb2c2ac49773
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icone_from_icone_e_texto
+    - paragraphs.paragraphs_type.icone_e_texto
+  module:
+    - image
+id: paragraph.icone_e_texto.field_icone_from_icone_e_texto
+field_name: field_icone_from_icone_e_texto
+entity_type: paragraph
+bundle: icone_e_texto
+label: Ícone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

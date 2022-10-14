@@ -1,0 +1,71 @@
+uuid: 0c71f172-701b-420b-952c-16f7e077ee4b
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.chamada_video.field_data_evento
+    - field.field.paragraph.chamada_video.field_descricao
+    - field.field.paragraph.chamada_video.field_link
+    - field.field.paragraph.chamada_video.field_titulo
+    - field.field.paragraph.chamada_video.field_video
+    - paragraphs.paragraphs_type.chamada_video
+  module:
+    - link
+    - youtube
+id: paragraph.chamada_video.default
+targetEntityType: paragraph
+bundle: chamada_video
+mode: default
+content:
+  field_data_evento:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_descricao:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_titulo:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_video:
+    type: youtube_video
+    label: hidden
+    settings:
+      youtube_size: 450x315
+      youtube_width: ''
+      youtube_height: ''
+      youtube_autoplay: false
+      youtube_mute: false
+      youtube_loop: false
+      youtube_controls: false
+      youtube_autohide: false
+      youtube_iv_load_policy: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

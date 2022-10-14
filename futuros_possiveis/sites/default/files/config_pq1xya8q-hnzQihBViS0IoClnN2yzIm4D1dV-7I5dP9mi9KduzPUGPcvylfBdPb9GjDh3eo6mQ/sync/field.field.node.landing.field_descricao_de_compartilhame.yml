@@ -1,0 +1,19 @@
+uuid: 26aee96f-9562-478a-bf50-13bddb3a3249
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descricao_de_compartilhame
+    - node.type.landing
+id: node.landing.field_descricao_de_compartilhame
+field_name: field_descricao_de_compartilhame
+entity_type: node
+bundle: landing
+label: 'Descrição de compartilhamento'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

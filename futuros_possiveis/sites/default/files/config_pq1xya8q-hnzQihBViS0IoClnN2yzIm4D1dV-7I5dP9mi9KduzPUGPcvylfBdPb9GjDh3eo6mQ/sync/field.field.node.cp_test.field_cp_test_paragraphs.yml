@@ -1,0 +1,31 @@
+uuid: 47753ab6-ca9e-43ed-8a60-ec742e5cc079
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cp_test_paragraphs
+    - node.type.cp_test
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: '-Et9fE6Fv-K-oh8Qan_dX6Z5J8TYO6YTWW2BGNZLffE'
+id: node.cp_test.field_cp_test_paragraphs
+field_name: field_cp_test_paragraphs
+entity_type: node
+bundle: cp_test
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      cp_test_text: cp_test_text
+    target_bundles_drag_drop:
+      cp_test_text:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

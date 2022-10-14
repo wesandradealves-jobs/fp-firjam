@@ -1,0 +1,23 @@
+uuid: 671662a4-aa29-47f0-8e36-db3e1135c148
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.cp_test.field_cp_test_paragraphs
+    - node.type.cp_test
+  module:
+    - user
+_core:
+  default_config_hash: pXGo_L_bR9_g48TqRKcssGHXm98e73isYIW9LXw-6LI
+id: node.cp_test.teaser
+targetEntityType: node
+bundle: cp_test
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_cp_test_paragraphs: true
+  langcode: true

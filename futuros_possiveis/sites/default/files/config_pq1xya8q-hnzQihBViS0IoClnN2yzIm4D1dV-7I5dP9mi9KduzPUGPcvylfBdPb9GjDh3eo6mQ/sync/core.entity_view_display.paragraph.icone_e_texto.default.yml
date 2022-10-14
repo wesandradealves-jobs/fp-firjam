@@ -1,0 +1,34 @@
+uuid: c9531af4-e111-4898-b596-9ee6731eeb58
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.icone_e_texto.field_icone_from_icone_e_texto
+    - field.field.paragraph.icone_e_texto.field_texto_from_icone_e_texto
+    - paragraphs.paragraphs_type.icone_e_texto
+  module:
+    - image
+id: paragraph.icone_e_texto.default
+targetEntityType: paragraph
+bundle: icone_e_texto
+mode: default
+content:
+  field_icone_from_icone_e_texto:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_texto_from_icone_e_texto:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

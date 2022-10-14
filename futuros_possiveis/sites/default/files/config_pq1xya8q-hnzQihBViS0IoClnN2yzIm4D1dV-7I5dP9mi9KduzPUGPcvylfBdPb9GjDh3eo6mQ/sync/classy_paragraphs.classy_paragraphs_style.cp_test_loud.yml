@@ -1,0 +1,9 @@
+uuid: e30c0e5b-179f-4c89-a4d8-f88f384c3fb6
+langcode: pt-br
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jVf-PRGu2tecswrNEQdF4dsYaJFP3OOUFFfnmyriCPU
+id: cp_test_loud
+label: Loud
+classes: loud-background

@@ -1,0 +1,22 @@
+uuid: f7fc246f-e71a-4084-80af-0e0c5f427b78
+langcode: pt-br
+status: true
+dependencies:
+  theme:
+    - bartik
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: bartik_local_tasks
+theme: bartik
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Abas
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

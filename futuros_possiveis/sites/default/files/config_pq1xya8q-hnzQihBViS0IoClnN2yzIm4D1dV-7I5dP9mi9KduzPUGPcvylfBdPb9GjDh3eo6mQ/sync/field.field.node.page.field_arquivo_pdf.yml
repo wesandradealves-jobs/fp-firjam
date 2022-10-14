@@ -1,0 +1,27 @@
+uuid: 6723f317-40d6-4cd4-b6ff-47b7e598bdcb
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_arquivo_pdf
+    - node.type.page
+  module:
+    - file
+id: node.page.field_arquivo_pdf
+field_name: field_arquivo_pdf
+entity_type: node
+bundle: page
+label: 'Arquivo PDF'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: arquivos-festival
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file

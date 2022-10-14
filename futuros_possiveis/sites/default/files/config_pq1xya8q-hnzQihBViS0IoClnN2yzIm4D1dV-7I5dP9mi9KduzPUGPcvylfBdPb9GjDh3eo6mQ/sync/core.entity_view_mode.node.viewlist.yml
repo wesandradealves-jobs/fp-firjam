@@ -1,0 +1,10 @@
+uuid: 5ad73e6b-1aee-434c-a415-32095832843e
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.viewlist
+label: ViewList
+targetEntityType: node
+cache: true

@@ -1,0 +1,472 @@
+uuid: bfe0b2a2-7d92-47b4-9d62-6409bb421607
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.landing.field_data_do_evento
+    - field.field.node.landing.field_descricao_de_compartilhame
+    - field.field.node.landing.field_ea_banner1
+    - field.field.node.landing.field_ea_banner2
+    - field.field.node.landing.field_ea_banner3
+    - field.field.node.landing.field_ea_banner4
+    - field.field.node.landing.field_ea_link_banner1
+    - field.field.node.landing.field_ea_link_banner2
+    - field.field.node.landing.field_ea_link_banner3
+    - field.field.node.landing.field_ea_link_banner4
+    - field.field.node.landing.field_edicoes_
+    - field.field.node.landing.field_facebook
+    - field.field.node.landing.field_headline
+    - field.field.node.landing.field_imagem_de_compartilhamento
+    - field.field.node.landing.field_instagram
+    - field.field.node.landing.field_linkedin
+    - field.field.node.landing.field_logo_evento
+    - field.field.node.landing.field_publicacoes
+    - field.field.node.landing.field_quem_ja_passou_por_aqui
+    - field.field.node.landing.field_titulo_de_compartilhamento
+    - field.field.node.landing.field_titulo_edicoes_anteriores
+    - field.field.node.landing.field_titulo_publicacoes
+    - field.field.node.landing.field_titulo_quem_passou
+    - field.field.node.landing.field_twitter
+    - field.field.node.landing.field_video_de_background
+    - field.field.node.landing.field_video_introducao
+    - field.field.node.landing.field_visivel_contagem_regressiv
+    - field.field.node.landing.field_visivel_edicoes_anteriores
+    - field.field.node.landing.field_visivel_introducao
+    - field.field.node.landing.field_visivel_publicacoes
+    - field.field.node.landing.field_visivel_quem_passou
+    - image.style.thumbnail
+    - node.type.landing
+  module:
+    - datetime
+    - field_group
+    - image
+    - link
+    - path
+    - text
+    - youtube
+third_party_settings:
+  field_group:
+    group_header:
+      children:
+        - field_logo_evento
+      parent_name: ''
+      weight: 7
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Header
+    group_introducao:
+      children:
+        - field_headline
+        - field_video_introducao
+        - field_visivel_introducao
+      parent_name: ''
+      weight: 9
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Introdução
+    group_quem_passou_por_aqui:
+      children:
+        - field_titulo_quem_passou
+        - field_quem_ja_passou_por_aqui
+        - field_visivel_quem_passou
+      parent_name: ''
+      weight: 10
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Quem já esteve conosco'
+    group_edicoes_anteriores:
+      children:
+        - field_titulo_edicoes_anteriores
+        - field_edicoes_
+        - field_visivel_edicoes_anteriores
+        - field_ea_banner1
+        - field_ea_link_banner1
+        - field_ea_banner2
+        - field_ea_link_banner2
+        - field_ea_banner3
+        - field_ea_link_banner3
+        - field_ea_banner4
+        - field_ea_link_banner4
+      parent_name: ''
+      weight: 11
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Edições anteriores'
+    group_publicacoes:
+      children:
+        - field_titulo_publicacoes
+        - field_publicacoes
+        - field_visivel_publicacoes
+      parent_name: ''
+      weight: 12
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Publicações
+    group_contagem_regressiva:
+      children:
+        - field_data_do_evento
+        - field_visivel_contagem_regressiv
+      parent_name: ''
+      weight: 8
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Contagem regressiva'
+    group_redes_sociais:
+      children:
+        - field_facebook
+        - field_instagram
+        - field_linkedin
+        - field_twitter
+      parent_name: ''
+      weight: 13
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Redes sociais'
+    group_meta_tags_de_compartilhame:
+      children:
+        - field_titulo_de_compartilhamento
+        - field_descricao_de_compartilhame
+        - field_imagem_de_compartilhamento
+      parent_name: ''
+      weight: 14
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Meta tags de compartilhamento'
+id: node.landing.default
+targetEntityType: node
+bundle: landing
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_data_do_evento:
+    weight: 33
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_descricao_de_compartilhame:
+    weight: 16
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_ea_banner1:
+    weight: 32
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_ea_banner2:
+    weight: 34
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_ea_banner3:
+    weight: 36
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_ea_banner4:
+    weight: 38
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_ea_link_banner1:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ea_link_banner2:
+    weight: 35
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ea_link_banner3:
+    weight: 37
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ea_link_banner4:
+    weight: 39
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_edicoes_:
+    weight: 30
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_facebook:
+    weight: 14
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_headline:
+    weight: 28
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_imagem_de_compartilhamento:
+    weight: 17
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_instagram:
+    weight: 16
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_linkedin:
+    weight: 17
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_logo_evento:
+    weight: 9
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_publicacoes:
+    weight: 44
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_quem_ja_passou_por_aqui:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_titulo_de_compartilhamento:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_titulo_edicoes_anteriores:
+    weight: 29
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_titulo_publicacoes:
+    weight: 43
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_titulo_quem_passou:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_twitter:
+    weight: 18
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_video_introducao:
+    weight: 29
+    settings:
+      placeholder_url: ''
+    third_party_settings: {  }
+    type: youtube
+    region: content
+  field_visivel_contagem_regressiv:
+    weight: 34
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_visivel_edicoes_anteriores:
+    weight: 31
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_visivel_introducao:
+    weight: 30
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_visivel_publicacoes:
+    weight: 45
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_visivel_quem_passou:
+    weight: 16
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  langcode:
+    type: language_select
+    weight: 0
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_video_de_background: true
+  title: true

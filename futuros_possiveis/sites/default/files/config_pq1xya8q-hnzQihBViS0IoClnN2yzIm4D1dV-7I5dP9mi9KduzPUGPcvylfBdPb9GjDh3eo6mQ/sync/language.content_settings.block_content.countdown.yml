@@ -1,0 +1,11 @@
+uuid: 15275f36-afd4-42d8-b40c-7a7707e0dd29
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - block_content.type.countdown
+id: block_content.countdown
+target_entity_type_id: block_content
+target_bundle: countdown
+default_langcode: site_default
+language_alterable: false

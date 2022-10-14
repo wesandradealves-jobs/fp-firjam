@@ -1,0 +1,11 @@
+uuid: 81b155fd-2187-438b-b5df-5ab8b025d243
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.relatorio
+id: node.relatorio
+target_entity_type_id: node
+target_bundle: relatorio
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,21 @@
+uuid: 6e147ea7-7dc3-4a54-a97b-856c6f56af87
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_horario
+field_name: field_horario
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: db4580fd-d14e-4592-b54e-9aade3f47fad
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descricao
+    - node.type.oficina
+id: node.oficina.field_descricao
+field_name: field_descricao
+entity_type: node
+bundle: oficina
+label: Descrição
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

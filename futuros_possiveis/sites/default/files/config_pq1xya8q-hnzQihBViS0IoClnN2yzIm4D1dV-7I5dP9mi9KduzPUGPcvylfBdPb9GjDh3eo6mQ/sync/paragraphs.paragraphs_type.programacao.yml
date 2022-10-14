@@ -1,0 +1,10 @@
+uuid: 9cd55359-3c95-45f5-9c86-add726d4b09d
+langcode: pt-br
+status: true
+dependencies: {  }
+id: programacao
+label: Programação
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

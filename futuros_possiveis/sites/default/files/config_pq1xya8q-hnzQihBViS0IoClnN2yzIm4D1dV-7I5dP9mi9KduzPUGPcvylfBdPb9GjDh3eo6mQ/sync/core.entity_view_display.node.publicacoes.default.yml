@@ -1,0 +1,53 @@
+uuid: 71d184c5-1c51-4ede-88a7-cf500aef1500
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.publicacoes.field_descricao
+    - field.field.node.publicacoes.field_link
+    - field.field.node.publicacoes.field_thumb
+    - node.type.publicacoes
+  module:
+    - image
+    - link
+    - user
+id: node.publicacoes.default
+targetEntityType: node
+bundle: publicacoes
+mode: default
+content:
+  field_descricao:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_link:
+    weight: 102
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_thumb:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

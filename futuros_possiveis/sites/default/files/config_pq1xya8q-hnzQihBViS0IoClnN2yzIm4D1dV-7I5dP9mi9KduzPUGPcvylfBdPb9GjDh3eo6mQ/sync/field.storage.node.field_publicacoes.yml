@@ -1,0 +1,19 @@
+uuid: ed7e595e-9b86-4b1d-ad56-9db31425d660
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_publicacoes
+field_name: field_publicacoes
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,563 @@
+uuid: 354ec7b7-1b83-4173-89a5-9ebf0be85a4d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.hotsite.field_arquivo_imprensa
+    - field.field.node.hotsite.field_conteudo_experiencia
+    - field.field.node.hotsite.field_data_do_evento
+    - field.field.node.hotsite.field_data_e_hora_da_experie
+    - field.field.node.hotsite.field_descricao_de_compartilhame
+    - field.field.node.hotsite.field_facebook
+    - field.field.node.hotsite.field_facilitador_da_experie
+    - field.field.node.hotsite.field_headline
+    - field.field.node.hotsite.field_imagem_de_compartilhamento
+    - field.field.node.hotsite.field_instagram
+    - field.field.node.hotsite.field_lgpd_inscricao_ei
+    - field.field.node.hotsite.field_lgpd_inscricao_no_evento
+    - field.field.node.hotsite.field_lgpd_inscricao_oficina
+    - field.field.node.hotsite.field_linkedin
+    - field.field.node.hotsite.field_login_liberado
+    - field.field.node.hotsite.field_logo_evento
+    - field.field.node.hotsite.field_nome_da_experiencia
+    - field.field.node.hotsite.field_s
+    - field.field.node.hotsite.field_status_imprensa
+    - field.field.node.hotsite.field_status_oficinas
+    - field.field.node.hotsite.field_status_programacao
+    - field.field.node.hotsite.field_texto_experiencias
+    - field.field.node.hotsite.field_texto_imprensa
+    - field.field.node.hotsite.field_texto_oficinas
+    - field.field.node.hotsite.field_texto_programacao
+    - field.field.node.hotsite.field_thumb_experiencia_imersiva
+    - field.field.node.hotsite.field_titulo_de_compartilhamento
+    - field.field.node.hotsite.field_titulo_experiencia
+    - field.field.node.hotsite.field_titulo_imprensa
+    - field.field.node.hotsite.field_titulo_oficina
+    - field.field.node.hotsite.field_titulo_programacao
+    - field.field.node.hotsite.field_twitter
+    - field.field.node.hotsite.field_video_experiencia_imersiva
+    - field.field.node.hotsite.field_video_introducao
+    - field.field.node.hotsite.field_visivel_contagem_regressiv
+    - field.field.node.hotsite.field_visivel_introducao
+    - field.field.node.hotsite.field_webform
+    - image.style.thumbnail
+    - node.type.hotsite
+  module:
+    - datetime
+    - field_group
+    - file
+    - image
+    - link
+    - path
+    - text
+    - webform
+    - youtube
+third_party_settings:
+  field_group:
+    group_header:
+      children:
+        - field_logo_evento
+        - field_login_liberado
+      label: Header
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_contagem_regressiva:
+      children:
+        - field_data_do_evento
+        - field_visivel_contagem_regressiv
+      label: 'Contagem regressiva'
+      region: content
+      parent_name: ''
+      weight: 10
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_introducao:
+      children:
+        - field_headline
+        - field_video_introducao
+        - field_visivel_introducao
+      label: Introdução
+      region: content
+      parent_name: ''
+      weight: 9
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_redes_sociais:
+      children:
+        - field_facebook
+        - field_instagram
+        - field_linkedin
+        - field_twitter
+      label: 'Redes sociais'
+      region: content
+      parent_name: ''
+      weight: 15
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_meta_tags_de_compartilhame:
+      children:
+        - field_titulo_de_compartilhamento
+        - field_descricao_de_compartilhame
+        - field_imagem_de_compartilhamento
+      label: 'Meta tags de compartilhamento'
+      region: content
+      parent_name: ''
+      weight: 16
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_imprensa:
+      children:
+        - field_titulo_imprensa
+        - field_texto_imprensa
+        - field_arquivo_imprensa
+        - field_status_imprensa
+      label: Imprensa
+      region: content
+      parent_name: ''
+      weight: 14
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_oficinas:
+      children:
+        - field_titulo_oficina
+        - field_texto_oficinas
+        - field_status_oficinas
+      label: Oficinas
+      region: content
+      parent_name: ''
+      weight: 12
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_experiencias_imersivas:
+      children:
+        - field_titulo_experiencia
+        - field_texto_experiencias
+        - field_nome_da_experiencia
+        - field_data_e_hora_da_experie
+        - field_conteudo_experiencia
+        - field_facilitador_da_experie
+        - field_thumb_experiencia_imersiva
+        - field_s
+      label: 'Experiências Imersivas'
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_programacao_do_evento:
+      children:
+        - field_titulo_programacao
+        - field_texto_programacao
+        - field_status_programacao
+      label: 'Programação do Evento'
+      region: content
+      parent_name: ''
+      weight: 11
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: 'Para administrar os cards de palestrantes vá no menu em Administração > Palestrantes > Administrar palestrantes'
+        required_fields: true
+    group_lgpd:
+      children:
+        - field_lgpd_inscricao_no_evento
+        - field_lgpd_inscricao_oficina
+        - field_lgpd_inscricao_ei
+      label: LGPD
+      region: content
+      parent_name: ''
+      weight: 17
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.hotsite.default
+targetEntityType: node
+bundle: hotsite
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_arquivo_imprensa:
+    type: file_generic
+    weight: 19
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_conteudo_experiencia:
+    type: text_textarea
+    weight: 20
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_data_do_evento:
+    type: datetime_default
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_data_e_hora_da_experie:
+    type: string_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_descricao_de_compartilhame:
+    type: string_textarea
+    weight: 14
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_facebook:
+    type: link_default
+    weight: 12
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_facilitador_da_experie:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_headline:
+    type: text_textarea
+    weight: 13
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_imagem_de_compartilhamento:
+    type: image_image
+    weight: 15
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_instagram:
+    type: link_default
+    weight: 13
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_lgpd_inscricao_ei:
+    type: text_textarea
+    weight: 20
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_lgpd_inscricao_no_evento:
+    type: text_textarea
+    weight: 18
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_lgpd_inscricao_oficina:
+    type: text_textarea
+    weight: 19
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_linkedin:
+    type: link_default
+    weight: 14
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_login_liberado:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_logo_evento:
+    type: image_image
+    weight: 9
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_nome_da_experiencia:
+    type: string_textfield
+    weight: 18
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_s:
+    type: boolean_checkbox
+    weight: 24
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_status_imprensa:
+    type: boolean_checkbox
+    weight: 20
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_status_oficinas:
+    type: boolean_checkbox
+    weight: 17
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_status_programacao:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_texto_experiencias:
+    type: text_textarea
+    weight: 17
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_texto_imprensa:
+    type: text_textarea
+    weight: 18
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_texto_oficinas:
+    type: text_textarea
+    weight: 16
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_texto_programacao:
+    type: text_textarea
+    weight: 15
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_thumb_experiencia_imersiva:
+    type: image_image
+    weight: 23
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_titulo_de_compartilhamento:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_experiencia:
+    type: string_textfield
+    weight: 16
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_imprensa:
+    type: string_textfield
+    weight: 17
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_oficina:
+    type: string_textfield
+    weight: 15
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_titulo_programacao:
+    type: string_textfield
+    weight: 14
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_twitter:
+    type: link_default
+    weight: 15
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_video_introducao:
+    type: youtube
+    weight: 14
+    region: content
+    settings:
+      placeholder_url: ''
+    third_party_settings: {  }
+  field_visivel_contagem_regressiv:
+    type: boolean_checkbox
+    weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_visivel_introducao:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_webform:
+    type: webform_entity_reference_select
+    weight: 26
+    region: content
+    settings:
+      default_data: true
+      webforms: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_video_experiencia_imersiva: true

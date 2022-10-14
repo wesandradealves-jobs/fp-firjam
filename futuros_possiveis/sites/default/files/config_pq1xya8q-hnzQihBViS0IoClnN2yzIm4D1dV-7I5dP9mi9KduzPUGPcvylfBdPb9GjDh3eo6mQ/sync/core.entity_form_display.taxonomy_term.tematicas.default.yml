@@ -1,0 +1,24 @@
+uuid: 3e0e609e-9372-4e9c-b596-dc1701abfa1d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tematicas
+id: taxonomy_term.tematicas.default
+targetEntityType: taxonomy_term
+bundle: tematicas
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  status: true

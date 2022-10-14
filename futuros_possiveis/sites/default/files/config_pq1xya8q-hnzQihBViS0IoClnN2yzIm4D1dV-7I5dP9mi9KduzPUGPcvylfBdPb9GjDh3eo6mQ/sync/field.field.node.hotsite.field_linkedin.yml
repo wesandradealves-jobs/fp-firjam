@@ -1,0 +1,23 @@
+uuid: 0ba38c1f-a88b-47f7-ae9e-a9901817f447
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_linkedin
+    - node.type.hotsite
+  module:
+    - link
+id: node.hotsite.field_linkedin
+field_name: field_linkedin
+entity_type: node
+bundle: hotsite
+label: Linkedin
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

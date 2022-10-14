@@ -1,0 +1,21 @@
+uuid: bec6a3c0-9cb9-467d-a6cb-aed3551c8516
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_titulo_quem_passou
+field_name: field_titulo_quem_passou
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

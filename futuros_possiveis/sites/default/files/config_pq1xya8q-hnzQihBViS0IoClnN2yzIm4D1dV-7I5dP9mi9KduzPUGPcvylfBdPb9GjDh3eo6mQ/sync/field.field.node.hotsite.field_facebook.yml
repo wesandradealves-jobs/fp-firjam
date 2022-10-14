@@ -1,0 +1,23 @@
+uuid: 23f3fdfb-779d-4b2e-8c13-29eed8bd9ebb
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_facebook
+    - node.type.hotsite
+  module:
+    - link
+id: node.hotsite.field_facebook
+field_name: field_facebook
+entity_type: node
+bundle: hotsite
+label: Facebook
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

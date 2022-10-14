@@ -1,0 +1,19 @@
+uuid: 028dfbfb-e0ee-438c-9816-6694c0167c3e
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_horario
+    - node.type.paletra
+id: node.paletra.field_horario
+field_name: field_horario
+entity_type: node
+bundle: paletra
+label: Horário
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

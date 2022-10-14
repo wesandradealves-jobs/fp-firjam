@@ -1,0 +1,44 @@
+uuid: 370b86cf-58df-4d22-899a-77796f92ec02
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.foto.field_credito
+    - field.field.paragraph.foto.field_foto
+    - field.field.paragraph.foto.field_titulo
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.foto
+  module:
+    - image
+id: paragraph.foto.default
+targetEntityType: paragraph
+bundle: foto
+mode: default
+content:
+  field_credito:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_foto:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_titulo:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

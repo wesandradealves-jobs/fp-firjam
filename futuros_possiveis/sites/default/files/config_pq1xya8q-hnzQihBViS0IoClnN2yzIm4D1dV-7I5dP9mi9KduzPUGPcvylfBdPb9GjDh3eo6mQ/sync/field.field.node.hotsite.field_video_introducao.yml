@@ -1,0 +1,21 @@
+uuid: a1465e1a-20a3-446e-bb3c-cb4f492f3be6
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_introducao
+    - node.type.hotsite
+  module:
+    - youtube
+id: node.hotsite.field_video_introducao
+field_name: field_video_introducao
+entity_type: node
+bundle: hotsite
+label: 'Vídeo de introdução'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: youtube

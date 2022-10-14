@@ -1,0 +1,20 @@
+uuid: 6d53f7a7-6147-475a-9150-fdd20b5a7919
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - futurospossiveis2021
+id: mensagens
+theme: futurospossiveis2021
+region: form_message
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Mensagens
+  label_display: '0'
+  provider: system
+visibility: {  }

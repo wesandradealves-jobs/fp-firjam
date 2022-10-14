@@ -1,0 +1,22 @@
+uuid: e85e78f9-0ebf-41ec-8e16-c8a06cdd5c4b
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.relatorio
+id: node.relatorio.promote
+field_name: promote
+entity_type: node
+bundle: relatorio
+label: 'Promovido para a página inicial'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

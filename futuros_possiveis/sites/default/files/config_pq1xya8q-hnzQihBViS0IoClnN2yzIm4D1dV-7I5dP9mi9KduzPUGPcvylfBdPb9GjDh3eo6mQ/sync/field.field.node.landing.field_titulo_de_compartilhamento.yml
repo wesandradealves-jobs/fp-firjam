@@ -1,0 +1,19 @@
+uuid: 7174717c-c546-4fcd-9090-c879646e51bd
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_titulo_de_compartilhamento
+    - node.type.landing
+id: node.landing.field_titulo_de_compartilhamento
+field_name: field_titulo_de_compartilhamento
+entity_type: node
+bundle: landing
+label: 'Título de compartilhamento'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

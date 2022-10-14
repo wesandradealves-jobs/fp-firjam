@@ -1,0 +1,23 @@
+uuid: 7ed0904a-5644-42c8-bf7a-ccf6fc890ac7
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sindicatos
+    - node.type.oficina
+id: node.oficina.field_sindicatos
+field_name: field_sindicatos
+entity_type: node
+bundle: oficina
+label: Sindicatos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

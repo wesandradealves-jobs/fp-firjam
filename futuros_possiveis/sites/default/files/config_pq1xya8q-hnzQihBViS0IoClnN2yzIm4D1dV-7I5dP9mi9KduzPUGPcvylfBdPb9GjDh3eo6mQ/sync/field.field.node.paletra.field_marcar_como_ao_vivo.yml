@@ -1,0 +1,21 @@
+uuid: 3c4ca949-c972-4a6e-8ffb-3da9a77c821a
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_marcar_como_ao_vivo
+    - node.type.paletra
+id: node.paletra.field_marcar_como_ao_vivo
+field_name: field_marcar_como_ao_vivo
+entity_type: node
+bundle: paletra
+label: 'Marcar como ao vivo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

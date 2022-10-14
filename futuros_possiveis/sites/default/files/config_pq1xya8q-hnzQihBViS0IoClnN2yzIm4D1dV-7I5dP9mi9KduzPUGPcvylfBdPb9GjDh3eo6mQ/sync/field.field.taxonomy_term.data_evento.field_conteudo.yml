@@ -1,0 +1,21 @@
+uuid: 264f2444-ae33-48c8-b656-75234ec0bb4b
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_conteudo
+    - taxonomy.vocabulary.data_evento
+  module:
+    - text
+id: taxonomy_term.data_evento.field_conteudo
+field_name: field_conteudo
+entity_type: taxonomy_term
+bundle: data_evento
+label: Conteúdo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

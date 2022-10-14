@@ -1,0 +1,20 @@
+uuid: c9b28047-025b-40ff-b93d-8b52021c5d97
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_nome_da_empresa
+  module:
+    - user
+id: user.user.field_nome_da_empresa
+field_name: field_nome_da_empresa
+entity_type: user
+bundle: user
+label: 'Nome da empresa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

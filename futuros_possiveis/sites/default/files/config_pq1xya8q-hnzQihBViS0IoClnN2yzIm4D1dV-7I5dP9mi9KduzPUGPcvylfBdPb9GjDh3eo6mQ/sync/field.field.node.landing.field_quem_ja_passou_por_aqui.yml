@@ -1,0 +1,21 @@
+uuid: 1a3dfbfb-b25a-41f5-b09c-1ceaeb2bfa4f
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quem_ja_passou_por_aqui
+    - node.type.landing
+  module:
+    - text
+id: node.landing.field_quem_ja_passou_por_aqui
+field_name: field_quem_ja_passou_por_aqui
+entity_type: node
+bundle: landing
+label: 'Quem já passou por aqui'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

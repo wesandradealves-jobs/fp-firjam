@@ -1,0 +1,13 @@
+uuid: ceef863d-3498-46de-b134-c340f2e19b6c
+langcode: pt-br
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jonvgt3CkUM2eMLTFwWfHileWWDC4YtXCuIlCahTk_I
+id: personal
+label: 'Formulário de contato pessoal'
+recipients: {  }
+reply: ''
+weight: 0
+message: '<p style="color: yellow; font-size: 0.875em; text-align: center;">Cadastro efetuado com sucesso!</p>'
+redirect: ''

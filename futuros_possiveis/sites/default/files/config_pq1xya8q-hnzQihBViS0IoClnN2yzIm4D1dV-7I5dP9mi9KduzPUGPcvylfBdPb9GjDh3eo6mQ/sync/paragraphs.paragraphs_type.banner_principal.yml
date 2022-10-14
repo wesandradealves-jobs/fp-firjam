@@ -1,0 +1,10 @@
+uuid: 1ed4db3b-e5d4-459b-adac-186de8eccad0
+langcode: pt-br
+status: true
+dependencies: {  }
+id: banner_principal
+label: 'Banner Principal'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

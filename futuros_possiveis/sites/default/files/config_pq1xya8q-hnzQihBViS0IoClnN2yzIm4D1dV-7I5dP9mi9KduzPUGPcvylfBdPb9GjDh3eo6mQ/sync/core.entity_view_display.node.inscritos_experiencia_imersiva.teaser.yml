@@ -1,0 +1,39 @@
+uuid: 42eaad32-1dbc-4f99-a4c8-7d39440f273d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.inscritos_experiencia_imersiva.field_cnpj
+    - field.field.node.inscritos_experiencia_imersiva.field_cpf
+    - field.field.node.inscritos_experiencia_imersiva.field_documento
+    - field.field.node.inscritos_experiencia_imersiva.field_e_mail
+    - field.field.node.inscritos_experiencia_imersiva.field_experiencia_imersiva
+    - field.field.node.inscritos_experiencia_imersiva.field_nacionalidade
+    - field.field.node.inscritos_experiencia_imersiva.field_nome
+    - field.field.node.inscritos_experiencia_imersiva.field_nome_empresa
+    - field.field.node.inscritos_experiencia_imersiva.field_passaporte
+    - node.type.inscritos_experiencia_imersiva
+  module:
+    - user
+id: node.inscritos_experiencia_imersiva.teaser
+targetEntityType: node
+bundle: inscritos_experiencia_imersiva
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_cnpj: true
+  field_cpf: true
+  field_documento: true
+  field_e_mail: true
+  field_experiencia_imersiva: true
+  field_nacionalidade: true
+  field_nome: true
+  field_nome_empresa: true
+  field_passaporte: true
+  langcode: true

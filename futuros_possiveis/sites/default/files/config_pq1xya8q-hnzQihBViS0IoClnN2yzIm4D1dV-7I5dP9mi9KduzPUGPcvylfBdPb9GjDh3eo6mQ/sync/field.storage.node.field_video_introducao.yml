@@ -1,0 +1,19 @@
+uuid: 5eb0f77a-a4ea-43ed-81c8-46165899bc3b
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - youtube
+id: node.field_video_introducao
+field_name: field_video_introducao
+entity_type: node
+type: youtube
+settings: {  }
+module: youtube
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

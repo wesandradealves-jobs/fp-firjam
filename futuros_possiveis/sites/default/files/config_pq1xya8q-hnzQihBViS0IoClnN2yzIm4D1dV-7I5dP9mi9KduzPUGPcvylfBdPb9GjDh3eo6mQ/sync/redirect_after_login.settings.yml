@@ -1,0 +1,6 @@
+login_redirection:
+  anonymous: null
+  authenticated: /
+  administrator: /admin
+  cliente_admin: /admin
+exclude_urls: ''

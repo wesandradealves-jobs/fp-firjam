@@ -1,0 +1,29 @@
+uuid: a98a7ab4-e3fb-4d09-8df6-4c8457bfc614
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_galeria
+    - node.type.galeria_de_fotos
+    - taxonomy.vocabulary.galeria_de_fotos
+id: node.galeria_de_fotos.field_galeria
+field_name: field_galeria
+entity_type: node
+bundle: galeria_de_fotos
+label: Galeria
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      galeria_de_fotos: galeria_de_fotos
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,15 @@
+uuid: 7e624ed3-6da2-437f-b29b-2dfcc99060a9
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - paragraphs_library
+third_party_settings:
+  paragraphs_library:
+    allow_library_conversion: true
+id: icone_e_texto
+label: 'Ícone e texto'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

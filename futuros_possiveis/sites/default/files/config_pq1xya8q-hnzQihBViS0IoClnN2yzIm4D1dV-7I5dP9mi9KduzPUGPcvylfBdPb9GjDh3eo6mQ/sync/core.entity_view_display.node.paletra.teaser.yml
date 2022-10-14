@@ -1,0 +1,51 @@
+uuid: d6f4e216-48d6-48b9-b36a-1a9086883b8f
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.paletra.field_cargo_palestrante
+    - field.field.node.paletra.field_curriculo
+    - field.field.node.paletra.field_descricao
+    - field.field.node.paletra.field_dia_do_evento
+    - field.field.node.paletra.field_hora_de_inicio
+    - field.field.node.paletra.field_horario
+    - field.field.node.paletra.field_horario_de_fim
+    - field.field.node.paletra.field_linkedin_do_palestrante
+    - field.field.node.paletra.field_live_en
+    - field.field.node.paletra.field_live_pt
+    - field.field.node.paletra.field_marcar_como_ao_vivo
+    - field.field.node.paletra.field_mediado_por_xxx
+    - field.field.node.paletra.field_painel
+    - field.field.node.paletra.field_sobrescrever_fotos_dos_pal
+    - field.field.node.paletra.field_thumb
+    - node.type.paletra
+  module:
+    - user
+id: node.paletra.teaser
+targetEntityType: node
+bundle: paletra
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_cargo_palestrante: true
+  field_curriculo: true
+  field_descricao: true
+  field_dia_do_evento: true
+  field_hora_de_inicio: true
+  field_horario: true
+  field_horario_de_fim: true
+  field_linkedin_do_palestrante: true
+  field_live_en: true
+  field_live_pt: true
+  field_marcar_como_ao_vivo: true
+  field_mediado_por_xxx: true
+  field_painel: true
+  field_sobrescrever_fotos_dos_pal: true
+  field_thumb: true
+  langcode: true

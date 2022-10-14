@@ -1,0 +1,23 @@
+uuid: 45913fc3-0697-4f88-96a7-e0b9aaeddce4
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_linkedin
+    - node.type.landing
+  module:
+    - link
+id: node.landing.field_linkedin
+field_name: field_linkedin
+entity_type: node
+bundle: landing
+label: Linkedin
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

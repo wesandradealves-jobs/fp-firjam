@@ -1,0 +1,15 @@
+uuid: a47814ae-2690-4204-ade0-c776663cdea8
+langcode: pt-br
+status: true
+dependencies: {  }
+name: 250x400
+label: 250x400
+effects:
+  4308bd26-1469-41e8-b633-9b1202842393:
+    uuid: 4308bd26-1469-41e8-b633-9b1202842393
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 400
+      anchor: center-center

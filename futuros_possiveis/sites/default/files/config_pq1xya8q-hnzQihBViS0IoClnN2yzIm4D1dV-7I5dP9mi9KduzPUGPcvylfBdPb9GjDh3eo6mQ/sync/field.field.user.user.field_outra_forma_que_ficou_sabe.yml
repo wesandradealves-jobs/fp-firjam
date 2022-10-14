@@ -1,0 +1,20 @@
+uuid: 06b4d942-7b4f-464f-9c79-7f9aa3166bd0
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_outra_forma_que_ficou_sabe
+  module:
+    - user
+id: user.user.field_outra_forma_que_ficou_sabe
+field_name: field_outra_forma_que_ficou_sabe
+entity_type: user
+bundle: user
+label: 'Outra forma que ficou sabendo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

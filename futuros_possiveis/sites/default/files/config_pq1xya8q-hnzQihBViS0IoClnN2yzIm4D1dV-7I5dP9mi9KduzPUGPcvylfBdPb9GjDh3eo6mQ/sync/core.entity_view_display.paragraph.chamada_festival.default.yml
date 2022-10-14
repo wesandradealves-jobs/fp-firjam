@@ -1,0 +1,85 @@
+uuid: 46484baa-cff2-4686-a422-1843a394a1cd
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.chamada_festival.field_descricao
+    - field.field.paragraph.chamada_festival.field_imagem_1
+    - field.field.paragraph.chamada_festival.field_imagem_2
+    - field.field.paragraph.chamada_festival.field_imagem_3
+    - field.field.paragraph.chamada_festival.field_texto_acima_do_botao
+    - field.field.paragraph.chamada_festival.field_titulo
+    - field.field.paragraph.chamada_festival.field_titulo_da_secao
+    - paragraphs.paragraphs_type.chamada_festival
+  module:
+    - image
+id: paragraph.chamada_festival.default
+targetEntityType: paragraph
+bundle: chamada_festival
+mode: default
+content:
+  field_descricao:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_imagem_1:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_imagem_2:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_imagem_3:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_texto_acima_do_botao:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_titulo:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_titulo_da_secao:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden: {  }

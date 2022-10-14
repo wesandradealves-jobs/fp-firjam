@@ -1,0 +1,23 @@
+uuid: 008e50b0-2504-4534-8abc-28d2971de0b7
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inscricoes_encerradas
+    - node.type.oficina
+id: node.oficina.field_inscricoes_encerradas
+field_name: field_inscricoes_encerradas
+entity_type: node
+bundle: oficina
+label: 'Inscrições Encerradas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

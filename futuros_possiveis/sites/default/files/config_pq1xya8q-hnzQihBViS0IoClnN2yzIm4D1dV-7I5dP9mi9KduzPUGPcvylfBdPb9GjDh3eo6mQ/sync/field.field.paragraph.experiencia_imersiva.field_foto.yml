@@ -1,0 +1,38 @@
+uuid: 9c52d96b-5a56-4ba0-b57e-dea47724d4d5
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_foto
+    - paragraphs.paragraphs_type.experiencia_imersiva
+  module:
+    - image
+id: paragraph.experiencia_imersiva.field_foto
+field_name: field_foto
+entity_type: paragraph
+bundle: experiencia_imersiva
+label: 'Selo Foto'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

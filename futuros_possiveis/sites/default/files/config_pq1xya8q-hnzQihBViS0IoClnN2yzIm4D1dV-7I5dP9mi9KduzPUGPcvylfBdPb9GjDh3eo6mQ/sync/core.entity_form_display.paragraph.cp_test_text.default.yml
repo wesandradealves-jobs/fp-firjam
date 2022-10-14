@@ -1,0 +1,35 @@
+uuid: eba78e1c-9a6b-4f56-8806-c97aba82099f
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cp_test_text.field_cp_test_body
+    - field.field.paragraph.cp_test_text.field_cp_test_classes
+    - paragraphs.paragraphs_type.cp_test_text
+  module:
+    - text
+_core:
+  default_config_hash: YhZqtFZwLRoZHiC_pqHqZe3rJONm7LVlTxC_iL_DN7U
+id: paragraph.cp_test_text.default
+targetEntityType: paragraph
+bundle: cp_test_text
+mode: default
+content:
+  field_cp_test_body:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_cp_test_classes:
+    type: options_buttons
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,21 @@
+uuid: ffda8241-98f6-4c1e-8f98-fa8b599fca59
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_conteudo_experiencia
+    - node.type.hotsite
+  module:
+    - text
+id: node.hotsite.field_conteudo_experiencia
+field_name: field_conteudo_experiencia
+entity_type: node
+bundle: hotsite
+label: 'Conteúdo Experiência Imersiva'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

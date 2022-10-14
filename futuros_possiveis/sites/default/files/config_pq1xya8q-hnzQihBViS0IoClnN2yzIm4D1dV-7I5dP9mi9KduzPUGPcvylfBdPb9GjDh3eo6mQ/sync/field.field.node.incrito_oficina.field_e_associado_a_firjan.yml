@@ -1,0 +1,21 @@
+uuid: 44d21dd6-5c2f-4246-b445-ae8a30964799
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_e_associado_a_firjan
+    - node.type.incrito_oficina
+  module:
+    - options
+id: node.incrito_oficina.field_e_associado_a_firjan
+field_name: field_e_associado_a_firjan
+entity_type: node
+bundle: incrito_oficina
+label: 'É associado a firjan?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,23 @@
+uuid: df452d38-ce8a-404a-8755-46c61ffeaa18
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_video_de_background
+field_name: field_video_de_background
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 591912b5-a02e-498d-a8d1-1957c4eb9e10
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_titulo_edicoes_anteriores
+field_name: field_titulo_edicoes_anteriores
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

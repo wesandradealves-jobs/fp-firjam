@@ -1,0 +1,23 @@
+uuid: 21ba563b-81a2-4569-b5d5-db77d2b09245
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_layout_alternativo
+    - paragraphs.paragraphs_type.chamada_card_
+id: paragraph.chamada_card_.field_layout_alternativo
+field_name: field_layout_alternativo
+entity_type: paragraph
+bundle: chamada_card_
+label: 'Layout alternativo'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: layout-alternativo
+  off_label: layout-normal
+field_type: boolean

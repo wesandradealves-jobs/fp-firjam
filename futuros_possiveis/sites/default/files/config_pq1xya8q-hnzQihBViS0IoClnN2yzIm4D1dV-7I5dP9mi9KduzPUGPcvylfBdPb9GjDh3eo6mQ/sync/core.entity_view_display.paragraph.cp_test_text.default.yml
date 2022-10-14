@@ -1,0 +1,28 @@
+uuid: f8fca022-6b5f-4f5e-8af9-489dca04db4d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cp_test_text.field_cp_test_body
+    - field.field.paragraph.cp_test_text.field_cp_test_classes
+    - paragraphs.paragraphs_type.cp_test_text
+  module:
+    - text
+_core:
+  default_config_hash: Onxm2PifpwvZakfyurgjl9Q4FVEu-Eg1oowcwLh_pLY
+id: paragraph.cp_test_text.default
+targetEntityType: paragraph
+bundle: cp_test_text
+mode: default
+content:
+  field_cp_test_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_cp_test_classes: true
+  uid: true

@@ -1,0 +1,163 @@
+uuid: 7177d561-a38f-40ca-969c-0a2b755316f4
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.paletra.field_cargo_palestrante
+    - field.field.node.paletra.field_curriculo
+    - field.field.node.paletra.field_descricao
+    - field.field.node.paletra.field_dia_do_evento
+    - field.field.node.paletra.field_hora_de_inicio
+    - field.field.node.paletra.field_horario
+    - field.field.node.paletra.field_horario_de_fim
+    - field.field.node.paletra.field_linkedin_do_palestrante
+    - field.field.node.paletra.field_live_en
+    - field.field.node.paletra.field_live_pt
+    - field.field.node.paletra.field_marcar_como_ao_vivo
+    - field.field.node.paletra.field_mediado_por_xxx
+    - field.field.node.paletra.field_painel
+    - field.field.node.paletra.field_sobrescrever_fotos_dos_pal
+    - field.field.node.paletra.field_thumb
+    - node.type.paletra
+  module:
+    - image
+    - link
+    - time_field
+    - user
+id: node.paletra.default
+targetEntityType: node
+bundle: paletra
+mode: default
+content:
+  field_cargo_palestrante:
+    weight: 12
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_curriculo:
+    weight: 14
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_descricao:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_dia_do_evento:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_hora_de_inicio:
+    weight: 5
+    label: above
+    settings:
+      time_format: 'h:i a'
+    third_party_settings: {  }
+    type: time_formatter
+    region: content
+  field_horario:
+    weight: 15
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_horario_de_fim:
+    weight: 6
+    label: above
+    settings:
+      time_format: 'h:i a'
+    third_party_settings: {  }
+    type: time_formatter
+    region: content
+  field_linkedin_do_palestrante:
+    weight: 13
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_live_en:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_live_pt:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_marcar_como_ao_vivo:
+    weight: 11
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_mediado_por_xxx:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_painel:
+    weight: 16
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_sobrescrever_fotos_dos_pal:
+    weight: 10
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_thumb:
+    weight: 9
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  langcode: true
+  links: true

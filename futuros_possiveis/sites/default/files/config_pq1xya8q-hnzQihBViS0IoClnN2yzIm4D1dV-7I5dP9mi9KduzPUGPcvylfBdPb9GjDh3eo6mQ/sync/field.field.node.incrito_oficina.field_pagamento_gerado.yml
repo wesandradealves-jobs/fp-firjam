@@ -1,0 +1,21 @@
+uuid: 542af63b-c326-43ee-9859-cf76df00dad5
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pagamento_gerado
+    - node.type.incrito_oficina
+id: node.incrito_oficina.field_pagamento_gerado
+field_name: field_pagamento_gerado
+entity_type: node
+bundle: incrito_oficina
+label: 'Pagamento gerado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

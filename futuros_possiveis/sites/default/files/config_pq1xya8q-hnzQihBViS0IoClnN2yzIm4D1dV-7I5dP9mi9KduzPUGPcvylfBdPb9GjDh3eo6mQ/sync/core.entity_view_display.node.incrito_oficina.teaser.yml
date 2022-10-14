@@ -1,0 +1,51 @@
+uuid: 66c3d834-c744-4ea1-b08d-df6f0a725a3a
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.incrito_oficina.field_cep
+    - field.field.node.incrito_oficina.field_cnpj
+    - field.field.node.incrito_oficina.field_comprovante
+    - field.field.node.incrito_oficina.field_cpf
+    - field.field.node.incrito_oficina.field_e_associado_a_firjan
+    - field.field.node.incrito_oficina.field_e_mail
+    - field.field.node.incrito_oficina.field_endereco_completo
+    - field.field.node.incrito_oficina.field_eu_aceito_os_termos_de_uso
+    - field.field.node.incrito_oficina.field_formacao_academica
+    - field.field.node.incrito_oficina.field_nascimento
+    - field.field.node.incrito_oficina.field_nome
+    - field.field.node.incrito_oficina.field_nome_empresa
+    - field.field.node.incrito_oficina.field_oficinas
+    - field.field.node.incrito_oficina.field_pagamento_gerado
+    - field.field.node.incrito_oficina.field_telefone
+    - node.type.incrito_oficina
+  module:
+    - user
+id: node.incrito_oficina.teaser
+targetEntityType: node
+bundle: incrito_oficina
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_cep: true
+  field_cnpj: true
+  field_comprovante: true
+  field_cpf: true
+  field_e_associado_a_firjan: true
+  field_e_mail: true
+  field_endereco_completo: true
+  field_eu_aceito_os_termos_de_uso: true
+  field_formacao_academica: true
+  field_nascimento: true
+  field_nome: true
+  field_nome_empresa: true
+  field_oficinas: true
+  field_pagamento_gerado: true
+  field_telefone: true
+  langcode: true

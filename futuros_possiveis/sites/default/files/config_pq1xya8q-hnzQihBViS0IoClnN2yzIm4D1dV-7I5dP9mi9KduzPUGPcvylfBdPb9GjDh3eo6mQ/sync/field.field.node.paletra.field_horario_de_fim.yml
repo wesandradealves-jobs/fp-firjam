@@ -1,0 +1,21 @@
+uuid: 4ec22290-b5ad-4d54-b9cd-b859d84eebe0
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_horario_de_fim
+    - node.type.paletra
+  module:
+    - time_field
+id: node.paletra.field_horario_de_fim
+field_name: field_horario_de_fim
+entity_type: node
+bundle: paletra
+label: 'Horário de fim'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: time

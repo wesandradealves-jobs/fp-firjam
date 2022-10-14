@@ -1,0 +1,37 @@
+uuid: 873f0291-deab-40ff-ae0a-56269f638a87
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page.body
+    - field.field.node.page.field_arquivo_pdf
+    - field.field.node.page.field_central_regiao_page
+    - field.field.node.page.field_top_page
+    - node.type.page
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: cSv5lDnbIgDug475Hdz3woED2XMqYv3awI-J9u1JLbY
+id: node.page.teaser
+targetEntityType: node
+bundle: page
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  links:
+    weight: 101
+    region: content
+hidden:
+  field_arquivo_pdf: true
+  field_central_regiao_page: true
+  field_top_page: true
+  langcode: true

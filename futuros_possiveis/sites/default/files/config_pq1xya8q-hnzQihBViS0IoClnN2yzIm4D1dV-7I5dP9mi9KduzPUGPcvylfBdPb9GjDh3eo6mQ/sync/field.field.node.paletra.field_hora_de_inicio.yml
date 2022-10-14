@@ -1,0 +1,21 @@
+uuid: 25bcb09c-5499-4be6-bda5-99fe41b3939a
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hora_de_inicio
+    - node.type.paletra
+  module:
+    - time_field
+id: node.paletra.field_hora_de_inicio
+field_name: field_hora_de_inicio
+entity_type: node
+bundle: paletra
+label: 'Hora de início'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: time

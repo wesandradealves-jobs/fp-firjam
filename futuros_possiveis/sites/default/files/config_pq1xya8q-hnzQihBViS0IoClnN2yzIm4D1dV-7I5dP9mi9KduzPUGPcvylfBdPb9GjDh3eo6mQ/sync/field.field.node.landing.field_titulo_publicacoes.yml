@@ -1,0 +1,19 @@
+uuid: 7666d803-a26b-4fff-8ca0-a3c93bd3e478
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_titulo_publicacoes
+    - node.type.landing
+id: node.landing.field_titulo_publicacoes
+field_name: field_titulo_publicacoes
+entity_type: node
+bundle: landing
+label: Título
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

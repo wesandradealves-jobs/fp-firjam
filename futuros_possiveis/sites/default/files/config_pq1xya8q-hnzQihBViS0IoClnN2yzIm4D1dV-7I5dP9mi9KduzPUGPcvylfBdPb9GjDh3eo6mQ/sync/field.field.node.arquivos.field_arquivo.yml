@@ -1,0 +1,27 @@
+uuid: f64d52c6-1fef-4429-a983-fdef381f8c58
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_arquivo
+    - node.type.arquivos
+  module:
+    - file
+id: node.arquivos.field_arquivo
+field_name: field_arquivo
+entity_type: node
+bundle: arquivos
+label: field_arquivo_ics
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt ics'
+  max_filesize: '50 MB'
+  description_field: false
+field_type: file

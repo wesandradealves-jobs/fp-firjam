@@ -1,0 +1,20 @@
+uuid: ca21f935-7fb5-467d-97e4-d98c76a9b507
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_nome
+  module:
+    - user
+id: user.user.field_nome
+field_name: field_nome
+entity_type: user
+bundle: user
+label: Nome
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

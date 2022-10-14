@@ -1,0 +1,28 @@
+uuid: f1423dbf-9341-4378-816b-643de1f5a7d1
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_palestra
+    - node.type.paletra
+    - node.type.relatorio
+id: node.relatorio.field_palestra
+field_name: field_palestra
+entity_type: node
+bundle: relatorio
+label: Palestra
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      paletra: paletra
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

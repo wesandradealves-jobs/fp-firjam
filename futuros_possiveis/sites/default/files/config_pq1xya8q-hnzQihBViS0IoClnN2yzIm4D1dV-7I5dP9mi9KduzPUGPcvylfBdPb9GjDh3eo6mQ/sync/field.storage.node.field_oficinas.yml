@@ -1,0 +1,19 @@
+uuid: 4d75ddf9-1879-4900-b598-28c93a29fec0
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_oficinas
+field_name: field_oficinas
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

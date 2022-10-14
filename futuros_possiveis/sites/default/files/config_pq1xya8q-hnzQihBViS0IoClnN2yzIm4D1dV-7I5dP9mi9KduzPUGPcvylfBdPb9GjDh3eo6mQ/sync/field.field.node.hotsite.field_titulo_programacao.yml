@@ -1,0 +1,19 @@
+uuid: 84e237b3-abea-4c0e-9fe8-2d0ed8d8df37
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_titulo_programacao
+    - node.type.hotsite
+id: node.hotsite.field_titulo_programacao
+field_name: field_titulo_programacao
+entity_type: node
+bundle: hotsite
+label: 'Título Programação'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

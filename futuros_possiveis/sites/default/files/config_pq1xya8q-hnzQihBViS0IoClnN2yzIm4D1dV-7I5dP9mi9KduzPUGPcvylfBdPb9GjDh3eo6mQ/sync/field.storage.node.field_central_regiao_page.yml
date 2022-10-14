@@ -1,0 +1,21 @@
+uuid: 552a8ef3-5d49-4ce6-bb57-46ed65fdd4a7
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_central_regiao_page
+field_name: field_central_regiao_page
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

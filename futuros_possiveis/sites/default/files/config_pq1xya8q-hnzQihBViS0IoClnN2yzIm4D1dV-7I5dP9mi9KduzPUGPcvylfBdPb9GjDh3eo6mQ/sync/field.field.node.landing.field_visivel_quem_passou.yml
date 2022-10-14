@@ -1,0 +1,23 @@
+uuid: 9c6e9d4e-3d6f-401d-a569-763812695eb3
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visivel_quem_passou
+    - node.type.landing
+id: node.landing.field_visivel_quem_passou
+field_name: field_visivel_quem_passou
+entity_type: node
+bundle: landing
+label: Visível
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

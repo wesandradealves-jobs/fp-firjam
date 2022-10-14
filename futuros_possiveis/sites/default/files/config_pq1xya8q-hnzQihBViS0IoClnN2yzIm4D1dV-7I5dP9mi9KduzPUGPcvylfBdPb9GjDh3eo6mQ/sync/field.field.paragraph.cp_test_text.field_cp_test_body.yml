@@ -1,0 +1,23 @@
+uuid: 7bdbfce4-d973-4518-9bb3-efbbd2fe414a
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cp_test_body
+    - paragraphs.paragraphs_type.cp_test_text
+  module:
+    - text
+_core:
+  default_config_hash: JZI34x3z0OwYcGn-AK05FkzXj1jUyRbLV2N9ZqPRspo
+id: paragraph.cp_test_text.field_cp_test_body
+field_name: field_cp_test_body
+entity_type: paragraph
+bundle: cp_test_text
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

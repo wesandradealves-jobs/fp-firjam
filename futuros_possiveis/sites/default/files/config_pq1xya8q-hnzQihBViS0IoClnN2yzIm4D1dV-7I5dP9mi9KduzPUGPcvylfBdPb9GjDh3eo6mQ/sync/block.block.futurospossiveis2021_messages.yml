@@ -1,0 +1,22 @@
+uuid: 9d207173-5d6f-4ee0-93a1-1e6316ae8ee7
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - futurospossiveis2021
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: futurospossiveis2021_messages
+theme: futurospossiveis2021
+region: highlighted
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Mensagens de status'
+  label_display: '0'
+  provider: system
+visibility: {  }

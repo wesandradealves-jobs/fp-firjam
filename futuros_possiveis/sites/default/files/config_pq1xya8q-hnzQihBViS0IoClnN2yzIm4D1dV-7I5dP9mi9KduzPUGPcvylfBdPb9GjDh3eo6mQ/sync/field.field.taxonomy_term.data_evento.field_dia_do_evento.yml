@@ -1,0 +1,21 @@
+uuid: 87252087-1632-43c6-86a7-3387a1b4cb18
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_dia_do_evento
+    - taxonomy.vocabulary.data_evento
+  module:
+    - datetime
+id: taxonomy_term.data_evento.field_dia_do_evento
+field_name: field_dia_do_evento
+entity_type: taxonomy_term
+bundle: data_evento
+label: 'Dia do evento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

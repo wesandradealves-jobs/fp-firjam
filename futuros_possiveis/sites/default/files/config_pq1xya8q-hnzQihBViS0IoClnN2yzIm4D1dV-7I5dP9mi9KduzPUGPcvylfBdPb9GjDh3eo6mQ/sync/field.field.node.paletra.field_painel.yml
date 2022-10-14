@@ -1,0 +1,23 @@
+uuid: 9cda4e1e-5990-4b22-a2d3-0dcf79c92091
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_painel
+    - node.type.paletra
+id: node.paletra.field_painel
+field_name: field_painel
+entity_type: node
+bundle: paletra
+label: 'Este é um painel'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

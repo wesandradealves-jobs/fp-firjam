@@ -1,0 +1,21 @@
+uuid: 8ec7d881-de1c-40d2-b4c3-a446ed14a20e
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_titulo_conteudo
+field_name: field_titulo_conteudo
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

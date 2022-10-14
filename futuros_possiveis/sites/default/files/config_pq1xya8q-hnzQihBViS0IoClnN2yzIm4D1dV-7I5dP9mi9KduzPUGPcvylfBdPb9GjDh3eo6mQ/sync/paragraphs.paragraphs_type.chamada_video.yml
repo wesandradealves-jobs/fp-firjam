@@ -1,0 +1,10 @@
+uuid: 3640165d-2894-4e4e-bc8c-8269bf014110
+langcode: pt-br
+status: true
+dependencies: {  }
+id: chamada_video
+label: 'Chamada Vídeo'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

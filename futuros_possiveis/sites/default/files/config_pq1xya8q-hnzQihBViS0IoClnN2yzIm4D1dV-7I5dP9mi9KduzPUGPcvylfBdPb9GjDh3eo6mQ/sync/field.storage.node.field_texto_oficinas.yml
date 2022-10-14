@@ -1,0 +1,19 @@
+uuid: 3633bf16-801f-4312-a399-f4e8e9042ace
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_texto_oficinas
+field_name: field_texto_oficinas
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

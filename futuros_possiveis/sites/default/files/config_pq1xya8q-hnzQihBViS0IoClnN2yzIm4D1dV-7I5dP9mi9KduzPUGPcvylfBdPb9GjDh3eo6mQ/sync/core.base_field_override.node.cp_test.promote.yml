@@ -1,0 +1,24 @@
+uuid: 9b08cb5b-e093-4f6a-8ce8-4a9757509fac
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.cp_test
+_core:
+  default_config_hash: EMFHsiS-jrdb3IxWKTRicNc6TphCXNfi-uQLLlHatZU
+id: node.cp_test.promote
+field_name: promote
+entity_type: node
+bundle: cp_test
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

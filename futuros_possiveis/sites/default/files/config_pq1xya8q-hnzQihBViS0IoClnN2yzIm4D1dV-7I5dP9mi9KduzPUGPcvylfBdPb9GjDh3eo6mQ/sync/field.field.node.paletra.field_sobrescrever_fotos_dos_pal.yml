@@ -1,0 +1,23 @@
+uuid: b662d3bf-1ab7-4d28-8ae8-daab6d2201f8
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sobrescrever_fotos_dos_pal
+    - node.type.paletra
+id: node.paletra.field_sobrescrever_fotos_dos_pal
+field_name: field_sobrescrever_fotos_dos_pal
+entity_type: node
+bundle: paletra
+label: 'Sobrescrever fotos dos palestrantes com Thumb'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

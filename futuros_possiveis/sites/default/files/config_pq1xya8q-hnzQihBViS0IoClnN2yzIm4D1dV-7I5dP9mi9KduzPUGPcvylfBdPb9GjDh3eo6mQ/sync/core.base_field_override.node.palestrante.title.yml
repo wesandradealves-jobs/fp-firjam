@@ -1,0 +1,18 @@
+uuid: 2d2b93e0-9173-4867-a5bf-5eea3464c1b3
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.palestrante
+id: node.palestrante.title
+field_name: title
+entity_type: node
+bundle: palestrante
+label: Nome
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

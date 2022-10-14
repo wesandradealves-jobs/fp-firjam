@@ -1,0 +1,23 @@
+uuid: eca92678-18cb-4796-950f-8de119615835
+langcode: pt-br
+status: true
+dependencies: {  }
+id: cliente_admin
+label: 'Cliente Admin'
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access draggableviews'
+  - 'access toolbar'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'administer taxonomy'
+  - 'administer toolbar menu'
+  - 'administer url aliases'
+  - 'administer users'
+  - 'bypass node access'
+  - 'change own username'
+  - 'view adminitracao in toolbar'
+  - 'view the administration theme'

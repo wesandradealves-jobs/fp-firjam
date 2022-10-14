@@ -1,0 +1,21 @@
+uuid: d488b4b8-869b-427c-91ce-b79777837c82
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_introducao
+    - node.type.landing
+  module:
+    - youtube
+id: node.landing.field_video_introducao
+field_name: field_video_introducao
+entity_type: node
+bundle: landing
+label: 'Vídeo de introdução'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: youtube

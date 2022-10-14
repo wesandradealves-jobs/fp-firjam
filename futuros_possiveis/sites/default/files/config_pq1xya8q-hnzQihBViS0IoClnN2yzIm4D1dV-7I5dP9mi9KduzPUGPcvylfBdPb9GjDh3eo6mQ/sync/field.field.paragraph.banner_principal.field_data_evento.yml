@@ -1,0 +1,19 @@
+uuid: 999e6f8e-2d40-4e00-85c6-6186af7e70fd
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_data_evento
+    - paragraphs.paragraphs_type.banner_principal
+id: paragraph.banner_principal.field_data_evento
+field_name: field_data_evento
+entity_type: paragraph
+bundle: banner_principal
+label: 'Data Evento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

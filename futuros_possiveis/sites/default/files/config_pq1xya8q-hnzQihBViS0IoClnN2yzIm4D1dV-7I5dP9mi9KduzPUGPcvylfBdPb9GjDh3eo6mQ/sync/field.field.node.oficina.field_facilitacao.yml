@@ -1,0 +1,19 @@
+uuid: ae78ebaf-849d-4ba3-bd5e-40a4660bd76b
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_facilitacao
+    - node.type.oficina
+id: node.oficina.field_facilitacao
+field_name: field_facilitacao
+entity_type: node
+bundle: oficina
+label: Mediador
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

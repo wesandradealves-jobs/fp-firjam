@@ -1,0 +1,19 @@
+uuid: 2c6cfb63-8de7-44ab-b178-e681933326f2
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_descricao
+    - paragraphs.paragraphs_type.chamada_festival
+id: paragraph.chamada_festival.field_descricao
+field_name: field_descricao
+entity_type: paragraph
+bundle: chamada_festival
+label: Descrição
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

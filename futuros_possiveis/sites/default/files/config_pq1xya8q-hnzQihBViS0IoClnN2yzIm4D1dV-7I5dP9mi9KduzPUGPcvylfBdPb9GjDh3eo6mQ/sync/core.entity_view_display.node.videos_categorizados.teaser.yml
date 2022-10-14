@@ -1,0 +1,29 @@
+uuid: c819698a-de37-4283-ad46-9e3bcc0116c4
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.videos_categorizados.field_ano
+    - field.field.node.videos_categorizados.field_descricao
+    - field.field.node.videos_categorizados.field_link_do_video
+    - field.field.node.videos_categorizados.field_videos_sequencia
+    - node.type.videos_categorizados
+  module:
+    - user
+id: node.videos_categorizados.teaser
+targetEntityType: node
+bundle: videos_categorizados
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_ano: true
+  field_descricao: true
+  field_link_do_video: true
+  field_videos_sequencia: true
+  langcode: true

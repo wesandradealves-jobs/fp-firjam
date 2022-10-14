@@ -1,0 +1,29 @@
+uuid: 26c3a718-b2f9-4730-9902-08d9c9bac5c1
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dia_do_evento
+    - node.type.paletra
+    - taxonomy.vocabulary.data_evento
+id: node.paletra.field_dia_do_evento
+field_name: field_dia_do_evento
+entity_type: node
+bundle: paletra
+label: 'Dia do evento'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      data_evento: data_evento
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

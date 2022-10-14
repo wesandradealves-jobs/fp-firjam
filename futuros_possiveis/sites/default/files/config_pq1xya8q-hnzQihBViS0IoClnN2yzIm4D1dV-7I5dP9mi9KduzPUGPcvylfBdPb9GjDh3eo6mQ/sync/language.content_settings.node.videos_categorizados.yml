@@ -1,0 +1,11 @@
+uuid: a57ebb21-a8ca-447c-a03b-6d99e5574e40
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.videos_categorizados
+id: node.videos_categorizados
+target_entity_type_id: node
+target_bundle: videos_categorizados
+default_langcode: site_default
+language_alterable: false

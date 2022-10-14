@@ -1,0 +1,11 @@
+uuid: 6374abfd-0465-43b4-8f40-dc2573844075
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.paletra
+id: node.paletra
+target_entity_type_id: node
+target_bundle: paletra
+default_langcode: site_default
+language_alterable: false

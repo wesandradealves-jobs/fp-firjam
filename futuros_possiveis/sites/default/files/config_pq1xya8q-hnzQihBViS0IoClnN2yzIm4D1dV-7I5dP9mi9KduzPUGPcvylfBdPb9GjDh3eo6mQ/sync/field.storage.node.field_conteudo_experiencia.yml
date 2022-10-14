@@ -1,0 +1,19 @@
+uuid: 23cac167-12da-4385-aece-21ea74afb667
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_conteudo_experiencia
+field_name: field_conteudo_experiencia
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

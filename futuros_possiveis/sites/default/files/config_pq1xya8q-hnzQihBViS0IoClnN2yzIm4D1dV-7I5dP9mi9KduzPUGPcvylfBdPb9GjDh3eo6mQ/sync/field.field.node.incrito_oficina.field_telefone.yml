@@ -1,0 +1,19 @@
+uuid: 579d6dae-d69a-4e99-8670-b99707dd4046
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_telefone
+    - node.type.incrito_oficina
+id: node.incrito_oficina.field_telefone
+field_name: field_telefone
+entity_type: node
+bundle: incrito_oficina
+label: Telefone
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

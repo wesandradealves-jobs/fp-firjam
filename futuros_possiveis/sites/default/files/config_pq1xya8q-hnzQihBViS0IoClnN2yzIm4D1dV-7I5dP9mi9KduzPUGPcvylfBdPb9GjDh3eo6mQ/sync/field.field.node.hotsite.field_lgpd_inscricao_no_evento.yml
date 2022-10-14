@@ -1,0 +1,21 @@
+uuid: 72c1220f-3690-4764-9a8d-877e5ec283a2
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lgpd_inscricao_no_evento
+    - node.type.hotsite
+  module:
+    - text
+id: node.hotsite.field_lgpd_inscricao_no_evento
+field_name: field_lgpd_inscricao_no_evento
+entity_type: node
+bundle: hotsite
+label: 'LGPD Inscrição no Evento'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

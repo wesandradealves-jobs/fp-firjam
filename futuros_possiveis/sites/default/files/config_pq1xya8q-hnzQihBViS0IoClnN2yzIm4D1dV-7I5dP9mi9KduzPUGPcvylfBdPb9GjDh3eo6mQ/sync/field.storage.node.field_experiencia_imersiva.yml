@@ -1,0 +1,30 @@
+uuid: bddcbc99-7f8e-4b69-9a74-95464c9b74ab
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_experiencia_imersiva
+field_name: field_experiencia_imersiva
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1711'
+      label: 17/11
+    -
+      value: '1811'
+      label: 18/11
+    -
+      value: '1911'
+      label: 19/11
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

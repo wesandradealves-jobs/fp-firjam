@@ -1,0 +1,21 @@
+uuid: 44a9a5e3-6f09-4485-b302-a58c7177cf3d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_texto_programacao
+    - node.type.hotsite
+  module:
+    - text
+id: node.hotsite.field_texto_programacao
+field_name: field_texto_programacao
+entity_type: node
+bundle: hotsite
+label: 'Texto Programação'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

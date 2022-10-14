@@ -1,0 +1,19 @@
+uuid: 37847a3f-ae97-423c-9d6f-23a96a1c2ff9
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_e_hora_da_experie
+    - node.type.hotsite
+id: node.hotsite.field_data_e_hora_da_experie
+field_name: field_data_e_hora_da_experie
+entity_type: node
+bundle: hotsite
+label: 'Data e Hora da Experiência Imersiva'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

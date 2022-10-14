@@ -1,0 +1,15 @@
+uuid: 4b659a01-3931-4e15-856f-232e2e7cb81f
+langcode: pt-br
+status: true
+dependencies: {  }
+name: 502x338
+label: 502x338
+effects:
+  03927542-32ae-4c67-963c-d143f1f9165b:
+    uuid: 03927542-32ae-4c67-963c-d143f1f9165b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 502
+      height: 338
+      anchor: center-center

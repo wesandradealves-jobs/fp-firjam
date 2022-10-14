@@ -1,0 +1,19 @@
+uuid: 11bea249-01b3-4a61-85b0-162ce1e1ee11
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descricao
+    - node.type.publicacoes
+id: node.publicacoes.field_descricao
+field_name: field_descricao
+entity_type: node
+bundle: publicacoes
+label: Descrição
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

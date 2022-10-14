@@ -1,0 +1,58 @@
+uuid: 29f41b77-4ab6-4adb-9e7c-a9307251e241
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_depoimento_item_
+    - paragraphs.paragraphs_type.depoimentos
+    - paragraphs.paragraphs_type.depoimentos_groups
+  module:
+    - entity_reference_revisions
+id: paragraph.depoimentos_groups.field_depoimento_item_
+field_name: field_depoimento_item_
+entity_type: paragraph
+bundle: depoimentos_groups
+label: 'Depoimento (item)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      depoimentos: depoimentos
+    negate: 0
+    target_bundles_drag_drop:
+      banner_principal:
+        weight: 12
+        enabled: false
+      chamada_card_:
+        weight: 13
+        enabled: false
+      chamada_festival:
+        weight: 14
+        enabled: false
+      chamada_video:
+        weight: 15
+        enabled: false
+      depoimentos:
+        weight: 16
+        enabled: true
+      depoimentos_groups:
+        weight: 11
+        enabled: false
+      experiencia_imersiva:
+        weight: 17
+        enabled: false
+      foto:
+        weight: 18
+        enabled: false
+      programacao:
+        weight: 19
+        enabled: false
+      sobre_o_evento:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

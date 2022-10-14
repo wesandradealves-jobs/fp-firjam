@@ -1,0 +1,21 @@
+uuid: bca559bf-7e88-4502-a194-4da63d3f9edb
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_experiencia_imersiva
+    - node.type.inscritos_experiencia_imersiva
+  module:
+    - options
+id: node.inscritos_experiencia_imersiva.field_experiencia_imersiva
+field_name: field_experiencia_imersiva
+entity_type: node
+bundle: inscritos_experiencia_imersiva
+label: 'Experiência Imersiva'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

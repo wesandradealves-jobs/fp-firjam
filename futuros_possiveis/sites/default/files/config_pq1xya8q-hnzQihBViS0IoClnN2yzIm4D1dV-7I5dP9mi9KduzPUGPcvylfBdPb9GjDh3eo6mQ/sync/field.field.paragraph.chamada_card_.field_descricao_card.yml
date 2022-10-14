@@ -1,0 +1,21 @@
+uuid: ad923687-6fbc-479d-9286-44502c8f9213
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_descricao_card
+    - paragraphs.paragraphs_type.chamada_card_
+  module:
+    - text
+id: paragraph.chamada_card_.field_descricao_card
+field_name: field_descricao_card
+entity_type: paragraph
+bundle: chamada_card_
+label: 'Descrição Card'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

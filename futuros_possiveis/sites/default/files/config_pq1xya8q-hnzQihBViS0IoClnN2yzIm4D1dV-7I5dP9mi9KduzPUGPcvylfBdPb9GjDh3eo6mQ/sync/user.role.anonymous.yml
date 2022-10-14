@@ -1,0 +1,17 @@
+uuid: 34413524-dd41-4de0-be74-c1ee8ff0465c
+langcode: pt-br
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pq_mEIu_B4widZN7Ap81iCJSjShFFdcL0jEiCi8VrDk
+id: anonymous
+label: 'Usuário anônimo'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'create incrito_oficina content'
+  - 'create pre_cadastro content'
+  - 'use text format restricted_html'

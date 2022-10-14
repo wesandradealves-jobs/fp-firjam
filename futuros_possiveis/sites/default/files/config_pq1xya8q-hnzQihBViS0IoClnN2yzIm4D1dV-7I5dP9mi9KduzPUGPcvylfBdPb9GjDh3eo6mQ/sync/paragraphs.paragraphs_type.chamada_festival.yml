@@ -1,0 +1,10 @@
+uuid: 7dfd3798-bfc4-4c2a-b607-243e7fa59366
+langcode: pt-br
+status: true
+dependencies: {  }
+id: chamada_festival
+label: 'Chamada Festival'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

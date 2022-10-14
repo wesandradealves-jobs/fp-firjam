@@ -1,0 +1,30 @@
+uuid: d5da8b7d-31c4-4b72-adeb-2f8e63704741
+langcode: pt-br
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:484fba54-ecbb-41cc-9ad4-15098a83d537'
+  module:
+    - block_content
+    - system
+  theme:
+    - futurospossiveis2021
+id: edicoesanteriores2022
+theme: futurospossiveis2021
+region: help
+weight: -7
+provider: null
+plugin: 'block_content:484fba54-ecbb-41cc-9ad4-15098a83d537'
+settings:
+  id: 'block_content:484fba54-ecbb-41cc-9ad4-15098a83d537'
+  label: 'Edições anteriores 2022'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/206562

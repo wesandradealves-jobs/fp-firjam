@@ -1,0 +1,18 @@
+uuid: ae8b78b4-b0ab-4443-91f4-6f61cac2c9e6
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Vídeos (categorizados)'
+type: videos_categorizados
+description: 'Vídeos categorizados para exibições diversas.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

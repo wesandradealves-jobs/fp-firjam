@@ -1,0 +1,18 @@
+uuid: 9c29f4af-56a6-476f-bb31-7789c5c4109e
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_visivel_contagem_regressiv
+field_name: field_visivel_contagem_regressiv
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

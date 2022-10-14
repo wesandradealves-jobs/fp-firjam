@@ -1,0 +1,19 @@
+uuid: 1295800b-61f6-4472-961e-90d63baaa99d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_chamada
+    - paragraphs.paragraphs_type.programacao
+id: paragraph.programacao.field_chamada
+field_name: field_chamada
+entity_type: paragraph
+bundle: programacao
+label: Chamada
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

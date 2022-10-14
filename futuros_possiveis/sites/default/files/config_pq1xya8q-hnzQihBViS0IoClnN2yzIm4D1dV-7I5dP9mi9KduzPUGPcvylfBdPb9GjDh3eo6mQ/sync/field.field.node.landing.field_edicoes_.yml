@@ -1,0 +1,21 @@
+uuid: a2d817ce-93dc-4a85-bda3-f584219fee62
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_edicoes_
+    - node.type.landing
+  module:
+    - text
+id: node.landing.field_edicoes_
+field_name: field_edicoes_
+entity_type: node
+bundle: landing
+label: 'Edições anteriores'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

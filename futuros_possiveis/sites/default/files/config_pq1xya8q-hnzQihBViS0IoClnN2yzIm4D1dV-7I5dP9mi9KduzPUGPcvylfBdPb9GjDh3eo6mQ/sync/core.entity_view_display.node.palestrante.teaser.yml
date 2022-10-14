@@ -1,0 +1,27 @@
+uuid: 5e0d0de2-af59-410a-ae83-c4bc35f99160
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.palestrante.field_foto
+    - field.field.node.palestrante.field_funcao
+    - field.field.node.palestrante.field_perfil_do_linkedin
+    - node.type.palestrante
+  module:
+    - user
+id: node.palestrante.teaser
+targetEntityType: node
+bundle: palestrante
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_foto: true
+  field_funcao: true
+  field_perfil_do_linkedin: true
+  langcode: true

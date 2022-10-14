@@ -1,0 +1,45 @@
+uuid: 0a2b30f8-30a4-446e-8229-e9a112f05aa5
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.depoimentos.field_depoimento_text
+    - field.field.paragraph.depoimentos.field_foto_depoimento
+    - field.field.paragraph.depoimentos.field_nome_e_cargo
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.depoimentos
+  module:
+    - image
+    - text
+id: paragraph.depoimentos.default
+targetEntityType: paragraph
+bundle: depoimentos
+mode: default
+content:
+  field_depoimento_text:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_foto_depoimento:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_nome_e_cargo:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

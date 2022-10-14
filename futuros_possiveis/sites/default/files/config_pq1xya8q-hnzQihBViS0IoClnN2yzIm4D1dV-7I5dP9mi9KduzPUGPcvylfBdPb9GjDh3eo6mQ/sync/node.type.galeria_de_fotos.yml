@@ -1,0 +1,17 @@
+uuid: 0d740265-97e1-4419-b321-b5a2e256fb54
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Galeria de Fotos'
+type: galeria_de_fotos
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

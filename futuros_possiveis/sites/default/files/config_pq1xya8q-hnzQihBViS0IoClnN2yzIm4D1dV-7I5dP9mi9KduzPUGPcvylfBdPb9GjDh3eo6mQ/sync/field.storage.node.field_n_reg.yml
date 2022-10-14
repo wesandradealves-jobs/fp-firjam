@@ -1,0 +1,20 @@
+uuid: 3ef635e9-73ef-4b65-ae62-b491a6bc5c57
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_n_reg
+field_name: field_n_reg
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

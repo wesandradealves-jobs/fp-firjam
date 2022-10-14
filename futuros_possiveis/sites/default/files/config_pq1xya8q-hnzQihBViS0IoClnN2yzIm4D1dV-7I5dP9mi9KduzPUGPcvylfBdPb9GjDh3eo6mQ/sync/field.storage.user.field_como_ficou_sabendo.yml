@@ -1,0 +1,57 @@
+uuid: 189339a1-a29d-47ce-8715-1b013fb30b2a
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_como_ficou_sabendo
+field_name: field_como_ficou_sabendo
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: google
+      label: 'Busca no Google'
+    -
+      value: site_firjan
+      label: 'Site Firjan'
+    -
+      value: site_casa
+      label: 'Site Casa Firjan'
+    -
+      value: email_marketing
+      label: 'E-mail marketing'
+    -
+      value: facebook
+      label: Facebook
+    -
+      value: instagram
+      label: 'Instagram @casafirjan'
+    -
+      value: linkedin
+      label: Linkedin
+    -
+      value: twitter
+      label: Twitter
+    -
+      value: whatsapp
+      label: WhatsApp
+    -
+      value: imprensa
+      label: Imprensa
+    -
+      value: indicacao
+      label: 'Indicação de empresa, amigo ou familiar'
+    -
+      value: outro
+      label: Outro
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: bc9733e2-cad6-4cca-a440-630ae99950a3
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_comprovante
+    - node.type.incrito_oficina
+  module:
+    - file
+id: node.incrito_oficina.field_comprovante
+field_name: field_comprovante
+entity_type: node
+bundle: incrito_oficina
+label: Comprovante
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf doc docx jpg png'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

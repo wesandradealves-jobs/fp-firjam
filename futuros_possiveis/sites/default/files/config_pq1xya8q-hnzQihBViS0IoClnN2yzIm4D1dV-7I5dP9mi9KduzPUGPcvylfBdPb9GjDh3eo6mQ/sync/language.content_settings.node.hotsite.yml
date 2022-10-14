@@ -1,0 +1,11 @@
+uuid: 35d42a20-42bb-4b7d-b759-6774594806f5
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.hotsite
+id: node.hotsite
+target_entity_type_id: node
+target_bundle: hotsite
+default_langcode: site_default
+language_alterable: false

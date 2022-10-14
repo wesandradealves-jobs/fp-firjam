@@ -1,0 +1,21 @@
+uuid: d3dab447-2cad-46a6-a2c6-07f5622cedfd
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_cargo
+field_name: field_cargo
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

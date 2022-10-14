@@ -1,0 +1,19 @@
+uuid: 10b2a3b2-e35c-46d6-9ac1-1a542827a912
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_quem_ja_passou_por_aqui
+field_name: field_quem_ja_passou_por_aqui
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

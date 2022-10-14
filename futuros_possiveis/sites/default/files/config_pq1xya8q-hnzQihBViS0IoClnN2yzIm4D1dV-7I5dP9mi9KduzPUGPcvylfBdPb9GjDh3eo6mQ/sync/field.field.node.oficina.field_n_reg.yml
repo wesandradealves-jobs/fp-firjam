@@ -1,0 +1,23 @@
+uuid: 708a8e74-9b92-4436-86c5-24470b3e4709
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_n_reg
+    - node.type.oficina
+id: node.oficina.field_n_reg
+field_name: field_n_reg
+entity_type: node
+bundle: oficina
+label: N/Reg
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

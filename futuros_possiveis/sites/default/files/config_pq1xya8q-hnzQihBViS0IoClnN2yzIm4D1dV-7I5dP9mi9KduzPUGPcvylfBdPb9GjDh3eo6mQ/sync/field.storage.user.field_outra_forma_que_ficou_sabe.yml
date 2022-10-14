@@ -1,0 +1,21 @@
+uuid: 8c8c5472-d340-4ba1-98f9-3fc7c9cdb7b4
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_outra_forma_que_ficou_sabe
+field_name: field_outra_forma_que_ficou_sabe
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,67 @@
+uuid: 3682d956-27c8-4ed2-8486-831cb4396846
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icone_e_texto
+    - paragraphs.paragraphs_type.chamada_card_
+    - paragraphs.paragraphs_type.icone_e_texto
+  module:
+    - entity_reference_revisions
+id: paragraph.chamada_card_.field_icone_e_texto
+field_name: field_icone_e_texto
+entity_type: paragraph
+bundle: chamada_card_
+label: 'Ícone e texto (item)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      icone_e_texto: icone_e_texto
+    negate: 0
+    target_bundles_drag_drop:
+      banner_principal:
+        weight: 15
+        enabled: false
+      chamada_card_:
+        weight: 16
+        enabled: false
+      chamada_festival:
+        weight: 17
+        enabled: false
+      chamada_video:
+        weight: 18
+        enabled: false
+      cp_test_text:
+        weight: 19
+        enabled: false
+      depoimentos:
+        weight: 20
+        enabled: false
+      depoimentos_groups:
+        weight: 21
+        enabled: false
+      experiencia_imersiva:
+        weight: 22
+        enabled: false
+      foto:
+        weight: 23
+        enabled: false
+      from_library:
+        weight: 24
+        enabled: false
+      icone_e_texto:
+        weight: 14
+        enabled: true
+      programacao:
+        weight: 25
+        enabled: false
+      sobre_o_evento:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

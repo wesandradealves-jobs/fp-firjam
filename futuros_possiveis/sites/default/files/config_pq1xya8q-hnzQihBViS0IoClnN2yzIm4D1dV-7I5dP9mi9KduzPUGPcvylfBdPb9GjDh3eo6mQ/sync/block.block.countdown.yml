@@ -1,0 +1,25 @@
+uuid: 359c27d3-bc24-49bc-83cc-05840d25e9dc
+langcode: pt-br
+status: true
+dependencies:
+  content:
+    - 'block_content:countdown:78067c48-d0d1-400b-9170-49114bbf3946'
+  module:
+    - block_content
+  theme:
+    - futurospossiveis2021
+id: countdown
+theme: futurospossiveis2021
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:78067c48-d0d1-400b-9170-49114bbf3946'
+settings:
+  id: 'block_content:78067c48-d0d1-400b-9170-49114bbf3946'
+  label: 'O evento começa em'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

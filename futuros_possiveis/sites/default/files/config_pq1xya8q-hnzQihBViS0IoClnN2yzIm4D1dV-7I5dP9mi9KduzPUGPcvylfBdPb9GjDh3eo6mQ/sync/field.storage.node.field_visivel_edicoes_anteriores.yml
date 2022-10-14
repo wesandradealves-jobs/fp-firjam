@@ -1,0 +1,18 @@
+uuid: be5fa1b6-d59f-491d-81e9-03df61441fd3
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_visivel_edicoes_anteriores
+field_name: field_visivel_edicoes_anteriores
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

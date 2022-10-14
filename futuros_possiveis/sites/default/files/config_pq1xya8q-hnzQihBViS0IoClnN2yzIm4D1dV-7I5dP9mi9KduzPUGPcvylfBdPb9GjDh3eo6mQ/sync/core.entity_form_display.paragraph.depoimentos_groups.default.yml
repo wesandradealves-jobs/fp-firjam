@@ -1,0 +1,29 @@
+uuid: a3367c81-a8a9-44ed-8e04-77f28596cf66
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.depoimentos_groups.field_depoimento_item_
+    - paragraphs.paragraphs_type.depoimentos_groups
+  module:
+    - paragraphs
+id: paragraph.depoimentos_groups.default
+targetEntityType: paragraph
+bundle: depoimentos_groups
+mode: default
+content:
+  field_depoimento_item_:
+    type: entity_reference_paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Parágrafo
+      title_plural: Parágrafos
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

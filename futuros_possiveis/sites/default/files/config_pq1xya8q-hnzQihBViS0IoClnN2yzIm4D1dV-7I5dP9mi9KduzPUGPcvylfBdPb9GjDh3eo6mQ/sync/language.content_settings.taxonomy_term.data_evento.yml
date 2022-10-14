@@ -1,0 +1,11 @@
+uuid: 7c3528e4-e562-4501-be30-f441f80da8a0
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.data_evento
+id: taxonomy_term.data_evento
+target_entity_type_id: taxonomy_term
+target_bundle: data_evento
+default_langcode: site_default
+language_alterable: false

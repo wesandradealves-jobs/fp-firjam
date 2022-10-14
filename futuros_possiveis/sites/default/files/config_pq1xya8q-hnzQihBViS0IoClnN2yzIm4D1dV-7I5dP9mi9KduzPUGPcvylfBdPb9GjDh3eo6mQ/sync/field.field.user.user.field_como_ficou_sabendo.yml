@@ -1,0 +1,21 @@
+uuid: 2ccb6879-9fed-4bac-800c-22a97f568ee2
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_como_ficou_sabendo
+  module:
+    - options
+    - user
+id: user.user.field_como_ficou_sabendo
+field_name: field_como_ficou_sabendo
+entity_type: user
+bundle: user
+label: 'Como ficou sabendo do Summit Firjan IEl + Festival Futuros Possíveis 2021?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

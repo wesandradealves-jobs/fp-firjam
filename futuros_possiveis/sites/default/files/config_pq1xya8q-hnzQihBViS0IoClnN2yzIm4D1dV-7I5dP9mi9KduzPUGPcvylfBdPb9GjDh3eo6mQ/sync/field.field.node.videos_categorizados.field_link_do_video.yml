@@ -1,0 +1,21 @@
+uuid: 02ff0736-afe7-46f0-aff0-5453beb0ecf6
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_do_video
+    - node.type.videos_categorizados
+  module:
+    - youtube
+id: node.videos_categorizados.field_link_do_video
+field_name: field_link_do_video
+entity_type: node
+bundle: videos_categorizados
+label: 'Link do vídeo'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: youtube

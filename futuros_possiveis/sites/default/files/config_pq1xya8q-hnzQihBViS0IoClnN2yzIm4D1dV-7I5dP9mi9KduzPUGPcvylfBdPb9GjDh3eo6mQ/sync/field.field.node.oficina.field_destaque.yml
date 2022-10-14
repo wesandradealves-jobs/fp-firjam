@@ -1,0 +1,19 @@
+uuid: 23170bde-bcb2-4d81-936e-7a02558a51e5
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_destaque
+    - node.type.oficina
+id: node.oficina.field_destaque
+field_name: field_destaque
+entity_type: node
+bundle: oficina
+label: Destaque
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

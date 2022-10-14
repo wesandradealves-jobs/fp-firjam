@@ -1,0 +1,29 @@
+uuid: 83f044dd-5d31-46f3-9102-108decb9dbdf
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dia_do_evento
+    - node.type.relatorio
+    - taxonomy.vocabulary.data_evento
+id: node.relatorio.field_dia_do_evento
+field_name: field_dia_do_evento
+entity_type: node
+bundle: relatorio
+label: 'Dia do evento'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      data_evento: data_evento
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,14 @@
+uuid: 2b7916cf-f9a6-44e8-addf-bea0364c5f07
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - user.role.cliente_admin
+  module:
+    - user
+id: user_remove_role_action.cliente_admin
+label: 'Remover o papel Cliente Admin dos usuários selecionados'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cliente_admin

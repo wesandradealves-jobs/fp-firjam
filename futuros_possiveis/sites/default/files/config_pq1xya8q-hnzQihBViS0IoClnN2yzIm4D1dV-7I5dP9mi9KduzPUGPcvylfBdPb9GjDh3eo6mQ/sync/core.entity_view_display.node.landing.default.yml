@@ -1,0 +1,341 @@
+uuid: fe01bd63-6356-41b2-9e70-de3360b35e59
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.landing.field_data_do_evento
+    - field.field.node.landing.field_descricao_de_compartilhame
+    - field.field.node.landing.field_ea_banner1
+    - field.field.node.landing.field_ea_banner2
+    - field.field.node.landing.field_ea_banner3
+    - field.field.node.landing.field_ea_banner4
+    - field.field.node.landing.field_ea_link_banner1
+    - field.field.node.landing.field_ea_link_banner2
+    - field.field.node.landing.field_ea_link_banner3
+    - field.field.node.landing.field_ea_link_banner4
+    - field.field.node.landing.field_edicoes_
+    - field.field.node.landing.field_facebook
+    - field.field.node.landing.field_headline
+    - field.field.node.landing.field_imagem_de_compartilhamento
+    - field.field.node.landing.field_instagram
+    - field.field.node.landing.field_linkedin
+    - field.field.node.landing.field_logo_evento
+    - field.field.node.landing.field_publicacoes
+    - field.field.node.landing.field_quem_ja_passou_por_aqui
+    - field.field.node.landing.field_titulo_de_compartilhamento
+    - field.field.node.landing.field_titulo_edicoes_anteriores
+    - field.field.node.landing.field_titulo_publicacoes
+    - field.field.node.landing.field_titulo_quem_passou
+    - field.field.node.landing.field_twitter
+    - field.field.node.landing.field_video_de_background
+    - field.field.node.landing.field_video_introducao
+    - field.field.node.landing.field_visivel_contagem_regressiv
+    - field.field.node.landing.field_visivel_edicoes_anteriores
+    - field.field.node.landing.field_visivel_introducao
+    - field.field.node.landing.field_visivel_publicacoes
+    - field.field.node.landing.field_visivel_quem_passou
+    - node.type.landing
+  module:
+    - datetime
+    - file
+    - image
+    - link
+    - text
+    - user
+    - youtube
+id: node.landing.default
+targetEntityType: node
+bundle: landing
+mode: default
+content:
+  field_data_do_evento:
+    weight: 112
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_descricao_de_compartilhame:
+    weight: 123
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_ea_banner1:
+    weight: 125
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ea_banner2:
+    weight: 126
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ea_banner3:
+    weight: 127
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ea_banner4:
+    weight: 128
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ea_link_banner1:
+    weight: 129
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ea_link_banner2:
+    weight: 130
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ea_link_banner3:
+    weight: 131
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ea_link_banner4:
+    weight: 132
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_edicoes_:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_facebook:
+    weight: 118
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_headline:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_imagem_de_compartilhamento:
+    weight: 124
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_instagram:
+    weight: 119
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_linkedin:
+    weight: 120
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_logo_evento:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_publicacoes:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_quem_ja_passou_por_aqui:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_titulo_de_compartilhamento:
+    weight: 122
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_titulo_edicoes_anteriores:
+    weight: 110
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_titulo_publicacoes:
+    weight: 111
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_titulo_quem_passou:
+    weight: 109
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_twitter:
+    weight: 121
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_video_de_background:
+    weight: 104
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_video_introducao:
+    weight: 102
+    label: above
+    settings:
+      youtube_size: 450x315
+      youtube_width: ''
+      youtube_height: ''
+      youtube_autoplay: false
+      youtube_mute: false
+      youtube_loop: false
+      youtube_controls: false
+      youtube_autohide: false
+      youtube_iv_load_policy: false
+    third_party_settings: {  }
+    type: youtube_video
+    region: content
+  field_visivel_contagem_regressiv:
+    weight: 113
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_visivel_edicoes_anteriores:
+    weight: 116
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_visivel_introducao:
+    weight: 114
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_visivel_publicacoes:
+    weight: 117
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_visivel_quem_passou:
+    weight: 115
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

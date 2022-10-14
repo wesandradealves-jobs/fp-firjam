@@ -1,0 +1,35 @@
+uuid: 98cb8116-2e99-4cda-b4ae-8b1824ea7510
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - language
+_core:
+  default_config_hash: xVFzaZr6iMWsqxy9-QqAX3lyUKCyJr16dAXXjhgb3Kk
+id: language-add
+label: 'Adicionando idiomas'
+module: language
+routes:
+  -
+    route_name: language.add
+tips:
+  language-add-overview:
+    id: language-add-overview
+    plugin: text
+    label: 'Adicionando idiomas'
+    weight: 1
+    body: '<p>Esta página fornece a habilidade para adicionar idiomas a seu site.</p><p>Se o idioma desejado não estiver disponível, você pode adicionar um idioma personalizado.</p>'
+  language-add-choose:
+    id: language-add-choose
+    plugin: text
+    label: 'Escolha uma língua'
+    weight: 2
+    attributes:
+      data-id: edit-predefined-langcode
+    body: '<p>Escolha um idioma da lista ou escolha um "Idioma personalizado..." ao fim da lista.</p><p>Clique no botão "Adicionar idioma" quando concluir a escolha do seu idioma.</p><p>Ao adicionar um idioma personalizado, você verá um formulário adicional onde poderá indicar o nome, código e direção do texto do idioma.</p>'
+  language-add-continue:
+    id: language-add-continue
+    plugin: text
+    label: Continuando
+    weight: 3
+    body: '<p>Now that you have an overview of the "Add languages" feature, you can continue by:<ul><li>Adding a language</li><li>Adding a custom language</li><li><a href="[site:url]admin/config/regional/language">Viewing configured languages</a></li></ul></p>'

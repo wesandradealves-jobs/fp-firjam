@@ -1,0 +1,23 @@
+uuid: e24cad93-966f-4448-8b22-894172bf5af9
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cirj
+    - node.type.oficina
+id: node.oficina.field_cirj
+field_name: field_cirj
+entity_type: node
+bundle: oficina
+label: CIRJ
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

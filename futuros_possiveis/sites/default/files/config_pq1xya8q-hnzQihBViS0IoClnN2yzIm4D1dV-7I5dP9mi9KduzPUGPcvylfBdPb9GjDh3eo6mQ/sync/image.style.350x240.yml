@@ -1,0 +1,15 @@
+uuid: 1d64c582-3ea8-434a-bb72-be9e29956212
+langcode: pt-br
+status: true
+dependencies: {  }
+name: 350x240
+label: 350x240
+effects:
+  c966348b-bd60-47cb-b00b-6f23e5e60b78:
+    uuid: c966348b-bd60-47cb-b00b-6f23e5e60b78
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 350
+      height: 240
+      anchor: center-center

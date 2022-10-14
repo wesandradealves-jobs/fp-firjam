@@ -1,0 +1,21 @@
+uuid: 006f75ae-1ba1-44df-92e1-7ebc8cc881e3
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline
+    - node.type.hotsite
+  module:
+    - text
+id: node.hotsite.field_headline
+field_name: field_headline
+entity_type: node
+bundle: hotsite
+label: Headline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

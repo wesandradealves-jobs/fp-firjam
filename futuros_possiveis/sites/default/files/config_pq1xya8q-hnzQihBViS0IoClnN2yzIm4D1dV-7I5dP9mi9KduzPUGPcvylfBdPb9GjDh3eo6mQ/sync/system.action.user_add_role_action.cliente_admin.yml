@@ -1,0 +1,14 @@
+uuid: 85feaa54-4613-4871-9680-a1988fc6e717
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - user.role.cliente_admin
+  module:
+    - user
+id: user_add_role_action.cliente_admin
+label: 'Adicionar o papel Cliente Admin ao(s) usuário(s) selecionado(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cliente_admin

@@ -1,0 +1,21 @@
+uuid: 3ce0d617-ca61-4d68-baed-70762b98aa2c
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_descricao_full
+    - paragraphs.paragraphs_type.banner_principal
+  module:
+    - text
+id: paragraph.banner_principal.field_descricao_full
+field_name: field_descricao_full
+entity_type: paragraph
+bundle: banner_principal
+label: 'Descrição Full'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

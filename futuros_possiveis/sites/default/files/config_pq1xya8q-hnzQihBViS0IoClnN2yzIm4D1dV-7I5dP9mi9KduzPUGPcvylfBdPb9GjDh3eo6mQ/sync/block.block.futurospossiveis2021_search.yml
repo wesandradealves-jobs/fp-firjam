@@ -1,0 +1,23 @@
+uuid: 1ca100a6-8120-407a-99f0-6d09662d9e23
+langcode: pt-br
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - futurospossiveis2021
+_core:
+  default_config_hash: Q-4EcGAsu26ICu4ejEz0uE1zv4akpiaOsizxgZfAmEw
+id: futurospossiveis2021_search
+theme: futurospossiveis2021
+region: sidebar_first
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Buscar
+  label_display: visible
+  provider: search
+  page_id: node_search
+visibility: {  }

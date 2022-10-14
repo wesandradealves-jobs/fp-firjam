@@ -1,0 +1,19 @@
+uuid: 09d2ec38-c545-4927-abc1-b3284016e4bf
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - youtube
+id: node.field_video_experiencia_imersiva
+field_name: field_video_experiencia_imersiva
+entity_type: node
+type: youtube
+settings: {  }
+module: youtube
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

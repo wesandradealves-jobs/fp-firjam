@@ -1,0 +1,21 @@
+uuid: bf0458ee-e089-4209-97a4-fb04cc68227c
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_texto_imprensa
+    - node.type.hotsite
+  module:
+    - text
+id: node.hotsite.field_texto_imprensa
+field_name: field_texto_imprensa
+entity_type: node
+bundle: hotsite
+label: 'Texto Imprensa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

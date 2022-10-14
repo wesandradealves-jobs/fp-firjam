@@ -1,0 +1,23 @@
+uuid: bdbd56d2-f8ac-4683-a7ed-48aa5e702916
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visivel_introducao
+    - node.type.hotsite
+id: node.hotsite.field_visivel_introducao
+field_name: field_visivel_introducao
+entity_type: node
+bundle: hotsite
+label: Visível
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

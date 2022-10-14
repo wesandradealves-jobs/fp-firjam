@@ -1,0 +1,17 @@
+uuid: bddc2ea9-40c5-4495-9d0f-a3ee703a4272
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Palestrante
+type: palestrante
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

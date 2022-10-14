@@ -1,0 +1,11 @@
+uuid: ef1a1dd7-924e-4bd8-a528-ae58a5850d73
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.galeria_de_fotos
+id: taxonomy_term.galeria_de_fotos
+target_entity_type_id: taxonomy_term
+target_bundle: galeria_de_fotos
+default_langcode: site_default
+language_alterable: false

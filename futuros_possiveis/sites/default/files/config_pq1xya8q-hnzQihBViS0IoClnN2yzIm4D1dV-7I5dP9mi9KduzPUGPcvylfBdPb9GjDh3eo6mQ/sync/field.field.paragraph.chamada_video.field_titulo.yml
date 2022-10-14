@@ -1,0 +1,19 @@
+uuid: 5db123d8-1e16-4675-b325-57f39cad198e
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_titulo
+    - paragraphs.paragraphs_type.chamada_video
+id: paragraph.chamada_video.field_titulo
+field_name: field_titulo
+entity_type: paragraph
+bundle: chamada_video
+label: Título
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

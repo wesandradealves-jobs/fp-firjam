@@ -1,0 +1,19 @@
+uuid: cec5c612-39f2-4abe-8171-df813bc26d98
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: rLqhPyuLDVThXXti1IOaQdSP4t__8x6lneQPknNBCKA
+name: 'CP Test'
+type: cp_test
+description: 'Content type used for Classy Paragraphs tests.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

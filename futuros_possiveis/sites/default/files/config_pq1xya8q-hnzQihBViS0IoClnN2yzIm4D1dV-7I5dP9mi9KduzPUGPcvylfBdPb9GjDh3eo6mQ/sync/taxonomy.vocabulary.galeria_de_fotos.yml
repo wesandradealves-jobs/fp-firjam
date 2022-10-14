@@ -1,0 +1,8 @@
+uuid: ea4aa1e8-62c0-491e-bf79-1b0ab393dcdb
+langcode: pt-br
+status: true
+dependencies: {  }
+name: 'Galeria de Fotos'
+vid: galeria_de_fotos
+description: ''
+weight: 0

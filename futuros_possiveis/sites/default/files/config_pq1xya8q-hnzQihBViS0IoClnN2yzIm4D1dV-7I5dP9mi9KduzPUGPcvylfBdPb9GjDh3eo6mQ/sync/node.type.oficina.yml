@@ -1,0 +1,18 @@
+uuid: 948a9c1b-6fc8-4387-9e4b-ebb75e4580ef
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Oficinas
+type: oficina
+description: 'Cadastro das Oficinas.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

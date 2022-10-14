@@ -1,0 +1,19 @@
+uuid: 174db107-d556-42d8-9d33-f381a2cfa62c
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_descricao
+    - paragraphs.paragraphs_type.chamada_video
+id: paragraph.chamada_video.field_descricao
+field_name: field_descricao
+entity_type: paragraph
+bundle: chamada_video
+label: Descrição
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

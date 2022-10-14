@@ -1,0 +1,11 @@
+uuid: bd99017a-aed9-48a7-add2-6e6f72ab817a
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.arquivos
+id: node.arquivos
+target_entity_type_id: node
+target_bundle: arquivos
+default_langcode: site_default
+language_alterable: false

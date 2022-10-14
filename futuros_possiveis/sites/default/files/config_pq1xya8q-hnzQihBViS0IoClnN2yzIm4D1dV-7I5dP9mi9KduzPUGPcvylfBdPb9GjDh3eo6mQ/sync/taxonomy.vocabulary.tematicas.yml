@@ -1,0 +1,8 @@
+uuid: 08f508eb-b077-4c80-aba9-f3378a76168b
+langcode: pt-br
+status: true
+dependencies: {  }
+name: Temáticas
+vid: tematicas
+description: ''
+weight: 0

@@ -1,0 +1,23 @@
+uuid: ba996960-958f-4fc9-84d3-8e43d773c7f5
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_valor_de
+    - node.type.oficina
+id: node.oficina.field_valor_de
+field_name: field_valor_de
+entity_type: node
+bundle: oficina
+label: 'Valor de'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: R$
+  suffix: ''
+field_type: decimal

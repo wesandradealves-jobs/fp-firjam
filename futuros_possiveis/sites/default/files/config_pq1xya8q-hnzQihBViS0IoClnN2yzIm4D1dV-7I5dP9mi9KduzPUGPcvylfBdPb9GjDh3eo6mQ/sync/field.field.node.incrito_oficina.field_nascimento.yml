@@ -1,0 +1,19 @@
+uuid: 1e006e06-d38f-414b-9dab-6739337ca0ab
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nascimento
+    - node.type.incrito_oficina
+id: node.incrito_oficina.field_nascimento
+field_name: field_nascimento
+entity_type: node
+bundle: incrito_oficina
+label: 'Data de Nascimento'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

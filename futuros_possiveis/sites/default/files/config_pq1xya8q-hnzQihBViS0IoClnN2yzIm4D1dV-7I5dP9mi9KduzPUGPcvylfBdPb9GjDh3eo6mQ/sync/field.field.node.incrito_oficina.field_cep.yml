@@ -1,0 +1,19 @@
+uuid: 9b88fa5e-85f1-4f27-857c-ba5d9ac8e61f
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cep
+    - node.type.incrito_oficina
+id: node.incrito_oficina.field_cep
+field_name: field_cep
+entity_type: node
+bundle: incrito_oficina
+label: CEP
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

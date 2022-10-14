@@ -1,0 +1,52 @@
+uuid: b08f8aba-48fe-4516-bacb-1fc0d03bedfe
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_top_page
+    - node.type.page
+    - paragraphs.paragraphs_type.banner_principal
+  module:
+    - entity_reference_revisions
+id: node.page.field_top_page
+field_name: field_top_page
+entity_type: node
+bundle: page
+label: 'Top page'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      banner_principal: banner_principal
+    negate: 0
+    target_bundles_drag_drop:
+      banner_principal:
+        weight: 9
+        enabled: true
+      chamada_card_:
+        weight: 10
+        enabled: false
+      chamada_festival:
+        weight: 11
+        enabled: false
+      chamada_video:
+        weight: 12
+        enabled: false
+      experiencia_imersiva:
+        weight: 13
+        enabled: false
+      foto:
+        weight: 14
+        enabled: false
+      programacao:
+        weight: 15
+        enabled: false
+      sobre_o_evento:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

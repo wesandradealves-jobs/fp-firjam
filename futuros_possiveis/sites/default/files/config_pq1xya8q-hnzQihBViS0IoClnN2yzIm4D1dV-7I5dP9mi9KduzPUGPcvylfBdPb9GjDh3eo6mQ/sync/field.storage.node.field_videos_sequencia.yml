@@ -1,0 +1,20 @@
+uuid: c047e0f5-1866-4874-a457-f0d8f40cf98f
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_videos_sequencia
+field_name: field_videos_sequencia
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

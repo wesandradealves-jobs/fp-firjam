@@ -1,0 +1,11 @@
+uuid: cd0bdf72-409b-4c85-85b0-d89589740afe
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.publicacoes
+id: node.publicacoes
+target_entity_type_id: node
+target_bundle: publicacoes
+default_langcode: site_default
+language_alterable: false

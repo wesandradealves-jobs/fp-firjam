@@ -1,0 +1,23 @@
+uuid: c5addba2-3102-4f67-a6f3-eed985479244
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_visivel_contagem_regressiv
+    - node.type.landing
+id: node.landing.field_visivel_contagem_regressiv
+field_name: field_visivel_contagem_regressiv
+entity_type: node
+bundle: landing
+label: Visível
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

@@ -1,0 +1,20 @@
+uuid: faf36177-9520-4c19-bd03-f3a2e25f8b54
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_notificado
+  module:
+    - user
+id: user.user.field_notificado
+field_name: field_notificado
+entity_type: user
+bundle: user
+label: notificado
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

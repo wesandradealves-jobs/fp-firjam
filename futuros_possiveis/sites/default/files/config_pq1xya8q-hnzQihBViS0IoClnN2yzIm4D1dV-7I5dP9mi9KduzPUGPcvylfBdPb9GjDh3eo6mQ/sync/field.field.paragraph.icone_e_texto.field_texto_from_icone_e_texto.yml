@@ -1,0 +1,19 @@
+uuid: bbba5b4d-798f-4894-b1d0-235ee7a246f9
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_texto_from_icone_e_texto
+    - paragraphs.paragraphs_type.icone_e_texto
+id: paragraph.icone_e_texto.field_texto_from_icone_e_texto
+field_name: field_texto_from_icone_e_texto
+entity_type: paragraph
+bundle: icone_e_texto
+label: Texto
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,19 @@
+uuid: c5a68fed-b45b-4dbd-90a9-5a9f11d50c5e
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - time_field
+id: node.field_hora_de_inicio
+field_name: field_hora_de_inicio
+entity_type: node
+type: time
+settings: {  }
+module: time_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

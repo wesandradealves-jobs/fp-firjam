@@ -1,0 +1,19 @@
+uuid: 2d41e0bd-08c0-414b-a81f-6a34d0f64fae
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_titulo_edicoes_anteriores
+    - node.type.landing
+id: node.landing.field_titulo_edicoes_anteriores
+field_name: field_titulo_edicoes_anteriores
+entity_type: node
+bundle: landing
+label: Título
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

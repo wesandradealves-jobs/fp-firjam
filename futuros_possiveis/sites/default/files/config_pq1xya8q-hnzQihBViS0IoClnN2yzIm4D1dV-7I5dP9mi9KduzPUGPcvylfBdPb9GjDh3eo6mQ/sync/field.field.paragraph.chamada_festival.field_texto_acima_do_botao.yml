@@ -1,0 +1,19 @@
+uuid: f958b2f3-5874-4cff-9bac-5a8521ae4ea3
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_texto_acima_do_botao
+    - paragraphs.paragraphs_type.chamada_festival
+id: paragraph.chamada_festival.field_texto_acima_do_botao
+field_name: field_texto_acima_do_botao
+entity_type: paragraph
+bundle: chamada_festival
+label: 'Texto acima do botão'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

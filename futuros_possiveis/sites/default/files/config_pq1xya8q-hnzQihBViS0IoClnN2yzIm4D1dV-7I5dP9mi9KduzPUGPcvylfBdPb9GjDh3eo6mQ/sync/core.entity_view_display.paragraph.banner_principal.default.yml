@@ -1,0 +1,64 @@
+uuid: 32aa85e4-b391-451e-a0a6-f9f4959d17da
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner_principal.field_ano_do_evento
+    - field.field.paragraph.banner_principal.field_data_evento
+    - field.field.paragraph.banner_principal.field_descricao
+    - field.field.paragraph.banner_principal.field_descricao_full
+    - field.field.paragraph.banner_principal.field_imagem
+    - field.field.paragraph.banner_principal.field_titulo
+    - paragraphs.paragraphs_type.banner_principal
+  module:
+    - image
+    - text
+id: paragraph.banner_principal.default
+targetEntityType: paragraph
+bundle: banner_principal
+mode: default
+content:
+  field_ano_do_evento:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_data_evento:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_descricao_full:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_imagem:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_titulo:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_descricao: true

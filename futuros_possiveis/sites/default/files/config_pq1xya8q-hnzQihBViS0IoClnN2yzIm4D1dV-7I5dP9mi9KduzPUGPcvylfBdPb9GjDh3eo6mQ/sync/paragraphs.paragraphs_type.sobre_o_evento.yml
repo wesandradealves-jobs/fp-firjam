@@ -1,0 +1,10 @@
+uuid: 4bc346ae-a3da-48ad-a906-8a234b9689d3
+langcode: pt-br
+status: true
+dependencies: {  }
+id: sobre_o_evento
+label: 'Sobre o Evento'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,27 @@
+uuid: 695a4c3d-4cb1-4fa6-9712-46cf3fa0ed76
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_arquivo_imprensa
+    - node.type.hotsite
+  module:
+    - file
+id: node.hotsite.field_arquivo_imprensa
+field_name: field_arquivo_imprensa
+entity_type: node
+bundle: hotsite
+label: 'Arquivo Imprensa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

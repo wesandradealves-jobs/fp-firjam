@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: rLKGzzC9TqjbEZiBoiyMpOSyZgldADa5SzvbA2gQDxE
+langcode: pt-br
+format: full_html
+name: 'Festival Futuros Possíveis 2022'
+mail: alertaeventos@firjan.com.br
+linkonly: false
+textonly: false
+sitestyle: true
+simple_address: false
+preserve_class: false
+advanced:
+  incoming: false
+  key: IhTojVYZ3AeRr2KzDDZaqTPyQL6u7uQcqV9y-MtuJRA

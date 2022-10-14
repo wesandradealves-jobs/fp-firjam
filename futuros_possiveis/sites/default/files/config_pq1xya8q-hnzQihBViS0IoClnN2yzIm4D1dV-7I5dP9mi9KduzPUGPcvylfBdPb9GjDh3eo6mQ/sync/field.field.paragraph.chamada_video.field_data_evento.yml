@@ -1,0 +1,19 @@
+uuid: 5055fe70-a5ca-4df7-a469-674ce7eab6da
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_data_evento
+    - paragraphs.paragraphs_type.chamada_video
+id: paragraph.chamada_video.field_data_evento
+field_name: field_data_evento
+entity_type: paragraph
+bundle: chamada_video
+label: 'Data Evento'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

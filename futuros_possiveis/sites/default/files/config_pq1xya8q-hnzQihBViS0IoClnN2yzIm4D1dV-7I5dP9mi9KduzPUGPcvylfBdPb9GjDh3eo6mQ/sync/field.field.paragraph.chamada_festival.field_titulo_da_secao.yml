@@ -1,0 +1,19 @@
+uuid: be1e9d76-59cf-4cd8-bb48-2263dfb25ed9
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_titulo_da_secao
+    - paragraphs.paragraphs_type.chamada_festival
+id: paragraph.chamada_festival.field_titulo_da_secao
+field_name: field_titulo_da_secao
+entity_type: paragraph
+bundle: chamada_festival
+label: 'Título da seção'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

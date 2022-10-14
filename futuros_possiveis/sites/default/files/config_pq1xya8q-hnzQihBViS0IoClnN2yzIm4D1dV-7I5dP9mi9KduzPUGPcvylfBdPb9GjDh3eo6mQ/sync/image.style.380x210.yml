@@ -1,0 +1,15 @@
+uuid: 7c7d10eb-5adc-4945-8fc4-c7d3874ff6a4
+langcode: pt-br
+status: true
+dependencies: {  }
+name: 380x210
+label: 380x210
+effects:
+  3dfc0f57-8980-4d4f-9ef3-d10ac1bceb18:
+    uuid: 3dfc0f57-8980-4d4f-9ef3-d10ac1bceb18
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 380
+      height: 210
+      anchor: center-center

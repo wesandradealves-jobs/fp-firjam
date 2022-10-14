@@ -1,0 +1,23 @@
+uuid: 162f8fb7-1474-42a5-8293-6df462fafcd2
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_status_programacao
+    - node.type.hotsite
+id: node.hotsite.field_status_programacao
+field_name: field_status_programacao
+entity_type: node
+bundle: hotsite
+label: 'Status Programação'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

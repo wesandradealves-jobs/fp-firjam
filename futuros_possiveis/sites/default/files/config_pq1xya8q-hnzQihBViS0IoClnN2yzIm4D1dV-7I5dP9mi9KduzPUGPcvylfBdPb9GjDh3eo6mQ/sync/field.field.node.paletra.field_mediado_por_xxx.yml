@@ -1,0 +1,19 @@
+uuid: 8380d37f-b632-40ee-ba98-6dd490c2f5b5
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mediado_por_xxx
+    - node.type.paletra
+id: node.paletra.field_mediado_por_xxx
+field_name: field_mediado_por_xxx
+entity_type: node
+bundle: paletra
+label: 'Mediado por'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,11 @@
+uuid: fc9b8bcf-6d6e-47d4-8257-2db69768274a
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.incrito_oficina
+id: node.incrito_oficina
+target_entity_type_id: node
+target_bundle: incrito_oficina
+default_langcode: site_default
+language_alterable: false

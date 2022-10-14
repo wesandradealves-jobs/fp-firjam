@@ -1,0 +1,19 @@
+uuid: f7550f6b-e30f-4108-bdde-8bb5535c1d53
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_e_mail
+    - node.type.incrito_oficina
+id: node.incrito_oficina.field_e_mail
+field_name: field_e_mail
+entity_type: node
+bundle: incrito_oficina
+label: E-mail
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,15 @@
+uuid: b90cdb15-96ed-49af-b1e0-104a51a308b1
+langcode: pt-br
+status: true
+dependencies: {  }
+name: 550x330
+label: 550x330
+effects:
+  6deb298e-be7a-4c07-aee4-d153d2aa2f0e:
+    uuid: 6deb298e-be7a-4c07-aee4-d153d2aa2f0e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 550
+      height: 330
+      anchor: center-center

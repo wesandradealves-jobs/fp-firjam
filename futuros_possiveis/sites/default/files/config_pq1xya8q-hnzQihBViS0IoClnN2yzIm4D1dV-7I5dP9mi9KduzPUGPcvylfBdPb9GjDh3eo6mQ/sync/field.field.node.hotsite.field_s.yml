@@ -1,0 +1,23 @@
+uuid: 9c8fe9b8-5e9c-4dc0-be62-fff5ebbc9c77
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_s
+    - node.type.hotsite
+id: node.hotsite.field_s
+field_name: field_s
+entity_type: node
+bundle: hotsite
+label: 'Status Experiência'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

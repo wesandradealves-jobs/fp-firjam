@@ -1,0 +1,17 @@
+uuid: 270e45f1-220a-49ef-99fa-b7104e75cfaa
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Inscritos em Oficinas'
+type: incrito_oficina
+description: 'Um conteúdo desse tipo é gerado para cada inscrito.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

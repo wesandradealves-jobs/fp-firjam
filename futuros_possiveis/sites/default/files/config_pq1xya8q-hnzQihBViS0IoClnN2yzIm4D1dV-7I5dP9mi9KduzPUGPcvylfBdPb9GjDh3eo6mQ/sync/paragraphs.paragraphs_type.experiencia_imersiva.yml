@@ -1,0 +1,10 @@
+uuid: 55f382bb-82c1-4223-bbbb-e6390c5cba2b
+langcode: pt-br
+status: true
+dependencies: {  }
+id: experiencia_imersiva
+label: 'Experiencia Imersiva'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,45 @@
+uuid: e1cfc850-4738-467d-954b-dce0e4e2de44
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.oficina.field_cirj
+    - field.field.node.oficina.field_data_e_hora
+    - field.field.node.oficina.field_descricao
+    - field.field.node.oficina.field_destaque
+    - field.field.node.oficina.field_facilitacao
+    - field.field.node.oficina.field_imagem
+    - field.field.node.oficina.field_inscricoes_encerradas
+    - field.field.node.oficina.field_n_reg
+    - field.field.node.oficina.field_regimental
+    - field.field.node.oficina.field_sindicatos
+    - field.field.node.oficina.field_valor_de
+    - field.field.node.oficina.field_valor_por
+    - node.type.oficina
+  module:
+    - user
+id: node.oficina.teaser
+targetEntityType: node
+bundle: oficina
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_cirj: true
+  field_data_e_hora: true
+  field_descricao: true
+  field_destaque: true
+  field_facilitacao: true
+  field_imagem: true
+  field_inscricoes_encerradas: true
+  field_n_reg: true
+  field_regimental: true
+  field_sindicatos: true
+  field_valor_de: true
+  field_valor_por: true
+  langcode: true

@@ -1,0 +1,11 @@
+uuid: b9167e1f-92c3-4b30-81c9-041865d85227
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.galeria_de_fotos
+id: node.galeria_de_fotos
+target_entity_type_id: node
+target_bundle: galeria_de_fotos
+default_langcode: site_default
+language_alterable: false

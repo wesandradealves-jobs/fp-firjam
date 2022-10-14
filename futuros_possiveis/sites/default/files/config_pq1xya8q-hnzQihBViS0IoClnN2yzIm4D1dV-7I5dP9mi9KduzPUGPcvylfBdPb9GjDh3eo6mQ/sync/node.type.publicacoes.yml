@@ -1,0 +1,17 @@
+uuid: 19575241-1590-4a93-b4c4-415d958c72bf
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Publicações
+type: publicacoes
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

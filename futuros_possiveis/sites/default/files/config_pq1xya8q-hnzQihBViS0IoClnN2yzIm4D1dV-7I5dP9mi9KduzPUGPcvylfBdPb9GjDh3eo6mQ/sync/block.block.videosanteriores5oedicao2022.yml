@@ -1,0 +1,30 @@
+uuid: d2b3062c-2329-4256-8065-9f026c41390f
+langcode: pt-br
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:484fba54-ecbb-41cc-9ad4-15098a83d537'
+  module:
+    - block_content
+    - system
+  theme:
+    - futurospossiveis2021
+id: videosanteriores5oedicao2022
+theme: futurospossiveis2021
+region: content
+weight: -4
+provider: null
+plugin: 'block_content:484fba54-ecbb-41cc-9ad4-15098a83d537'
+settings:
+  id: 'block_content:484fba54-ecbb-41cc-9ad4-15098a83d537'
+  label: 'Vídeos anteriores 5º Edição 2022'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /node/206562

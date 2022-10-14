@@ -1,0 +1,21 @@
+uuid: a5c869af-6d96-4c46-b575-aaaae5a9ed78
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_notificado
+field_name: field_notificado
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+uuid: 62602cf8-ce4e-41d1-bf55-6ff5954a12c8
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - paragraphs
+id: paragraph.field_depoimento_item_
+field_name: field_depoimento_item_
+entity_type: paragraph
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

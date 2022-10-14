@@ -1,0 +1,28 @@
+uuid: ba3bbca2-de5e-4272-99b8-8eecfc08330d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_usuario
+    - node.type.relatorio
+id: node.relatorio.field_usuario
+field_name: field_usuario
+entity_type: node
+bundle: relatorio
+label: Usuario
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

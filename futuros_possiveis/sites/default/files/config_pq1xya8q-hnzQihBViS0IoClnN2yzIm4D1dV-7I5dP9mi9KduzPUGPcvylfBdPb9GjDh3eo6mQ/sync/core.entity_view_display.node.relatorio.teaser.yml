@@ -1,0 +1,27 @@
+uuid: a3844b75-81b0-476a-a34e-1692d477e6fb
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.relatorio.field_dia_do_evento
+    - field.field.node.relatorio.field_palestra
+    - field.field.node.relatorio.field_usuario
+    - node.type.relatorio
+  module:
+    - user
+id: node.relatorio.teaser
+targetEntityType: node
+bundle: relatorio
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_dia_do_evento: true
+  field_palestra: true
+  field_usuario: true
+  langcode: true

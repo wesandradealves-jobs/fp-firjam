@@ -1,0 +1,9 @@
+uuid: 5bc902b6-cc48-49c1-b6fa-0e8134490968
+langcode: pt-br
+status: true
+dependencies: {  }
+id: adminitracao
+label: Administração
+weight: null
+menu: admin-conteudos
+rewrite_label: false

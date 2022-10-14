@@ -1,0 +1,19 @@
+uuid: 7428ab65-292d-4f02-9a2d-682987719410
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_titulo_interacao
+    - taxonomy.vocabulary.data_evento
+id: taxonomy_term.data_evento.field_titulo_interacao
+field_name: field_titulo_interacao
+entity_type: taxonomy_term
+bundle: data_evento
+label: 'Título Interação'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: e131217b-5d92-4fcc-8c17-4481321f9122
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_nacionalidade
+  module:
+    - options
+    - user
+id: user.user.field_nacionalidade
+field_name: field_nacionalidade
+entity_type: user
+bundle: user
+label: Nacionalidade
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

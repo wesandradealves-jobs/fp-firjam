@@ -1,0 +1,9 @@
+uuid: 3fd46b71-d659-4b81-8166-965b28500b42
+langcode: pt-br
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5dSWgTQDurbHkHKZbBxg4V0ojc9f9rnJtRcj-xaZLow
+id: cp_test_soft
+label: Soft
+classes: soft-background

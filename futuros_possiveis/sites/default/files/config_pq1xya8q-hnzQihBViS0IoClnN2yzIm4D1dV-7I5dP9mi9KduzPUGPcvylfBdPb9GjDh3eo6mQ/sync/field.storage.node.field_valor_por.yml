@@ -1,0 +1,20 @@
+uuid: 20f987b6-bb1b-4376-ac20-938815de09ae
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_valor_por
+field_name: field_valor_por
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

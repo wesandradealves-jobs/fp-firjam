@@ -1,0 +1,21 @@
+uuid: 378dde23-3af2-4795-80e2-cded23749b1e
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_texto_oficinas
+    - node.type.hotsite
+  module:
+    - text
+id: node.hotsite.field_texto_oficinas
+field_name: field_texto_oficinas
+entity_type: node
+bundle: hotsite
+label: 'Texto Oficinas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

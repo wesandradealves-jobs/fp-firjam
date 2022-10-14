@@ -1,0 +1,23 @@
+uuid: 49b5121d-95af-4f69-88ed-b7770c69a73a
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_regimental
+    - node.type.oficina
+id: node.oficina.field_regimental
+field_name: field_regimental
+entity_type: node
+bundle: oficina
+label: Regimental
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

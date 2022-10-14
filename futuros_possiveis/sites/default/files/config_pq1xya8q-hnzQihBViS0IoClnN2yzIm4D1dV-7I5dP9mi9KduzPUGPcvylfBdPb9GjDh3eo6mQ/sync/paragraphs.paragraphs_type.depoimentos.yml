@@ -1,0 +1,10 @@
+uuid: de814d48-378d-4510-973d-4958037b43b7
+langcode: pt-br
+status: true
+dependencies: {  }
+id: depoimentos
+label: 'Depoimentos item'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

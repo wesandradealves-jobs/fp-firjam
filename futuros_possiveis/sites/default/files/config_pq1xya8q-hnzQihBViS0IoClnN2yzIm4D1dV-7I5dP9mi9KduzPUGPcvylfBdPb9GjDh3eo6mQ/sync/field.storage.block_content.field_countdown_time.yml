@@ -1,0 +1,20 @@
+uuid: a641ee3b-32d5-4551-8782-f4668e8c7d81
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - block_content
+    - datetime
+id: block_content.field_countdown_time
+field_name: field_countdown_time
+entity_type: block_content
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 0f6daac6-353d-48f4-9184-f04d9d4bf3a5
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_cpf
+field_name: field_cpf
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

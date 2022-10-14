@@ -1,0 +1,18 @@
+uuid: 7d612e4e-b1bc-4ba7-bcae-c40ce49ea2f0
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_layout_alternativo
+field_name: field_layout_alternativo
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,33 @@
+uuid: 1d2cac6d-b0ff-49b0-a698-afaec748a66f
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.arquivos.body
+    - field.field.node.arquivos.field_arquivo
+    - node.type.arquivos
+  module:
+    - text
+    - user
+id: node.arquivos.teaser
+targetEntityType: node
+bundle: arquivos
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_arquivo: true
+  langcode: true

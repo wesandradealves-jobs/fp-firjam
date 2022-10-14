@@ -1,0 +1,24 @@
+uuid: da40f21d-3795-43f1-a554-adc4767d868e
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_aceita_os_termos
+  module:
+    - user
+id: user.user.field_aceita_os_termos
+field_name: field_aceita_os_termos
+entity_type: user
+bundle: user
+label: 'Aceita os termos'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

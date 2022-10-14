@@ -1,0 +1,38 @@
+uuid: 74d177d4-ae78-4e2c-877c-175f3d77a0b8
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_imagem_de_compartilhamento
+    - node.type.landing
+  module:
+    - image
+id: node.landing.field_imagem_de_compartilhamento
+field_name: field_imagem_de_compartilhamento
+entity_type: node
+bundle: landing
+label: 'Imagem de compartilhamento'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

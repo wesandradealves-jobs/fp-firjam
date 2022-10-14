@@ -1,0 +1,19 @@
+uuid: b8ac07bb-424b-451e-a594-e737497c07ae
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ea_link_banner1
+    - node.type.landing
+id: node.landing.field_ea_link_banner1
+field_name: field_ea_link_banner1
+entity_type: node
+bundle: landing
+label: 'Link Banner 1'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

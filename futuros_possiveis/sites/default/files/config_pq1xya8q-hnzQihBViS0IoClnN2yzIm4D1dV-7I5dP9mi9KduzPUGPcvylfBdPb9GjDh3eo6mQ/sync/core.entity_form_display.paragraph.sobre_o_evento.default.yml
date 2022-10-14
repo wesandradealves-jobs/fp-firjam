@@ -1,0 +1,71 @@
+uuid: f7758d33-2a2e-4b82-b3a1-2958b6866c58
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sobre_o_evento.field_descricao
+    - field.field.paragraph.sobre_o_evento.field_evento_campo_extra
+    - field.field.paragraph.sobre_o_evento.field_evento_dia_25
+    - field.field.paragraph.sobre_o_evento.field_evento_dia_26
+    - field.field.paragraph.sobre_o_evento.field_imagem_de_fundo
+    - field.field.paragraph.sobre_o_evento.field_titulo
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.sobre_o_evento
+  module:
+    - image
+id: paragraph.sobre_o_evento.default
+targetEntityType: paragraph
+bundle: sobre_o_evento
+mode: default
+content:
+  field_descricao:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_evento_campo_extra:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_evento_dia_25:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_evento_dia_26:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_imagem_de_fundo:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_titulo:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,21 @@
+uuid: 3027eef9-b03f-4451-af7e-71a1f7e8dc37
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cargo_palestrante
+field_name: field_cargo_palestrante
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

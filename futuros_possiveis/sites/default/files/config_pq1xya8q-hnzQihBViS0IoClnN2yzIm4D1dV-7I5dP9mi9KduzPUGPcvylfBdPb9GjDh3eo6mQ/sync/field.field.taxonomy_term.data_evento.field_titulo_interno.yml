@@ -1,0 +1,19 @@
+uuid: 5fad4801-6fa2-49ba-8a3a-54eaa24038bc
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_titulo_interno
+    - taxonomy.vocabulary.data_evento
+id: taxonomy_term.data_evento.field_titulo_interno
+field_name: field_titulo_interno
+entity_type: taxonomy_term
+bundle: data_evento
+label: 'Título interno'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

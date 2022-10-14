@@ -1,0 +1,253 @@
+uuid: 7babcaf0-044e-4dcd-a106-0d9ddb5d958f
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.data_evento.field_conteudo
+    - field.field.taxonomy_term.data_evento.field_dia_do_evento
+    - field.field.taxonomy_term.data_evento.field_imagem_interacao
+    - field.field.taxonomy_term.data_evento.field_link_chat
+    - field.field.taxonomy_term.data_evento.field_link_pesquisa
+    - field.field.taxonomy_term.data_evento.field_link_transmissao_ingles
+    - field.field.taxonomy_term.data_evento.field_link_transmissao_portugues
+    - field.field.taxonomy_term.data_evento.field_status_conteudo
+    - field.field.taxonomy_term.data_evento.field_status_interacao
+    - field.field.taxonomy_term.data_evento.field_status_pesquisa
+    - field.field.taxonomy_term.data_evento.field_text
+    - field.field.taxonomy_term.data_evento.field_texto_interacao
+    - field.field.taxonomy_term.data_evento.field_titulo_conteudo
+    - field.field.taxonomy_term.data_evento.field_titulo_interacao
+    - field.field.taxonomy_term.data_evento.field_titulo_interno
+    - field.field.taxonomy_term.data_evento.field_titulo_pesquisa
+    - image.style.thumbnail
+    - taxonomy.vocabulary.data_evento
+  module:
+    - datetime
+    - field_group
+    - image
+    - link
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_informacoes_principais:
+      children:
+        - name
+        - field_dia_do_evento
+        - description
+        - field_link_transmissao_ingles
+        - field_link_transmissao_portugues
+        - field_link_chat
+        - path
+      parent_name: ''
+      weight: 0
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Informações principais'
+    group_secao_do_conteudo:
+      children:
+        - field_titulo_conteudo
+        - field_conteudo
+        - field_status_conteudo
+      parent_name: ''
+      weight: 1
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Seção do Conteúdo'
+    group_secao_da_pesquisa:
+      children:
+        - field_titulo_pesquisa
+        - field_text
+        - field_link_pesquisa
+        - field_status_pesquisa
+      parent_name: ''
+      weight: 2
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Seção da Pesquisa'
+    group_secao_da_interacao:
+      children:
+        - field_titulo_interacao
+        - field_texto_interacao
+        - field_imagem_interacao
+        - field_status_interacao
+      parent_name: ''
+      weight: 3
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Seção da Interação'
+id: taxonomy_term.data_evento.default
+targetEntityType: taxonomy_term
+bundle: data_evento
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 880
+        maxlength_js_label: 'Conteúdo limitado a @limit caracteres, restam: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+  field_conteudo:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_dia_do_evento:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_imagem_interacao:
+    weight: 6
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_link_chat:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_link_pesquisa:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_link_transmissao_ingles:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link_transmissao_portugues:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_status_conteudo:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_status_interacao:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_status_pesquisa:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_text:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_texto_interacao:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_titulo_conteudo:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_titulo_interacao:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_titulo_pesquisa:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_titulo_interno: true
+  langcode: true
+  status: true

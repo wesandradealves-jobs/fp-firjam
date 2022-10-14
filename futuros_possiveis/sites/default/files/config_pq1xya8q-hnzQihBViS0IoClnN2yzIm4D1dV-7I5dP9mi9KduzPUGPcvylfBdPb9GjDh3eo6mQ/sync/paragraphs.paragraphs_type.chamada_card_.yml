@@ -1,0 +1,10 @@
+uuid: 6b9d8f99-b0e2-4067-9d7c-0623d1536bb7
+langcode: pt-br
+status: true
+dependencies: {  }
+id: chamada_card_
+label: 'Chamada Card '
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

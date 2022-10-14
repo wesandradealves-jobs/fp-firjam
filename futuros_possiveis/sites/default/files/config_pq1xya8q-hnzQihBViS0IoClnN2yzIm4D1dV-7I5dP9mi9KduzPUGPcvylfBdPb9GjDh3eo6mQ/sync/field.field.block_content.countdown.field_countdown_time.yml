@@ -1,0 +1,21 @@
+uuid: 1adcbdfe-10a9-497f-a265-06fbc8a6b591
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - block_content.type.countdown
+    - field.storage.block_content.field_countdown_time
+  module:
+    - datetime
+id: block_content.countdown.field_countdown_time
+field_name: field_countdown_time
+entity_type: block_content
+bundle: countdown
+label: 'Countdown Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

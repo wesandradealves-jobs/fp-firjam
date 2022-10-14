@@ -1,0 +1,27 @@
+uuid: 3b328a7f-d84d-4603-8c06-5c8944709730
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_nacionalidade
+field_name: field_nacionalidade
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: brasileiro
+      label: brasileiro
+    -
+      value: estrangeiro
+      label: estrangeiro
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

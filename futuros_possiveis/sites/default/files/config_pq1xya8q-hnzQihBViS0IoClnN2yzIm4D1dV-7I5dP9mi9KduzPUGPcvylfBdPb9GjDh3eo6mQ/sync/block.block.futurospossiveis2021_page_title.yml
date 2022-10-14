@@ -1,0 +1,26 @@
+uuid: 53bbc33e-54a6-45a3-be57-87a9e307d280
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - futurospossiveis2021
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: futurospossiveis2021_page_title
+theme: futurospossiveis2021
+region: content
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Título da página'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: /node/206579

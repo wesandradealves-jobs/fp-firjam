@@ -1,0 +1,159 @@
+uuid: 73211cf7-e32b-4687-959b-9314c625c70d
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.incrito_oficina.field_cep
+    - field.field.node.incrito_oficina.field_cnpj
+    - field.field.node.incrito_oficina.field_comprovante
+    - field.field.node.incrito_oficina.field_cpf
+    - field.field.node.incrito_oficina.field_e_associado_a_firjan
+    - field.field.node.incrito_oficina.field_e_mail
+    - field.field.node.incrito_oficina.field_endereco_completo
+    - field.field.node.incrito_oficina.field_eu_aceito_os_termos_de_uso
+    - field.field.node.incrito_oficina.field_formacao_academica
+    - field.field.node.incrito_oficina.field_nascimento
+    - field.field.node.incrito_oficina.field_nome
+    - field.field.node.incrito_oficina.field_nome_empresa
+    - field.field.node.incrito_oficina.field_oficinas
+    - field.field.node.incrito_oficina.field_pagamento_gerado
+    - field.field.node.incrito_oficina.field_telefone
+    - node.type.incrito_oficina
+  module:
+    - file
+    - options
+    - user
+id: node.incrito_oficina.default
+targetEntityType: node
+bundle: incrito_oficina
+mode: default
+content:
+  field_cep:
+    weight: 121
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cnpj:
+    weight: 113
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_comprovante:
+    weight: 115
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_cpf:
+    weight: 117
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_e_associado_a_firjan:
+    weight: 112
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_e_mail:
+    weight: 111
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_endereco_completo:
+    weight: 120
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_eu_aceito_os_termos_de_uso:
+    weight: 116
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_formacao_academica:
+    weight: 122
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_nascimento:
+    weight: 123
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_nome:
+    weight: 110
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_nome_empresa:
+    weight: 114
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_oficinas:
+    weight: 108
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_pagamento_gerado:
+    weight: 109
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_telefone:
+    weight: 118
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,21 @@
+uuid: 9e175421-ad9e-41d9-af8d-d020c1edb2fc
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_ano_do_evento
+field_name: field_ano_do_evento
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 0ac70cc8-ec02-4bc7-9883-1f2dd9226c31
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_titulo_interacao
+field_name: field_titulo_interacao
+entity_type: taxonomy_term
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

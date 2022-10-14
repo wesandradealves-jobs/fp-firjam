@@ -1,0 +1,21 @@
+uuid: d18c1e21-bd59-4f4e-bf43-9423c237347e
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_headline
+    - node.type.landing
+  module:
+    - text
+id: node.landing.field_headline
+field_name: field_headline
+entity_type: node
+bundle: landing
+label: Headline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

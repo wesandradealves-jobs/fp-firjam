@@ -1,0 +1,19 @@
+uuid: 7d5d54e1-edec-4978-88fc-3ff3742b78d5
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_texto_programacao
+field_name: field_texto_programacao
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

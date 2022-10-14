@@ -1,0 +1,15 @@
+uuid: 9bf6e407-8918-416a-b4e2-dd592a87841b
+langcode: pt-br
+status: true
+dependencies: {  }
+name: 420x590
+label: 420x590
+effects:
+  24a88b9b-5de7-4cf2-88df-5a62ae1b9088:
+    uuid: 24a88b9b-5de7-4cf2-88df-5a62ae1b9088
+    id: image_scale
+    weight: 1
+    data:
+      width: 420
+      height: 590
+      upscale: false

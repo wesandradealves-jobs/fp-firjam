@@ -1,0 +1,46 @@
+uuid: 2a78ac3a-2b4f-4e4c-b1d9-c4ebec15164e
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - block_content.type.countdown
+    - field.field.block_content.countdown.field_countdown_button
+    - field.field.block_content.countdown.field_countdown_time
+  module:
+    - datetime
+    - link
+id: block_content.countdown.default
+targetEntityType: block_content
+bundle: countdown
+mode: default
+content:
+  field_countdown_button:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_countdown_time:
+    type: datetime_default
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

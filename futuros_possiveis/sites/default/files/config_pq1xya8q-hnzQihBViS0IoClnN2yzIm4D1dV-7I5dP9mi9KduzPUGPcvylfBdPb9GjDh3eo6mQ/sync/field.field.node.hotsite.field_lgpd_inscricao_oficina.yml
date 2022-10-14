@@ -1,0 +1,21 @@
+uuid: 10171807-248d-42b6-bee1-9f3206707f28
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lgpd_inscricao_oficina
+    - node.type.hotsite
+  module:
+    - text
+id: node.hotsite.field_lgpd_inscricao_oficina
+field_name: field_lgpd_inscricao_oficina
+entity_type: node
+bundle: hotsite
+label: 'LGPD Inscrição Oficina'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

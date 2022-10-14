@@ -1,0 +1,23 @@
+uuid: b80dcb24-7253-4c35-8e80-4984301faa92
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_comprovante
+field_name: field_comprovante
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

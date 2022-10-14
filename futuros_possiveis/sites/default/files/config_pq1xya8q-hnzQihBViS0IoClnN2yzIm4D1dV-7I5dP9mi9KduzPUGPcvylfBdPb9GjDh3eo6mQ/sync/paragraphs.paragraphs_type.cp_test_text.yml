@@ -1,0 +1,12 @@
+uuid: 24db149d-504a-4bb5-8105-48703d738d8e
+langcode: pt-br
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: u8rr5P73iQ9uRv62Zi2g-EqTQn06oXuknmRJk-DYnrQ
+id: cp_test_text
+label: 'Text (CP Test)'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

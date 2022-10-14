@@ -1,0 +1,15 @@
+uuid: 7b00449a-d82b-49a2-8dae-4d16d046bd5e
+langcode: pt-br
+status: true
+dependencies: {  }
+name: 800x500
+label: 800x500
+effects:
+  5b13177a-bac0-49dd-b14c-d0962dcb68b1:
+    uuid: 5b13177a-bac0-49dd-b14c-d0962dcb68b1
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 500
+      anchor: center-center

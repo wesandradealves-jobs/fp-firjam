@@ -1,0 +1,20 @@
+uuid: 1637a4b0-39ed-4102-b6f9-1c9ff1ca5c91
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_passaporte
+  module:
+    - user
+id: user.user.field_passaporte
+field_name: field_passaporte
+entity_type: user
+bundle: user
+label: Passaporte
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

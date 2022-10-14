@@ -1,0 +1,8 @@
+uuid: 42c5ed97-0532-49fe-a83e-f57dc60eaed3
+langcode: pt-br
+status: true
+dependencies: {  }
+id: admin-conteudos
+label: 'Admin conteúdos'
+description: ''
+locked: false

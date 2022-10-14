@@ -1,0 +1,19 @@
+uuid: 927611de-0404-4fd0-9038-6651a7021ab2
+langcode: pt-br
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: swmYtBVUbwq7aHJWWDN7ODByuvur9vMkexDC9h64NZ8
+id: likert_quality
+label: 'Likert: Qualidade'
+category: Likert
+likert: true
+options: |
+  1: Ruim
+  2: Razoável
+  3: Bom
+  4: Muito bom
+  5: Excelente

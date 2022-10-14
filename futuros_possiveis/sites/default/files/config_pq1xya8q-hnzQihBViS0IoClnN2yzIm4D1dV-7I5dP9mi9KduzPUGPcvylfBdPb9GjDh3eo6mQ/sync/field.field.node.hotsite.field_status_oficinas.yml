@@ -1,0 +1,23 @@
+uuid: 40e94655-66c1-42fa-9783-d673d72c15e5
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_status_oficinas
+    - node.type.hotsite
+id: node.hotsite.field_status_oficinas
+field_name: field_status_oficinas
+entity_type: node
+bundle: hotsite
+label: 'Status Oficinas'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Habilitado
+  off_label: Desliga
+field_type: boolean

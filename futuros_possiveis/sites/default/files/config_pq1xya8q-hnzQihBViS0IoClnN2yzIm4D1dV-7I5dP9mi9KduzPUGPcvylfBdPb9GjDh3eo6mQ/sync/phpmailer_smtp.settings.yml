@@ -1,0 +1,23 @@
+_core:
+  default_config_hash: Wkmn-jEru9OubwF4XTXJNzX89A62mX8PlyDco6TMYl4
+langcode: pt-br
+smtp_host: email-smtp.us-east-1.amazonaws.com
+smtp_hostbackup: ''
+smtp_port: 587
+smtp_protocol: tls
+smtp_username: AKIAYKMEEUPTAAFKDCL4
+smtp_password: BFH0wXFYkgtLTp1+h293+Rzwgf7Aq6+BHXtUXDn4uRzI
+smtp_hide_password: false
+smtp_fromname: 'Festival Futuros Possíveis 2022'
+smtp_always_replyto: false
+smtp_keepalive: false
+smtp_debug: 0
+smtp_debug_log: false
+phpmailer_smtp_test: ''
+smtp_ssl_verify_peer: true
+smtp_ssl_verify_peer_name: true
+smtp_ssl_allow_self_signed: false
+smtp_envelope_sender_option: default
+smtp_envelope_sender: ''
+smtp_ehlo_host: ''
+smtp_timeout: 30

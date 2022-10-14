@@ -1,0 +1,22 @@
+uuid: 18958875-ab75-4b5f-b86c-2009720d1d11
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - classy_paragraphs
+    - paragraphs
+_core:
+  default_config_hash: QdSih0sKR88N2KxlJe_JPMEViKLY81PyEbo2x7b3Dvk
+id: paragraph.field_cp_test_classes
+field_name: field_cp_test_classes
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: classy_paragraphs_style
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

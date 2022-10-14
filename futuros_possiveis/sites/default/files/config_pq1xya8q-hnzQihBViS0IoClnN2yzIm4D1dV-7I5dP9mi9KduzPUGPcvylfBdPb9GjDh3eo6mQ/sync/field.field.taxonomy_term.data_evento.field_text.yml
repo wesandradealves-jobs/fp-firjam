@@ -1,0 +1,21 @@
+uuid: 19fe6523-a5b7-4c14-9e58-be31e5d061af
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_text
+    - taxonomy.vocabulary.data_evento
+  module:
+    - text
+id: taxonomy_term.data_evento.field_text
+field_name: field_text
+entity_type: taxonomy_term
+bundle: data_evento
+label: 'Texto Pesquisa'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

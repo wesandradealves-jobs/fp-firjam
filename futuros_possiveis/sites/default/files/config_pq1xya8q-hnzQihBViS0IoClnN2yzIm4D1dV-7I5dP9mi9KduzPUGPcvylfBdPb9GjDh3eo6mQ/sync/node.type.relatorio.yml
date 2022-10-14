@@ -1,0 +1,17 @@
+uuid: dd1c510d-cf87-4775-b810-bc10e6d4e3fb
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Relatório
+type: relatorio
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

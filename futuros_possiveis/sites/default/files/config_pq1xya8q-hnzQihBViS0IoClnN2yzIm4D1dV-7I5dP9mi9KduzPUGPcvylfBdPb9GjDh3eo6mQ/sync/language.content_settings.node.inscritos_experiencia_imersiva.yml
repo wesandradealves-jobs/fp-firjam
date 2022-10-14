@@ -1,0 +1,11 @@
+uuid: 1a4378b9-f90e-4bef-b220-2e2cf9c5ea22
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - node.type.inscritos_experiencia_imersiva
+id: node.inscritos_experiencia_imersiva
+target_entity_type_id: node
+target_bundle: inscritos_experiencia_imersiva
+default_langcode: site_default
+language_alterable: false

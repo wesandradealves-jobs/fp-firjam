@@ -1,0 +1,38 @@
+uuid: 3e4b1174-c804-437f-8a9e-5444c429175c
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.programacao.field_chamada
+    - field.field.paragraph.programacao.field_descricao
+    - field.field.paragraph.programacao.field_titulo
+    - paragraphs.paragraphs_type.programacao
+id: paragraph.programacao.default
+targetEntityType: paragraph
+bundle: programacao
+mode: default
+content:
+  field_chamada:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_descricao:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_titulo:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

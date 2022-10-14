@@ -1,0 +1,65 @@
+uuid: 638e6328-92fa-4427-88a2-28406af8e5b6
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.videos_categorizados.field_ano
+    - field.field.node.videos_categorizados.field_descricao
+    - field.field.node.videos_categorizados.field_link_do_video
+    - field.field.node.videos_categorizados.field_videos_sequencia
+    - node.type.videos_categorizados
+  module:
+    - user
+    - youtube
+id: node.videos_categorizados.default
+targetEntityType: node
+bundle: videos_categorizados
+mode: default
+content:
+  field_ano:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_descricao:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_link_do_video:
+    weight: 105
+    label: above
+    settings:
+      youtube_size: 450x315
+      youtube_width: ''
+      youtube_height: ''
+      youtube_autoplay: false
+      youtube_mute: false
+      youtube_loop: false
+      youtube_controls: false
+      youtube_autohide: false
+      youtube_iv_load_policy: false
+    third_party_settings: {  }
+    type: youtube_video
+    region: content
+  field_videos_sequencia:
+    weight: 107
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

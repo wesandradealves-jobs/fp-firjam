@@ -1,0 +1,19 @@
+uuid: f22dcc1a-31ed-40e6-a83a-e6cfb315c2ee
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ea_link_banner4
+    - node.type.landing
+id: node.landing.field_ea_link_banner4
+field_name: field_ea_link_banner4
+entity_type: node
+bundle: landing
+label: 'Link Banner 4'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

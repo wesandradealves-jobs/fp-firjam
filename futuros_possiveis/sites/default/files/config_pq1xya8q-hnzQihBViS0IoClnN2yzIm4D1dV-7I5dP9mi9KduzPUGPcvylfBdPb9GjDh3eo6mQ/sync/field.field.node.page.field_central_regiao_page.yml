@@ -1,0 +1,76 @@
+uuid: f2c030d4-2bd4-4246-a698-b9bef689ca66
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_central_regiao_page
+    - node.type.page
+    - paragraphs.paragraphs_type.chamada_card_
+    - paragraphs.paragraphs_type.chamada_festival
+    - paragraphs.paragraphs_type.chamada_video
+    - paragraphs.paragraphs_type.depoimentos_groups
+    - paragraphs.paragraphs_type.experiencia_imersiva
+    - paragraphs.paragraphs_type.programacao
+    - paragraphs.paragraphs_type.sobre_o_evento
+  module:
+    - entity_reference_revisions
+id: node.page.field_central_regiao_page
+field_name: field_central_regiao_page
+entity_type: node
+bundle: page
+label: 'Central Região Page'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sobre_o_evento: sobre_o_evento
+      chamada_video: chamada_video
+      chamada_card_: chamada_card_
+      programacao: programacao
+      chamada_festival: chamada_festival
+      experiencia_imersiva: experiencia_imersiva
+      depoimentos_groups: depoimentos_groups
+    negate: 0
+    target_bundles_drag_drop:
+      banner_principal:
+        weight: -25
+        enabled: false
+      chamada_card_:
+        weight: -22
+        enabled: true
+      chamada_festival:
+        weight: -18
+        enabled: true
+      chamada_video:
+        weight: -23
+        enabled: true
+      cp_test_text:
+        weight: -16
+        enabled: false
+      depoimentos:
+        weight: -21
+        enabled: false
+      depoimentos_groups:
+        weight: -15
+        enabled: true
+      experiencia_imersiva:
+        weight: -17
+        enabled: true
+      foto:
+        weight: -20
+        enabled: false
+      from_library:
+        weight: -14
+        enabled: false
+      programacao:
+        weight: -19
+        enabled: true
+      sobre_o_evento:
+        weight: -24
+        enabled: true
+field_type: entity_reference_revisions

@@ -1,0 +1,19 @@
+uuid: f6dafd7a-076e-41a1-9b61-019ae5e5f708
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_link_transmissao_portugues
+    - taxonomy.vocabulary.data_evento
+id: taxonomy_term.data_evento.field_link_transmissao_portugues
+field_name: field_link_transmissao_portugues
+entity_type: taxonomy_term
+bundle: data_evento
+label: 'Link da transmissão em português'
+description: 'Modelo a ser seguido: https://player.vimeo.com/video/646576732'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

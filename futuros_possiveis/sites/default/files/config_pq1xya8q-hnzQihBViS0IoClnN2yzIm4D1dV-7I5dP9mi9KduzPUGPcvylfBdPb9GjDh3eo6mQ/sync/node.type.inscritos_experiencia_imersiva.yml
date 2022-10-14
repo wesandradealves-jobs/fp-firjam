@@ -1,0 +1,17 @@
+uuid: 1431ee16-a8d7-4d2d-abe8-452ddb35982a
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Inscritos Experiência Imersiva'
+type: inscritos_experiencia_imersiva
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

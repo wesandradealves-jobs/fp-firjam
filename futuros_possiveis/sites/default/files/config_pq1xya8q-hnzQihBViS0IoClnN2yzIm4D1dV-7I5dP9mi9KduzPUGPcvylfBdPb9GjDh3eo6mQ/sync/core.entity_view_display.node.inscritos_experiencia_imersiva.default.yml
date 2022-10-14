@@ -1,0 +1,99 @@
+uuid: 68e99b8d-7e6f-40bd-837d-5de8af3de027
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.inscritos_experiencia_imersiva.field_cnpj
+    - field.field.node.inscritos_experiencia_imersiva.field_cpf
+    - field.field.node.inscritos_experiencia_imersiva.field_documento
+    - field.field.node.inscritos_experiencia_imersiva.field_e_mail
+    - field.field.node.inscritos_experiencia_imersiva.field_experiencia_imersiva
+    - field.field.node.inscritos_experiencia_imersiva.field_nacionalidade
+    - field.field.node.inscritos_experiencia_imersiva.field_nome
+    - field.field.node.inscritos_experiencia_imersiva.field_nome_empresa
+    - field.field.node.inscritos_experiencia_imersiva.field_passaporte
+    - node.type.inscritos_experiencia_imersiva
+  module:
+    - options
+    - user
+id: node.inscritos_experiencia_imersiva.default
+targetEntityType: node
+bundle: inscritos_experiencia_imersiva
+mode: default
+content:
+  field_cnpj:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_cpf:
+    weight: 110
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_documento:
+    weight: 109
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_e_mail:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_experiencia_imersiva:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_nacionalidade:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_nome:
+    weight: 101
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_nome_empresa:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_passaporte:
+    weight: 111
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

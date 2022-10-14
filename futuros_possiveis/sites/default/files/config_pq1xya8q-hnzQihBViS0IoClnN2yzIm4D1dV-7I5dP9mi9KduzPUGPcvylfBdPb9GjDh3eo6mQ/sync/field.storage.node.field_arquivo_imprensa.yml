@@ -1,0 +1,23 @@
+uuid: 003568ff-4e3d-482e-91e3-ea73832deee2
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_arquivo_imprensa
+field_name: field_arquivo_imprensa
+entity_type: node
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

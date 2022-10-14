@@ -1,0 +1,21 @@
+uuid: efd997fa-f141-4071-b7b2-f221da8ccc18
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_texto_interacao
+    - taxonomy.vocabulary.data_evento
+  module:
+    - text
+id: taxonomy_term.data_evento.field_texto_interacao
+field_name: field_texto_interacao
+entity_type: taxonomy_term
+bundle: data_evento
+label: 'Texto Interação'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

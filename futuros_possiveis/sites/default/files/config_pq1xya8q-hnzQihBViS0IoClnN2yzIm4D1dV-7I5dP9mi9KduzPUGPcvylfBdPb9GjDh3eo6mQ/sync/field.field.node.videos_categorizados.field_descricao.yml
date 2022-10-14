@@ -1,0 +1,19 @@
+uuid: 349827f9-288b-44c2-b434-b07970df1e9b
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descricao
+    - node.type.videos_categorizados
+id: node.videos_categorizados.field_descricao
+field_name: field_descricao
+entity_type: node
+bundle: videos_categorizados
+label: Descrição
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

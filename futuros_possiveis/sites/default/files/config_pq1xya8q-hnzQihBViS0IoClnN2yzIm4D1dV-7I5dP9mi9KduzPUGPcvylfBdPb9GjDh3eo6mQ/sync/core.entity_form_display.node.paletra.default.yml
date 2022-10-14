@@ -1,0 +1,171 @@
+uuid: 03c7244d-a2b9-403c-b375-4a4ad8e5bb59
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.field.node.paletra.field_cargo_palestrante
+    - field.field.node.paletra.field_curriculo
+    - field.field.node.paletra.field_descricao
+    - field.field.node.paletra.field_dia_do_evento
+    - field.field.node.paletra.field_hora_de_inicio
+    - field.field.node.paletra.field_horario
+    - field.field.node.paletra.field_horario_de_fim
+    - field.field.node.paletra.field_linkedin_do_palestrante
+    - field.field.node.paletra.field_live_en
+    - field.field.node.paletra.field_live_pt
+    - field.field.node.paletra.field_marcar_como_ao_vivo
+    - field.field.node.paletra.field_mediado_por_xxx
+    - field.field.node.paletra.field_painel
+    - field.field.node.paletra.field_sobrescrever_fotos_dos_pal
+    - field.field.node.paletra.field_thumb
+    - image.style.thumbnail
+    - node.type.paletra
+  module:
+    - image
+    - link
+    - path
+id: node.paletra.default
+targetEntityType: node
+bundle: paletra
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_cargo_palestrante:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_curriculo:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_descricao:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_dia_do_evento:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_horario:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_linkedin_do_palestrante:
+    weight: 14
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_marcar_como_ao_vivo:
+    weight: 17
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_mediado_por_xxx:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_painel:
+    weight: 16
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_thumb:
+    weight: 15
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_hora_de_inicio: true
+  field_horario_de_fim: true
+  field_live_en: true
+  field_live_pt: true
+  field_sobrescrever_fotos_dos_pal: true

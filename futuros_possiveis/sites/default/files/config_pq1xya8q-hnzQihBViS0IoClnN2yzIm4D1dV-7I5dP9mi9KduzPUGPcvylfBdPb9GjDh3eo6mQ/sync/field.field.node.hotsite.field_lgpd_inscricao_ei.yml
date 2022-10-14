@@ -1,0 +1,21 @@
+uuid: ef9d6717-040c-4407-b12b-d96a18fb6a72
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lgpd_inscricao_ei
+    - node.type.hotsite
+  module:
+    - text
+id: node.hotsite.field_lgpd_inscricao_ei
+field_name: field_lgpd_inscricao_ei
+entity_type: node
+bundle: hotsite
+label: 'LGPD Inscrição Experiência Imersiva'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

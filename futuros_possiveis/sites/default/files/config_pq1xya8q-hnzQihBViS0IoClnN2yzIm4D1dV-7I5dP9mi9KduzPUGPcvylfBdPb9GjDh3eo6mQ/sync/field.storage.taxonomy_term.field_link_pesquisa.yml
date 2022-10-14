@@ -1,0 +1,19 @@
+uuid: 544eeeab-40ab-4724-bb7e-9900500a6da7
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - link
+    - taxonomy
+id: taxonomy_term.field_link_pesquisa
+field_name: field_link_pesquisa
+entity_type: taxonomy_term
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

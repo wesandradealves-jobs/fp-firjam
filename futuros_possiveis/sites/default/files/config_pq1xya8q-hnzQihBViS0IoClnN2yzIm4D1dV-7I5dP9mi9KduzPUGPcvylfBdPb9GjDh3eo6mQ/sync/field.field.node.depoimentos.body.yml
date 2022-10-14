@@ -1,0 +1,23 @@
+uuid: bebd7dc2-20dc-42d2-ae7d-a4bc6770b237
+langcode: pt-br
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.depoimentos
+  module:
+    - text
+id: node.depoimentos.body
+field_name: body
+entity_type: node
+bundle: depoimentos
+label: Depoimento
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

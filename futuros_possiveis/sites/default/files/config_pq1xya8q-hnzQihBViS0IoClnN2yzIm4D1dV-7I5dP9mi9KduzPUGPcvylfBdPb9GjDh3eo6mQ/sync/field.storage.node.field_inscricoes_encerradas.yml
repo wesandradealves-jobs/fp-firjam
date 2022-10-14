@@ -1,0 +1,18 @@
+uuid: 11df1d8a-b655-4314-b8b2-0c84ce605cd4
+langcode: pt-br
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_inscricoes_encerradas
+field_name: field_inscricoes_encerradas
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
