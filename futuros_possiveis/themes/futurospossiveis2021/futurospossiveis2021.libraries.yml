@@ -1,11 +1,18 @@
 global-scripts:
-  version: 1.x
-  js:
-    js/script.js: {}
   dependencies:
+    - core/drupal.dialog.ajax
     - core/jquery
-    - core/jquery.once
     - core/drupal
+  css:
+    theme:
+      static/css/style.css: {}    
+      //cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap-grid.min.css: {}
+
+countdown:
+  css:
+    base:
+      templates/block/countdown/jquery.countdown.css: {}
+      templates/block/countdown/style.css: {}
 
 paragraph--banner-principal:
   version: 1.x
@@ -67,3 +74,4 @@ bootstrap_cdn:
   css:
     component:
       //stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css: {}
+

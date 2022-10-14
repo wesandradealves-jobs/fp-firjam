@@ -52,7 +52,7 @@
 %}
 {% block paragraph %}
 {{ attach_library('futurospossiveis2021/paragraph--chamada-card-') }}
-  <div{{ attributes.addClass(classes) }} {#data-layout={{ content.field_layout_alternativo.0 }} style="background-image: url({{ file_url(content.field_imagem['#items'].entity.uri.value) }})" #}>
+  <div{{ attributes.addClass(classes) }} data-layout={{ content.field_layout_alternativo.0 }} style="background-image: url({{ file_url(content.field_imagem['#items'].entity.uri.value) }})">
     <div class="inner-text">
         <div class="title-container">
           <div class="title">

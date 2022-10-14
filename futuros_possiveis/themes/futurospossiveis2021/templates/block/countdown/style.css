@@ -1,0 +1,70 @@
+:root{
+    --green:#0CA789;
+    --gap: .5rem;
+    --font-size: 1.5rem;
+}
+body {
+    padding-bottom: 138px;
+}
+@media (min-width: 768px) {
+    body {
+        padding-bottom: 68px;
+    }
+}
+.countdown-wrapper {
+    background-color: var(--green);
+    color: white;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 50;
+}
+.countdown-wrapper .countdown-row::after {
+    clear: both;
+    content: '';
+    position: relative;
+    display: block;
+}
+.countdown-wrapper .countdown-row,
+.countdown-wrapper .countdown-section {
+    float: none;
+    display: flex;
+    align-items: center;
+    text-transform: lowercase;
+}
+.countdown-wrapper .is-countdown {
+    background-color: transparent;
+    border: none;
+}
+.countdown-wrapper .countdown-section {
+    width: auto;
+    padding: 0 var(--gap);
+}
+.countdown-wrapper .countdown-period,
+.countdown-amount {
+    font-size: var(--font-size)
+}
+.countdown-amount {
+    font-weight: bold;
+}
+.countdown-wrapper .countdown-period {
+    display: block;
+    padding-left: var(--gap);
+}
+.countdown-wrapper .countdown-title {
+    font-size: var(--font-size);
+    font-weight: bold;
+    margin: 0;
+    padding: 0;    
+}
+.countdown-wrapper .countdown-btn {
+    border: 1px white solid;
+    color: white;
+    padding: 5px 25px;
+    font-size: .9rem;
+    font-weight: bold;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

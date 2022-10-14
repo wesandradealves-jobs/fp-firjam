@@ -1,0 +1,20 @@
+{% block content %}
+    {% if field_countdown_time and field_countdown_time|length %}
+    <div id="block__{{uuid}}" class="countdown-wrapper overflow-hidden p-3 d-flex flex-column flex-md-row align-items-center justify-content-center">
+        <div>
+            <h2 class="countdown-title">{{block_title}}</h2>
+        </div>
+        <div id="{{uuid}}" class="countdown pt-2 pt-md-0 pb-2 pb-md-0 ps-md-4 pe-md-5"></div>
+        <div>
+            <a class="countdown-btn" href="{{field_countdown_button.uri}}">{{field_countdown_button.title}}</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/{{ base_path ~ directory }}/templates/block/countdown/jquery.plugin.js"></script>
+    <script src="/{{ base_path ~ directory }}/templates/block/countdown/jquery.countdown.js"></script>
+    <script src="/{{ base_path ~ directory }}/templates/block/countdown/jquery.countdown-pt-BR.js"></script>
+    <script>
+        jQuery('#{{uuid}}').countdown({until:  new Date({{field_countdown_time[2]}}, {{field_countdown_time[1]}}, {{field_countdown_time[0]}}), format: 'dHMS'});
+    </script>    
+    {% endif %}
+{% endblock %}

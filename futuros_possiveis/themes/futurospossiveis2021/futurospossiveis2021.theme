@@ -1,10 +1,11 @@
 <?php
 
-
+use Drupal\block\Entity\Block;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\file\Entity\File;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Views;
 use Drupal\node\Entity\Node;
 use Drupal\gm5_interface\Plugin\File\GM5File;
@@ -13,6 +14,29 @@ use Drupal\gm5_interface\Plugin\Util\GM5String;
 use Drupal\gm5_interface\Plugin\Util\GM5Util;
 use Drupal\gm5_interface\Plugin\Views\GM5Views;
 use Drupal\Core\Config\Config;
+
+function futurospossiveis2021_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $form['meta_titulo'] = array( 
+      '#type' => 'textarea', 
+      '#title' => t('OGG Título'), 
+      '#default_value' => theme_get_setting('meta_titulo')
+  );  
+  $form['meta_descricao'] = array( 
+      '#type' => 'textarea', 
+      '#title' => t('OGG Descrição'), 
+      '#default_value' => theme_get_setting('meta_descricao')
+  );  
+  $form['meta_image'] = array( 
+    '#type' => 'managed_file', 
+    '#title' => t('OGG Imagem'), 
+    '#required' => FALSE, 
+    '#upload_location' => 'public://', 
+    '#default_value' => theme_get_setting('meta_image'),  
+    '#upload_validators' => array( 
+      'file_validate_extensions' => array('gif png jpg jpeg'), 
+    ), 
+  );     
+}
 
 function futurospossiveis2021_theme_suggestions_page_alter(array &$suggestions, array $variables){
 
@@ -85,10 +109,20 @@ function futurospossiveis2021_preprocess_html(&$variables){
     $variables['customPage']['redes']['twitter'] = isset($node['field_twitter'][0]['uri']) ? $node['field_twitter'][0]['uri'] : '';
     $variables['customPage']['redes']['linkedin'] = isset($node['field_linkedin'][0]['uri']) ? $node['field_linkedin'][0]['uri'] : '';
 
+    $variables['logo'] =  theme_get_setting('logo')['url'];  
+    $meta_image = theme_get_setting('meta_image'); 
+    if($meta_image){ 
+      $file = File::load($meta_image[0]); 
+      if($file) {
+        $variables['meta_image'] = $file->createFileUrl(); 
+      }
+    }         
+    $config = \Drupal::config('system.site');
+
     //Metas Tags OG
-    $variables['customPage']['metas']['titulo'] = isset($node['field_titulo_de_compartilhamento'][0]['value']) ? $node['field_titulo_de_compartilhamento'][0]['value'] : '';
-    $variables['customPage']['metas']['descricao'] = isset($node['field_descricao_de_compartilhame'][0]['value']) ? $node['field_descricao_de_compartilhame'][0]['value'] : '';
-    $variables['customPage']['metas']['imagem'] = isset($node['field_imagem_de_compartilhamento'][0]['target_id']) ? GM5File::renderImage($node['field_imagem_de_compartilhamento'][0]['target_id'],'800x500') : '';
+    $variables['customPage']['metas']['titulo'] = isset($node['field_titulo_de_compartilhamento'][0]['value']) ? $node['field_titulo_de_compartilhamento'][0]['value'] : (theme_get_setting('meta_titulo') ? theme_get_setting('meta_titulo') : $config->get('name'));
+    $variables['customPage']['metas']['descricao'] = isset($node['field_descricao_de_compartilhame'][0]['value']) ? $node['field_descricao_de_compartilhame'][0]['value'] : theme_get_setting('meta_descricao');
+    $variables['customPage']['metas']['imagem'] = isset($node['field_imagem_de_compartilhamento'][0]['target_id']) ? GM5File::renderImage($node['field_imagem_de_compartilhamento'][0]['target_id'],'800x500') : (theme_get_setting('logo')['url'] ? theme_get_setting('logo')['url'] : $variables['meta_image']);
     $variables['customPage']['metas']['url'] = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";;
   }
 
@@ -693,7 +727,27 @@ function futurospossiveis2021_form_alter(&$form, \Drupal\Core\Form\FormStateInte
   }
 }
 
-function futurospossiveis2021_preprocess_page__page(&$variables){
+function futurospossiveis2021_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
 
+function futurospossiveis2021_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  if (isset($variables['attributes']['block'])) {
+    $hook = str_replace(array('block-', '-'), array('', '_'), $variables['attributes']['block']);
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $hook;
+  }
+}
 
+function futurospossiveis2021_preprocess_block(&$variables) {
+  $variables['configuration'] = $variables['elements']['#configuration'];
+  $variables['block_title'] = $variables['configuration']['label'];
+  if ($variables['plugin_id'] == 'block_content:78067c48-d0d1-400b-9170-49114bbf3946') {
+    $block = Block::load('countdown');
+    $variables['uuid'] = $block->getPlugin()->getDerivativeId();
+    $block_content = \Drupal::service('entity.repository')->loadEntityByUuid('block_content', $variables['uuid']);
+    $variables['field_countdown_button'] = $block_content->get('field_countdown_button')->getValue()[0];
+    $variables['field_countdown_time'] = array_reverse(explode('-', $block_content->get('field_countdown_time')->getValue()[0]['value']));
+  }
 }
